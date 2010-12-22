@@ -1,0 +1,52 @@
+Bones - A Lightweight Wordpress Developer Template
+
+This theme is meant to make development easier & take
+advantage of modern web development & design techniques.
+For more information, please visit:
+
+http://themble.com/documentation/bones-documentation/
+
+Author: Eddie Machado
+
+/******************************************************************
+BONES CHANGE LOG & HISTORY
+******************************************************************/
+
+/* v1.04 */
+- moved the custom script call and pngfix to the footer
+	from the bones file so it's easier to see what's being
+	called.
+- moved apple-touch-icon.png to the library/images folder so
+	file locations are consistent.
+- added a log file to keep track of changes
+- fixed html5 video functionality & fallback (w00t!)
+- moved stylesheet call below the wp_head as an experiment.
+- added wp_titletag to the header
+- added pingback function to the header
+- fixed bug where page navi would show up even on pages
+	with only one page of results.
+- changed the way page navi is called in the archives, search,
+	and index pages.
+
+	
+/* v1.03 */
+- public release!
+- added html5 video to plugins
+- added page navi to plugins
+- general fixes and optimization
+
+
+/* v1.02 */
+- html5 updates and semantic layout corrected
+- added search css & custom functions
+- added functionality from the html5boilerplate
+
+
+/* v1.01 */
+- added related posts functions
+- general css fixes 
+
+
+/* v1.00 */
+- i though "there must be a better way"
+- did something about it
