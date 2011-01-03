@@ -12,6 +12,9 @@ Author: Eddie Machado
 BONES CHANGE LOG & HISTORY
 ******************************************************************/
 
+/* v1.04 Quick Fix */
+- fixed error with script call that was depracated.
+
 /* v1.04 */
 - moved the custom script call and pngfix to the footer
 	from the bones file so it's easier to see what's being

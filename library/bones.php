@@ -29,10 +29,6 @@ function bones_queue_js(){
   }
 }
 add_action('wp_print_scripts', 'bones_queue_js');
-
-	// Loading up the scripts in the footer
-	function bones_jquery_scripts() { bones_comment_reply(); }
-	add_filter('wp_footer','bones_jquery_scripts');
 	
 // Adding WP 3.0 Functions
 	//menus

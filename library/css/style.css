@@ -120,7 +120,7 @@ mark, .search-term { background: #EBE16F; }
 .help { border-color: #E0C618; background: #EBE16F; }
 .info { border-color: #92cae4; background: #d5edf8; }
 .error { border-color: #fbc2c4; background: #fbe3e4; }
-.success { border-color: #c6d880; background: #e6efc2; }
+.success { border-color: #c6d880; background: #e6efc2; } 
 
 /******************************************************************
 GENERAL STYLES
