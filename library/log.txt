@@ -12,8 +12,19 @@ Author: Eddie Machado
 BONES CHANGE LOG & HISTORY
 ******************************************************************/
 
+/* v1.05 */
+- fixed typos in style.css file & logs
+- updated selectivizr to latest version
+- added "embed, ruby, output" to the reset stylesheet based on
+	Eric Meyer's recent reset styles.
+- removed duplicate styles in reset & default stylesheet
+- fixed col460 and changed it to col480
+- added text-align styles to default stylesheet
+
+
 /* v1.04 Quick Fix */
-- fixed error with script call that was depracated.
+- fixed error with script call that was deprecated.
+
 
 /* v1.04 */
 - moved the custom script call and pngfix to the footer
@@ -51,5 +62,5 @@ BONES CHANGE LOG & HISTORY
 
 
 /* v1.00 */
-- i though "there must be a better way"
+- i thought "there must be a better way"
 - did something about it
