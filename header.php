@@ -26,7 +26,7 @@
 		
 		<!-- scripts -->
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.js"></script>
-		<script>!window.jQuery && document.write(unescape('%3Cscript src="<?php bloginfo('template_directory'); ?>/library/js/libs/jquery-1.4.2.js"%3E%3C/script%3E'))</script>
+		<script>!window.jQuery && document.write(unescape('%3Cscript src="<?php bloginfo('template_directory'); ?>/library/js/libs/jquery-1.4.2.min.js"%3E%3C/script%3E'))</script>
 		
 		<script src="<?php bloginfo('template_directory'); ?>/library/js/libs/modernizr-1.6.min.js"></script>
 		<script src="<?php bloginfo('template_directory'); ?>/library/js/libs/imgsizer.js"></script>
