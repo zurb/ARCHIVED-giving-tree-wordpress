@@ -23,7 +23,7 @@ RESET STYLES
 ******************************************************************/
 
 /* general reset */
-html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+html, body, div, span, object, embed, ruby, output, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, samp,
 small, strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li,
 fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td,
@@ -50,7 +50,7 @@ table { border-collapse:collapse; border-spacing:0; }
 td, td img { vertical-align: top; } 
 
 /* type & header styles */
-body { font:13px/1.223 sans-serif; *font-size:small; } 
+body { font-size:14px; line-height: 1.5em; font-family: Georgia, Cambria, "New Century Schoolbook", "Century Schoolbook L", "Times New Roman", serif;  *font-size:small; } 
 p { hyphenate:auto; hyphenate-before:2; hyphenate-after:3; hyphenate-lines:3; orphans:4; }
 select, input, textarea, button { font:99% sans-serif; }
 body, select, input, textarea {   color: #444; }
@@ -112,6 +112,11 @@ COMMON & REUSABLE STYLES
 .left { float: left; }
 .right { float: right; }
 
+/* text alignment */
+.text-left { text-align: left; }
+.text-center { text-align: center; }
+.text-right { text-align: right; }
+
 /* highlighting search term on search page */
 mark, .search-term { background: #EBE16F; }
 
@@ -126,7 +131,7 @@ mark, .search-term { background: #EBE16F; }
 GENERAL STYLES
 ******************************************************************/
 
-body { font-size: 14px; line-height: 1.5em; font-family: Georgia, Cambria, "New Century Schoolbook", "Century Schoolbook L", "Times New Roman", serif; background-color: #efefef; }
+body { background-color: #efefef; }
 
 #container, .wrap {}
 
