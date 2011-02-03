@@ -9,7 +9,7 @@
 					<?php } elseif (is_tag()) { ?> 
 						<h1 class="archive_title h2"><span>Posts Tagged:</span> <?php single_tag_title(); ?></h1>
 					<?php } elseif (is_author()) { ?>
-						<h1 class="archive_title h2"><span>Posts By:</span> <?php echo get_author_name(get_query_var('author')); ?></h1>
+						<h1 class="archive_title h2"><span>Posts By:</span> <?php get_the_author_meta('display_name'); ?></h1>
 					<?php } elseif (is_day()) { ?>
 						<h1 class="archive_title h2"><span>Daily Archives:</span> <?php the_time('l, F j, Y'); ?></h1>
 					<?php } elseif (is_month()) { ?>
@@ -31,6 +31,9 @@
 						</header> <!-- end article header -->
 					
 						<section class="post_content">
+						
+							<?php the_post_thumbnail( 'bones-thumb-300' ); ?>
+						
 							<?php the_excerpt('<span class="read-more">Read more on "'.the_title('', '', false).'" &raquo;</span>'); ?>
 					
 						</section> <!-- end article section -->

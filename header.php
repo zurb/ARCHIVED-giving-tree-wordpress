@@ -1,10 +1,10 @@
 <!doctype html>  
 
-<!--[if lt IE 7 ]> <html lang="en" class="no-js ie6"> <![endif]-->
-<!--[if IE 7 ]>    <html lang="en" class="no-js ie7"> <![endif]-->
-<!--[if IE 8 ]>    <html lang="en" class="no-js ie8"> <![endif]-->
-<!--[if IE 9 ]>    <html lang="en" class="no-js ie9"> <![endif]-->
-<!--[if (gt IE 9)|!(IE)]><!--> <html lang="en" class="no-js"> <!--<![endif]-->
+<!--[if lt IE 7 ]> <html <?php language_attributes(); ?> class="no-js ie6"> <![endif]-->
+<!--[if IE 7 ]>    <html <?php language_attributes(); ?> class="no-js ie7"> <![endif]-->
+<!--[if IE 8 ]>    <html <?php language_attributes(); ?> class="no-js ie8"> <![endif]-->
+<!--[if IE 9 ]>    <html <?php language_attributes(); ?> class="no-js ie9"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--> <html <?php language_attributes(); ?> class="no-js"> <!--<![endif]-->
 	
 	<head>
 		
@@ -17,27 +17,26 @@
 		
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		
-		<!-- icons & facivons -->
-		<link rel="shortcut icon" href="<?php bloginfo('template_directory'); ?>/favicon.ico">
-		<link rel="apple-touch-icon" href="<?php bloginfo('template_directory'); ?>/library/images/apple-touch-icon.png">
+		<!-- icons & favicons -->
+		<link rel="shortcut icon" href="<?php echo get_template_directory_uri(); ?>/favicon.ico">
+		<link rel="apple-touch-icon" href="<?php echo get_template_directory_uri(); ?>/library/images/apple-touch-icon.png">
 		
 		<!-- stylesheets -->
-		<link rel="stylesheet" href="<?php bloginfo('template_directory'); ?>/library/css/style.css">
+		<link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/library/css/style.css">
 		
 		<!-- scripts -->
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.js"></script>
-		<script>!window.jQuery && document.write(unescape('%3Cscript src="<?php bloginfo('template_directory'); ?>/library/js/libs/jquery-1.4.2.min.js"%3E%3C/script%3E'))</script>
+		<script>!window.jQuery && document.write(unescape('%3Cscript src="<?php echo get_template_directory_uri(); ?>/library/js/libs/jquery-1.4.2.min.js"%3E%3C/script%3E'))</script>
 		
-		<script src="<?php bloginfo('template_directory'); ?>/library/js/libs/modernizr-1.6.min.js"></script>
-		<script src="<?php bloginfo('template_directory'); ?>/library/js/libs/imgsizer.js"></script>
+		<script src="<?php echo get_template_directory_uri(); ?>/library/js/header.js"></script>
 		
 		<!--[if lt IE 9]>
-			<script src="<?php bloginfo('template_directory'); ?>/library/js/libs/ie/DOMAssistant-2.0.min.js"></script>
-			<script src="<?php bloginfo('template_directory'); ?>/library/js/libs/ie/selectivizr.js"></script>
+			<script src="<?php echo get_template_directory_uri(); ?>/library/js/libs/ie/DOMAssistant-2.0.min.js"></script>
+			<script src="<?php echo get_template_directory_uri(); ?>/library/js/libs/ie/selectivizr.js"></script>
 		<![endif]-->
 		
 		<!-- wordpress head functions -->
-  		<link rel="pingback" href="<?php bloginfo('pingback_url'); ?>" />
+  		<link rel="pingback" href="<?php bloginfo('pingback_url'); ?>">
 		
 		<?php wp_head(); ?>
 		
@@ -54,7 +53,7 @@
 			
 				<div id="inner-header">
 				
-					<h1 id="logo"><a href="<?php bloginfo('url'); ?>" rel="nofollow"><?php bloginfo('name'); ?></a></h1>
+					<h1 id="logo"><a href="<?php echo home_url(); ?>" rel="nofollow"><?php bloginfo('name'); ?></a></h1>
 					
 					<nav role="navigation">
 						<?php bones_main_nav(); // Adjust using Menus in Wordpress Admin ?>

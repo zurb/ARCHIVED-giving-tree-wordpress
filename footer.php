@@ -17,10 +17,10 @@
 		<?php wp_footer(); // js scripts are inserted using this function ?>
 
 		<!-- custom scripts -->
-		<script src="<?php bloginfo('template_directory'); ?>/library/js/scripts.js"></script>
+		<script src="<?php echo get_template_directory_uri(); ?>/library/js/scripts.js"></script>
 		
 		<!--[if lt IE 7 ]>
-    		<script src="<?php bloginfo('template_directory'); ?>/library/js/libs/dd_belatedpng.js"></script>
+    		<script src="<?php echo get_template_directory_uri(); ?>/library/js/libs/ie/dd_belatedpng.js"></script>
     		<script> DD_belatedPNG.fix('img, .png_bg'); </script>
 		<![endif]-->		
 		

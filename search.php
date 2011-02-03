@@ -4,7 +4,7 @@
 			
 				<div id="main" class="col700 clear" role="main">
 				
-					<h1 class="archive_title"><span>Search Results for:</span> <?php echo attribute_escape(get_search_query()); ?></h1>
+					<h1 class="archive_title"><span>Search Results for:</span> <?php echo esc_attr(get_search_query()); ?></h1>
 
 					<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 					

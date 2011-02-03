@@ -57,9 +57,6 @@ body, select, input, textarea {   color: #444; }
 small, .small { font-size:0.75em; letter-spacing:.05em; font-style:italic; line-height:1.75em; }
 strong, th, .strong { font-weight: bold; }
 em, .em { font-style: italic; }
-.text-left {text-align: left;}
-.text-center {text-align: center;}
-.text-right {text-align: right;}
 ins, .ins { background-color:#ff9; color:#000; text-decoration:none; }
 mark, .mark { background-color:#ff9; color:#000; font-style:italic; font-weight:bold; }
 del, .del { text-decoration: line-through; }
@@ -99,7 +96,7 @@ button {  width: auto; overflow: visible; }
 .visuallyhidden { position: absolute !important; clip: rect(1px 1px 1px 1px);  clip: rect(1px, 1px, 1px, 1px); }
 
 /* clearfixes */
-.clear:after, .menu:after {content: ".";display: block;height: 0;clear: both;visibility: hidden;}
+.clear:after, .menu:after, .menu ul:after {content: ".";display: block;height: 0;clear: both;visibility: hidden;}
 .clear { display: inline-block; }
 * html .clear { height: 1%; }
 .clear { display: block; }
@@ -167,18 +164,20 @@ header[role=banner] {}
 NAVIGATION STYLES
 ******************************************************************/
 
-.nav { clear: both; margin: 1.1em 0; }
-	.nav ul { background: #215ea3; }
-		.nav ul li { list-style-type: none; float: left; }
-			.nav ul li a { display: block; text-decoration: none; padding: 5px 10px; color: #fff; font-weight: 700; }
-				.nav ul li:last-child a {}
-				.nav ul li a:hover { background: #036; color: #fff; }
-		.nav ul li.current-menu-item a, .nav ul li.current_page_item a {}
-		.nav ul li ul.sub-menu { position: absolute; left: -9999em; z-index: 9999; background: #215ea3; width: 200px; }
-			.nav ul li ul li a { width: 180px; }
-				.nav ul li ul li a:hover { background-color: #036; }
-			.nav ul li ul li:last-child a {}
-			.nav ul li:hover ul { left: auto; }
+.menu { clear: both; margin: 1.1em 0; }
+	.menu ul { background: #215ea3; }
+		.menu ul li { list-style-type: none; float: left; }
+			.menu ul li a { display: block; text-decoration: none; padding: 5px 10px; color: #fff; font-weight: 700; }
+				.menu ul li:last-child a {}
+				.menu ul li a:hover { background: #036; color: #fff; }
+		.menu ul li.current-menu-item a, .menu ul li.current_page_item a {}
+		.menu ul li ul.sub-menu { position: absolute; left: -9999em; z-index: 9999; background: #215ea3; width: 200px; }
+			.menu ul li ul li a { width: 180px; }
+				.menu ul li ul li a:hover { background-color: #036; }
+			.menu ul li ul li:last-child a {}
+			.menu ul li:hover ul { left: auto; }
+				.menu ul li ul li ul.sub-menu { left: -9999em; position: absolute; margin-left: 200px; top: auto; margin-top: -30px; }
+					.menu ul li ul li:hover ul.sub-menu { left: auto; }
 
 /******************************************************************
 POST STYLES
@@ -277,7 +276,7 @@ SIDEBAR STYLES
 COMMENT STYLES
 ******************************************************************/
 
-#comments { margin: 0 20px; } /* h3 comment title */
+#comments { margin: 0 20px 0.33em; } /* h3 comment title */
 	#comments span {} /* number of comments span */
 	
 .comment-nav {}
@@ -363,6 +362,10 @@ COMMENT STYLES
 		/* form validation */
 		#commentform input:invalid, #commentform textarea:invalid { border-color: red; outline: none; box-shadow: none; -webkit-box-shadow: none; -moz-box-shadow: none; background-color: #f6e7eb; }
 		#commentform input:valid {}
+		
+		/* no comments */
+		.nocomments { margin: 0 20px 1.1em; }
+		
 /******************************************************************
 FOOTER STYLES
 ******************************************************************/
@@ -371,11 +374,11 @@ footer[role=contentinfo] { border-top: 2px solid #cecece; padding: 1.1em 0 3.3em
 	.footer-links { float: left; }
 	
 	/* bottom nav links */
-	.footer-links ul { clear: both; }
+	.footer-links ul.menu { margin-top: 0; }
 		.footer-links ul li { list-style-type: none; float: left; font-size: 0.9em; }
 			.footer-links ul li a { margin-right: 10px; text-decoration: underline; }
 				.footer-links ul li:last-child a { margin-right: 0; }
-			.footer-links ul li a:hover, .nav ul li.current-menu-item a, .nav ul li.current_page_item a {}
+			.footer-links ul li a:hover, .footer-links ul li.current-menu-item a, .footer-links ul li.current_page_item a {}
 			.footer-links ul li ul.sub-menu { display: none; } /* you shouldn't have that many links in the footer anyway ;P */
 			
 	.attribution { float: right; color: #999; font-size: 0.9em; }

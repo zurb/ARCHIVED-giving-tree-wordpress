@@ -2,10 +2,14 @@
 Theme Name: Bones
 Theme URI: http://www.themble.com/bones
 Description: An incredibly simple starter theme for developers.
-Version: 1.05
 Author: Eddie Machado
 Author URI: http://www.themble.com/bones/
-Tags: HTML5, Framework, CSS3
+Version: 1.06
+Tags: html5, framework, css3, development
+
+
+License: GPL or whatever
+License URI: ?
 
 All Default Styles are in library/css/style.css
 I reccomend not editing those files and making all
@@ -122,7 +126,11 @@ header[role=banner] {}
 		
 		.nav ul li ul.sub-menu {}
 			.nav ul li ul li a {}
-				.nav ul li ul li a:hover {}
+				.menu ul li ul li a:hover { }
+			.menu ul li ul li:last-child a {}
+			.menu ul li:hover ul { }
+				.menu ul li ul li ul.sub-menu { }
+					.menu ul li ul li:hover ul.sub-menu { }
 
 
 /* Posts & Content */

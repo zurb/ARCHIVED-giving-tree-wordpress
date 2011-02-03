@@ -19,7 +19,7 @@ function removeHeadLinks() {
 }
 	add_action('init', 'removeHeadLinks');
 	// Add RSS links to <head> section
-	automatic_feed_links();
+	add_theme_support('automatic-feed-links');
 	
 // loading jquery reply elements on single pages automatically
 function bones_queue_js(){
@@ -56,10 +56,10 @@ function bones_menus() { register_nav_menus(
  
 function bones_main_nav() { if ( function_exists( 'wp_nav_menu' ) )
 		// display the wp3 menu if available
-        wp_nav_menu( 'menu=main_nav&container_class=nav&fallback_cb=bones_main_nav_fallback' );
+        wp_nav_menu( 'menu=main_nav&container_class=menu&fallback_cb=bones_main_nav_fallback' );
     else
     	// else fallback if not supported
-        mytheme_nav_fallback();
+        bones_main_nav_fallback();
 }
 
 function bones_footer_links() { if ( function_exists( 'wp_nav_menu' ) )
@@ -71,7 +71,7 @@ function bones_footer_links() { if ( function_exists( 'wp_nav_menu' ) )
 }
  
 function bones_main_nav_fallback() { wp_page_menu( 'show_home=Start&menu_class=menu' ); }
-function bones_footer_links_fallback() { echo 'Bones'; }
+function bones_footer_links_fallback() { echo '<ul class="footer-links"><li>Bones<li></ul>'; }
 	
 // Related Posts Function (call using bones_related_posts(); )
 function bones_related_posts() {

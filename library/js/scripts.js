@@ -9,17 +9,12 @@ slow the page load.
 
 */
 
-
 // as the page loads, cal these scripts
 $(document).ready(function() {
 
-	// highlight search terms on search page
-	if(typeof(hls_query) != 'undefined'){
-		$(".post_content").highlight(hls_query, 1, "search-term");
-	}
-
-	// the placeholder fallback jquery (adds support for html5 placeholder)
-
+	
+	
+	// add all your scripts here
 
  
 }); /* end of as page load scripts */

@@ -12,6 +12,30 @@ Author: Eddie Machado
 BONES CHANGE LOG & HISTORY
 ******************************************************************/
 
+/* v1.06 */
+- added custom post type and taxonomies file
+- created custom post type template
+- added readme.txt file (really for no reason at all)
+- fixed the margin on the comments title
+- removed duplicate text-align calls in css /* Thanks Dom */
+- added add_theme_support( 'automatic-feed-links' ) replacing 
+	the deprecated automatic_feed_links();
+- added the language_attributes(); to the html tag
+- replaced attribute_escape with esc_attr() in search.php
+- bloginfo('url') in header replaced with echo home_url()
+- using get_template_directory_uri() instead of bloginfo('template_directory')
+- using get_the_author_meta('display_name') instead of deprecated function
+- fixed error in bones.php for menu fallback /* thanks Mark */
+- creating thumbnail fallback functions
+- added header.js and moved modernizr & imgsizer in that file
+- added lazy load jquery plugin
+- moved dd_belatedpng.js inside the ie folder in the libs folder
+- changed class of main menu to .menu from .nav
+- added more css for menu
+- added additional selectors to the style.css in the root
+- removed the top margin of the footer menu
+
+
 /* v1.05 */
 - fixed typos in style.css file & logs
 - updated selectivizr to latest version

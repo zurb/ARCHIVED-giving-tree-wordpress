@@ -6,14 +6,11 @@ URL: htp://themble.com/bones/
 
 This is the Bones Core file. It powers everything.
 YOU DON'T WANT TO MESS W/ THIS FILE UNLESS YOU KNOW WHAT YOU'RE DOING.
-
 At most, the only thing you should edit is adding or removing the
 expirimental features.
 */
-
 // Get Bones Core Up & Running!
 include_once('library/bones.php');
-
 /*
 Inside the bones.php file:
 
@@ -45,12 +42,16 @@ When disabled, it would look like this:
 // Expirimental Features
 include_once('library/plugins.php');
 
+// Adding Custom Post Type
+include_once('library/custom-post-type.php');
+
 
 /* BONES FUNCTIONS (DO NOT EDIT) */
 
 // Thumbnail sizes
 add_image_size( 'bones-thumb-600', 600, 150, true );
-add_image_size( 'bones-thumb-100', 300, 100, true );
+add_image_size( 'bones-thumb-300', 300, 100, true );
+
 /* 
 to add more sizes, simply copy a line from above 
 and change the dimensions & name. As long as you
