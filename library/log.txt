@@ -12,6 +12,13 @@ Author: Eddie Machado
 BONES CHANGE LOG & HISTORY
 ******************************************************************/
 
+/* v1.06 Updates */
+- added post formats to bones.php core
+- fixed menu system (thanks to Dom & Mattias)
+- added categories & tag info for custom post types
+- adding standard categories & tags to custom post type example
+
+
 /* v1.06 */
 - added custom post type and taxonomies file
 - created custom post type template
