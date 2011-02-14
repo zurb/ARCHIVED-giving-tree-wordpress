@@ -99,7 +99,7 @@ function bones_footer_links() {
 	);
 }
  
-function bones_main_nav_fallback() { wp_page_menu( 'show_home=Start&menu_class=menu' ); }
+function bones_main_nav_fallback() { wp_page_menu( 'show_home=Home&menu_class=menu' ); }
 function bones_footer_links_fallback() { echo '<ul class="footer-links"><li>Bones<li></ul>'; }
 	
 // Related Posts Function (call using bones_related_posts(); )
