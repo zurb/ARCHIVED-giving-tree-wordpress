@@ -44,30 +44,59 @@ add_action('wp_print_scripts', 'bones_queue_js');
 	define( 'HEADER_IMAGE_HEIGHT', apply_filters( '',	150 ) ); // Height of Logo
 	define( 'NO_HEADER_TEXT', true );
 	add_custom_image_header( '', 'admin_header_style' );	
+	// adding post format support
+	add_theme_support( 'post-formats', 
+		array( 
+			'aside', /* Typically styled without a title. Similar to a Facebook note update */
+			'gallery', /* A gallery of images. Post will likely contain a gallery shortcode and will have image attachments */
+			'link', /* A link to another site. Themes may wish to use the first <a href=сс> tag in the post content as the external link for that post. An alternative approach could be if the post consists only of a URL, then that will be the URL and the title (post_title) will be the name attached to the anchor for it */
+			'image', /* A single image. The first <img /> tag in the post could be considered the image. Alternatively, if the post consists only of a URL, that will be the image URL and the title of the post (post_title) will be the title attribute for the image */
+			'quote', /* A quotation. Probably will contain a blockquote holding the quote content. Alternatively, the quote may be just the content, with the source/author being the title */
+			'status', /*A short status update, similar to a Twitter status update */
+			'video', /* A single video. The first <video /> tag or object/embed in the post content could be considered the video. Alternatively, if the post consists only of a URL, that will be the video URL. May also contain the video as an attachment to the post, if video support is enabled on the blog (like via a plugin) */
+			'audio', /* An audio file. Could be used for Podcasting */
+			'chat' /* A chat transcript */
+		)
+	);	
 	
+	
+
 // Creating the Nav Menus
-function bones_menus() { register_nav_menus(
-	array( 
-		'main_nav' => 'The Main Menu',
-		'footer_links' => 'Footer Links',
-	));
-}
-	add_action( 'init', 'bones_menus' );
- 
-function bones_main_nav() { if ( function_exists( 'wp_nav_menu' ) )
-		// display the wp3 menu if available
-        wp_nav_menu( 'menu=main_nav&container_class=menu&fallback_cb=bones_main_nav_fallback' );
-    else
-    	// else fallback if not supported
-        bones_main_nav_fallback();
+function bones_menus() { 
+	if (function_exists( 'register_nav_menus' )) {	
+		register_nav_menus(
+			array( 
+				'main_nav' => 'The Main Menu',
+				'footer_links' => 'Footer Links'
+			)
+		);
+	}		
 }
 
-function bones_footer_links() { if ( function_exists( 'wp_nav_menu' ) )
-		// display the wp3 menu if available
-        wp_nav_menu( 'menu=footer_links&container_class=footer-links&fallback_cb=bones_footer_links_fallback' );
-    else
-    	// else fallback if not supported
-        bones_footer_links_fallback();
+add_action( 'init', 'bones_menus' );
+ 
+function bones_main_nav() {
+	// display the wp3 menu if available
+    wp_nav_menu( 
+    	array( 
+    		'menu' => 'main_nav', /* menu name */
+    		'theme_location' => 'main_nav', /* where in the theme it's assigned */
+    		'container_class' => 'menu', /* container class */
+    		'fallback_cb' => 'bones_main_nav_fallback' /* menu fallback */
+    	)
+    );
+}
+
+function bones_footer_links() { 
+	// display the wp3 menu if available
+    wp_nav_menu(
+    	array(
+    		'menu' => 'footer_links', /* menu name */
+    		'theme_location' => 'footer_links', /* where in the theme it's assigned */
+    		'container_class' => 'footer-links', /* container class */
+    		'fallback_cb' => 'bones_footer_links_fallback' /* menu fallback */
+    	)
+	);
 }
  
 function bones_main_nav_fallback() { wp_page_menu( 'show_home=Start&menu_class=menu' ); }
