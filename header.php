@@ -21,7 +21,7 @@
 		<link rel="shortcut icon" href="<?php echo get_template_directory_uri(); ?>/favicon.ico">
 		<link rel="apple-touch-icon" href="<?php echo get_template_directory_uri(); ?>/library/images/apple-touch-icon.png">
 		
-		<!-- stylesheets -->
+		<!-- default stylesheet -->
 		<link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/library/css/style.css">
 		
 		<!-- scripts -->
