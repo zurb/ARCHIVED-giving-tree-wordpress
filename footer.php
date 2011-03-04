@@ -1,6 +1,6 @@
 			<footer role="contentinfo">
 			
-				<div id="inner-footer">
+				<div id="inner-footer" class="clear">
 					
 					<nav role="navigation">
 						<?php bones_footer_links(); // Adjust using Menus in Wordpress Admin ?>
