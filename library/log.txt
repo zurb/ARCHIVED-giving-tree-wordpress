@@ -20,6 +20,7 @@ BONES CHANGE LOG & HISTORY
 - changed the_author to the_author_posts_link in single.php and archive.php
 - changed the_author to the_author_posts_link in single-custom_type.php
 - added custom taxonomy template
+- added browser classes to style.css
 - removed lazy load (sorry, it sucked)
 - added twitter and facebook user profiles
 - added post formats to bones.php core
