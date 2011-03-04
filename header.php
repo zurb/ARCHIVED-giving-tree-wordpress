@@ -24,9 +24,9 @@
 		<!-- default stylesheet -->
 		<link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/library/css/default.css">
 		
-		<!-- scripts -->
-		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.js"></script>
-		<script>!window.jQuery && document.write(unescape('%3Cscript src="<?php echo get_template_directory_uri(); ?>/library/js/libs/jquery-1.4.2.min.js"%3E%3C/script%3E'))</script>
+		<!-- Grab Google CDN's jQuery, with a protocol relative URL; fall back to local if necessary -->
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.js"></script>
+		<script>window.jQuery || document.write(unescape('%3Cscript src="<?php echo get_template_directory_uri(); ?>/library/js/libs/jquery-1.5.1.min.js"%3E%3C/script%3E'))</script>
 		
 		<script src="<?php echo get_template_directory_uri(); ?>/library/js/header.js"></script>
 		
