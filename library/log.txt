@@ -13,7 +13,13 @@ BONES CHANGE LOG & HISTORY
 ******************************************************************/
 
 /* v1.06 Updates */
+- changed name of default stylesheet to default so it's easier to 
+	debug. (having two stylesheets named style is confusing)
+- added clearing class to #inner-header and #inner-footer
 - added bones body class depending on what browser
+- changed the_author to the_author_posts_link in single.php and archive.php
+- changed the_author to the_author_posts_link in single-custom_type.php
+- added custom taxonomy template
 - removed lazy load (sorry, it sucked)
 - added twitter and facebook user profiles
 - added post formats to bones.php core
