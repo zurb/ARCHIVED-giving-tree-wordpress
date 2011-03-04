@@ -22,7 +22,7 @@
 		<link rel="apple-touch-icon" href="<?php echo get_template_directory_uri(); ?>/library/images/apple-touch-icon.png">
 		
 		<!-- default stylesheet -->
-		<link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/library/css/style.css">
+		<link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/library/css/default.css">
 		
 		<!-- scripts -->
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.js"></script>
@@ -51,7 +51,7 @@
 			
 			<header role="banner">
 			
-				<div id="inner-header">
+				<div id="inner-header" class="clear">
 				
 					<h1 id="logo"><a href="<?php echo home_url(); ?>" rel="nofollow"><?php bloginfo('name'); ?></a></h1>
 					
