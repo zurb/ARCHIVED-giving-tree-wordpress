@@ -13,6 +13,9 @@ BONES CHANGE LOG & HISTORY
 ******************************************************************/
 
 /* v1.06 Updates */
+- added bones body class depending on what browser
+- removed lazy load (sorry, it sucked)
+- added twitter and facebook user profiles
 - added post formats to bones.php core
 - fixed menu system (thanks to Dom & Mattias)
 - added categories & tag info for custom post types
