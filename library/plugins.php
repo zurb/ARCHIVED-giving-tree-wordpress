@@ -169,6 +169,32 @@ function bones_html5( $atts, $content = null ) {
 	// adding the shortcode to wordpress
 	add_shortcode('video', 'bones_html5'); /* creates the video using wordpress shortcodes */
 
+// adding the facebook and twitter links to the user profile
+function bones_add_user_fields( $contactmethods ) {
+// Add Facebook
+$contactmethods['user_fb'] = 'Facebook';
+// Add Twitter
+$contactmethods['user_tw'] = 'Twitter';
+return $contactmethods;
+}
+add_filter('user_contactmethods','bones_add_user_fields',10,1);
+
+// Display the Browser People Are Using
+function bones_browser_class($classes) {
+	global $is_lynx, $is_gecko, $is_IE, $is_opera, $is_NS4, $is_safari, $is_chrome, $is_iphone;
+		if($is_lynx) $classes[] = 'lynx';
+		elseif($is_gecko) $classes[] = 'gecko';
+		elseif($is_opera) $classes[] = 'opera';
+		elseif($is_NS4) $classes[] = 'ns4';
+		elseif($is_safari) $classes[] = 'safari';
+		elseif($is_chrome) $classes[] = 'chrome';
+		elseif($is_IE) $classes[] = 'ie';
+		else $classes[] = '';
+		if($is_iphone) $classes[] = 'iphone';
+	return $classes;
+}
+	// Add the Browser Class to the Body Class
+	add_filter('body_class','bones_browser_class');
 
 
 ?>
