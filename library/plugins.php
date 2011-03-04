@@ -182,15 +182,15 @@ add_filter('user_contactmethods','bones_add_user_fields',10,1);
 // Display the Browser People Are Using
 function bones_browser_class($classes) {
 	global $is_lynx, $is_gecko, $is_IE, $is_opera, $is_NS4, $is_safari, $is_chrome, $is_iphone;
-		if($is_lynx) $classes[] = 'lynx';
-		elseif($is_gecko) $classes[] = 'gecko';
-		elseif($is_opera) $classes[] = 'opera';
-		elseif($is_NS4) $classes[] = 'ns4';
-		elseif($is_safari) $classes[] = 'safari';
-		elseif($is_chrome) $classes[] = 'chrome';
-		elseif($is_IE) $classes[] = 'ie';
+		if($is_lynx) $classes[] = 'browser-lynx';
+		elseif($is_gecko) $classes[] = 'browser-gecko';
+		elseif($is_opera) $classes[] = 'browser-opera';
+		elseif($is_NS4) $classes[] = 'browser-ns4';
+		elseif($is_safari) $classes[] = 'browser-safari';
+		elseif($is_chrome) $classes[] = 'browser-chrome';
+		elseif($is_IE) $classes[] = 'browser-ie';
 		else $classes[] = '';
-		if($is_iphone) $classes[] = 'iphone';
+		if($is_iphone) $classes[] = 'browser-iphone';
 	return $classes;
 }
 	// Add the Browser Class to the Body Class
