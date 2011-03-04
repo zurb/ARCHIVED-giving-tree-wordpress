@@ -95,6 +95,16 @@ body.page-template {} /* custom page template page */
 body.logged-in {} /* if user is logged in */
 body.paged {} /* paged items like search results or archives */
 	body.paged-(page number) {} /* individual paged (i.e. body.paged-3) */
+	
+/* new browser classes */
+body.browser-lynx {} /* lynx browsers */
+body.browser-gecko {} /* firefox browsers */
+body.browser-opera {} /* opera browsers */
+body.browser-ns4 {} /* ns4 browsers */
+body.browser-safari {} /* safari browsers */
+body.browser-chrome {} /* chrome browsers */
+body.browser-ie {} /* ie browsers ( aka dinosaurs) */
+body.browser-iphone {} /* iphones (expirimental, best to use Media Queries) */
 
 
 /* Headlines & Title */
@@ -126,7 +136,7 @@ header[role=banner] {}
 		
 		.nav ul li ul.sub-menu {}
 			.nav ul li ul li a {}
-				.menu ul li ul li a:hover { }
+				.menu ul li ul li a:hover {}
 			.menu ul li ul li:last-child a {}
 			.menu ul li:hover ul { }
 				.menu ul li ul li ul.sub-menu { }
