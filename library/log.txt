@@ -16,6 +16,8 @@ BONES CHANGE LOG & HISTORY
 - added theme translation to all files
 - removed categories form page meta info
 - fixed confusing copyright issues
+- removed the unneeded author / tag / ect archive title from taxonomy-custom-cat.php 
+
 
 /* v1.06 Updates */
 - changed name of default stylesheet to default so it's easier to 
