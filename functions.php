@@ -45,6 +45,13 @@ include_once('library/plugins.php');
 // Adding Custom Post Type
 include_once('library/custom-post-type.php');
 
+// Adding Translation
+load_theme_textdomain( 'bonestheme', TEMPLATEPATH.'/languages' );
+ 
+$locale = get_locale();
+$locale_file = TEMPLATEPATH."/languages/$locale.php";
+if ( is_readable($locale_file) )
+    require_once($locale_file);
 
 /* BONES FUNCTIONS (DO NOT EDIT) */
 
