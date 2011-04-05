@@ -12,6 +12,11 @@ Author: Eddie Machado
 BONES CHANGE LOG & HISTORY
 ******************************************************************/
 
+/*v1.06 More Updates */
+- added theme translation to all files
+- removed categories form page meta info
+- fixed confusing copyright issues
+
 /* v1.06 Updates */
 - changed name of default stylesheet to default so it's easier to 
 	debug. (having two stylesheets named style is confusing)
