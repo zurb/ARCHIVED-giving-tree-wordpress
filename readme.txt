@@ -13,9 +13,6 @@ Designed by Eddie Machado
 http://themble.com/bones
 eddie@themble.com
 
-Design Copyright 2010. All Rights Reserved. 
-XHTML/CSS released under a Creative Commons Attribution 2.5 licence.
-
 Special Thanks to:
 Paul Irish & the HTML5 Boilerplate
 Yoast for some WP functions & optimization ideas
