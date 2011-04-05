@@ -12,12 +12,12 @@
 							
 							<h1 class="h2"><a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a></h1>
 							
-							<p class="meta">Posted <time><?php the_time('F jS, Y'); ?></time> by <?php the_author(); ?> <span class="amp">&</span> filed under <?php the_category(', '); ?>.</p>
+							<p class="meta"><?php _e("Posted", "bonestheme"); ?> <time><?php the_time('F jS, Y'); ?></time> <?php _e("by", "bonestheme"); ?> <?php the_author_posts_link(); ?> <span class="amp">&</span> <?php _e("filed under", "bonestheme"); ?> <?php the_category(', '); ?>.</p>
 						
 						</header> <!-- end article header -->
 					
 						<section class="post_content clear">
-							<?php the_content('<span class="read-more">Read more on "'.the_title('', '', false).'" &raquo;</span>'); ?>
+							<?php the_content(_e('<span class="read-more">Read more on "'.the_title('', '', false).'" &raquo;</span>', "bonestheme")); ?>
 					
 						</section> <!-- end article section -->
 						
@@ -40,8 +40,8 @@
 					<?php } else { // if it is disabled, display regular wp prev & next links ?>
 						<nav class="wp-prev-next">
 							<ul class="clear">
-								<li class="prev-link"><?php next_posts_link('&laquo; Older Entries') ?></li>
-								<li class="next-link"><?php previous_posts_link('Newer Entries &raquo;') ?></li>
+								<li class="prev-link"><?php next_posts_link(_e('&laquo; Older Entries', "bonestheme")) ?></li>
+								<li class="next-link"><?php previous_posts_link(_e('Newer Entries &raquo;', "bonestheme")) ?></li>
 							</ul>
 						</nav>
 					<?php } ?>		

@@ -12,7 +12,7 @@
 							
 							<h1 class="page-title"><?php the_title(); ?></h1>
 							
-							<p class="meta">Posted <time><?php the_time('F jS, Y'); ?></time> by <?php the_author(); ?> <span class="amp">&</span> filed under <?php the_category(', '); ?>.</p>
+							<p class="meta"><?php _e("Posted", "bonestheme"); ?> <time><?php the_time('F jS, Y'); ?></time> <?php _e("by", "bonestheme"); ?> <?php the_author_posts_link(); ?>.</p>
 						
 						</header> <!-- end article header -->
 					
