@@ -40,7 +40,7 @@
 						<nav class="wp-prev-next">
 							<ul class="clear">
 								<li class="prev-link"><?php next_posts_link(_e('&laquo; Older Entries', "bonestheme")) ?></li>
-								<li class="next-link"><?php previous_posts_link((_e('Newer Entries &raquo;', "bonestheme")) ?></li>
+								<li class="next-link"><?php previous_posts_link(_e('Newer Entries &raquo;', "bonestheme")) ?></li>
 							</ul>
 						</nav>
 					<?php } ?>			
