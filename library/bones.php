@@ -38,12 +38,26 @@ add_action('wp_print_scripts', 'bones_queue_js');
 	set_post_thumbnail_size(125, 125, true); /* more sizes are available using the functions.php file */
 	// custom backgrounds
 	add_custom_background();
-	// header image
-	define( 'HEADER_IMAGE', '%s/images/default-headbg.png' );
-	define( 'HEADER_IMAGE_WIDTH', apply_filters( '', 960 ) ); // Width of Logo
-	define( 'HEADER_IMAGE_HEIGHT', apply_filters( '',	150 ) ); // Height of Logo
-	define( 'NO_HEADER_TEXT', true );
-	add_custom_image_header( '', 'admin_header_style' );	
+	// header image define
+	define('NO_HEADER_TEXT', true ); // I prefer no header text, you can change this
+	// define('HEADER_TEXTCOLOR', 'ffffff'); // the text color in the header ( to use uncomment it and comment no header tx
+	define('HEADER_IMAGE', '%s/images/default_header.jpg'); // %s is the template dir uri
+	define('HEADER_IMAGE_WIDTH', 1044); // the width of the logo
+	define('HEADER_IMAGE_HEIGHT', 150); // the height of the logo
+	// gets included in the site header
+	function header_style() { ?>
+	     <style type="text/css"> header[role=banner] { background: url(<?php header_image(); ?>); } </style><?php
+	}
+	// gets included in the admin header
+	function admin_header_style() {
+	?><style type="text/css">
+	#headimg {
+	width: <?php echo HEADER_IMAGE_WIDTH; ?>px;
+	height: <?php echo HEADER_IMAGE_HEIGHT; ?>px;
+	}
+	</style><?php
+	}
+	add_custom_image_header('header_style', 'admin_header_style');	
 	// adding post format support
 	add_theme_support( 'post-formats', 
 		array( 
