@@ -1,34 +1,55 @@
 <!doctype html>  
 
+<!--[if IEMobile 7 ]><html class="no-js iem7" manifest="default.appcache?v=1"><![endif]-->
 <!--[if lt IE 7 ]> <html <?php language_attributes(); ?> class="no-js ie6"> <![endif]-->
 <!--[if IE 7 ]>    <html <?php language_attributes(); ?> class="no-js ie7"> <![endif]-->
 <!--[if IE 8 ]>    <html <?php language_attributes(); ?> class="no-js ie8"> <![endif]-->
-<!--[if IE 9 ]>    <html <?php language_attributes(); ?> class="no-js ie9"> <![endif]-->
-<!--[if (gt IE 9)|!(IE)]><!--> <html <?php language_attributes(); ?> class="no-js"> <!--<![endif]-->
+<!--[if (gte IE 9)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html <?php language_attributes(); ?> class="no-js" manifest="default.appcache?v=1"><!--<![endif]-->
 	
 	<head>
-		
 		<meta charset="utf-8">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 		
-		<title><?php wp_title('&laquo;', true, 'right'); ?></title>
+		<title><?php wp_title('', true, 'right'); ?></title>
 		<meta name="description" content="">
 		<meta name="author" content="">
 		
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<!-- for an explanation see here: http://t.co/dKP3o1e -->
+		<meta name="HandheldFriendly" content="True">
+		<meta name="MobileOptimized" content="320">
+		<meta name="viewport" content="width=device-width, target-densitydpi=160dpi, initial-scale=1">
 		
-		<!-- icons & favicons -->
-		<link rel="shortcut icon" href="<?php echo get_template_directory_uri(); ?>/favicon.ico">
-		<link rel="apple-touch-icon" href="<?php echo get_template_directory_uri(); ?>/library/images/apple-touch-icon.png">
-		
+		<!-- For less capable mobile browsers
+		<link rel="stylesheet" media="handheld" href="<?php echo get_template_directory_uri(); ?>/library/css/handheld.css">  -->
+
 		<!-- default stylesheet -->
 		<link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/library/css/default.css">
+		
+		<!-- icons & favicons -->
+		<!-- For iPhone 4 -->
+		<link rel="apple-touch-icon-precomposed" sizes="114x114" href="<?php echo get_template_directory_uri(); ?>/library/images/icons/h/apple-touch-icon.png">
+		<!-- For iPad 1-->
+		<link rel="apple-touch-icon-precomposed" sizes="72x72" href="<?php echo get_template_directory_uri(); ?>/library/images/icons/m/apple-touch-icon.png">
+		<!-- For iPhone 3G, iPod Touch and Android -->
+		<link rel="apple-touch-icon-precomposed" href="<?php echo get_template_directory_uri(); ?>/library/images/icons/l/apple-touch-icon-precomposed.png">
+		<!-- For Nokia -->
+		<link rel="shortcut icon" href="<?php echo get_template_directory_uri(); ?>/library/images/icons/l/apple-touch-icon.png">
+		<!-- For everything else -->
+		<link rel="shortcut icon" href="<?php echo get_template_directory_uri(); ?>/favicon.ico">
+		
+		<!--iOS. Delete if not required -->
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+		<link rel="apple-touch-startup-image" href="<?php echo get_template_directory_uri(); ?>/library/images/icons/l/splash.png">
+		
+		<!--Microsoft. Delete if not required -->
+		<meta http-equiv="cleartype" content="on">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 		
 		<!-- Grab Google CDN's jQuery, with a protocol relative URL; fall back to local if necessary -->
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
 		<script>window.jQuery || document.write(unescape('%3Cscript src="<?php echo get_template_directory_uri(); ?>/library/js/libs/jquery-1.5.1.min.js"%3E%3C/script%3E'))</script>
 		
-		<script src="<?php echo get_template_directory_uri(); ?>/library/js/modernizr.js"></script>
+		<script src="<?php echo get_template_directory_uri(); ?>/library/js/modernizr-1.7.min.js"></script>
 		
 		<!-- wordpress head functions -->
   		<link rel="pingback" href="<?php bloginfo('pingback_url'); ?>">
@@ -46,7 +67,7 @@
 			
 			<header role="banner">
 			
-				<div id="inner-header" class="clear">
+				<div id="inner-header" class="clearfix">
 				
 					<h1 id="logo"><a href="<?php echo home_url(); ?>" rel="nofollow"><?php bloginfo('name'); ?></a></h1>
 					
