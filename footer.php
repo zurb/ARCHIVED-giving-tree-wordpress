@@ -1,6 +1,6 @@
 			<footer role="contentinfo">
 			
-				<div id="inner-footer" class="clear">
+				<div id="inner-footer" class="clearfix">
 					
 					<nav role="navigation">
 						<?php bones_footer_links(); // Adjust using Menus in Wordpress Admin ?>
@@ -17,8 +17,10 @@
 		<!-- custom scripts -->
 		<script src="<?php echo get_template_directory_uri(); ?>/library/js/scripts.js"></script>
 		
-		<!--[if lt IE 9]>
-			<script src="<?php echo get_template_directory_uri(); ?>/library/js/libs/ie/selectivizr.js"></script>
+		<!--[if (lt IE 9) & (!IEMobile)]>
+			<script src="<?php echo get_template_directory_uri(); ?>/library/js/libs/ie/DOMAssistantCompressed-2.8.js"></script>
+			<script src="<?php echo get_template_directory_uri(); ?>/library/js/libs/ie/selectivizr-1.0.1.js"></script>
+			<script src="<?php echo get_template_directory_uri(); ?>/library/js/libs/respond.min.js"></script>
 		<![endif]-->		
 		
 		<!--[if lt IE 7 ]>
