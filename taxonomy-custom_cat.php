@@ -15,15 +15,15 @@ taxonomy-shoes.php
 
 <?php get_header(); ?>
 			
-			<div id="content" class="clear">
+			<div id="content" class="clearfix">
 			
-				<div id="main" class="col620 clear" role="main">
+				<div id="main" class="col620 clearfix" role="main">
 				
 					<h1 class="archive_title h2"><span><?php _e("Posts Categorized:", "bonestheme"); ?></span> <?php single_cat_title(); ?></h1>
 
 					<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 					
-					<article id="post-<?php the_ID(); ?>" class="clear">
+					<article id="post-<?php the_ID(); ?>" <?php post_class('clearfix'); ?>>
 						
 						<header>
 							
@@ -55,7 +55,7 @@ taxonomy-shoes.php
 
 					<?php } else { // if it is disabled, display regular wp prev & next links ?>
 						<nav class="wp-prev-next">
-							<ul class="clear">
+							<ul class="clearfix">
 								<li class="prev-link"><?php next_posts_link(_e('&laquo; Older Entries', "bonestheme")) ?></li>
 								<li class="next-link"><?php previous_posts_link(_e('Newer Entries &raquo;', "bonestheme")) ?></li>
 							</ul>

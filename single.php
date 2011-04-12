@@ -1,12 +1,12 @@
 <?php get_header(); ?>
 			
-			<div id="content" class="clear">
+			<div id="content" class="clearfix">
 			
-				<div id="main" class="col620 clear" role="main">
+				<div id="main" class="col620 clearfix" role="main">
 
 					<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 					
-					<article id="post-<?php the_ID(); ?>" <?php post_class('clear'); ?>>
+					<article id="post-<?php the_ID(); ?>" <?php post_class('clearfix'); ?>>
 						
 						<header>
 							
@@ -16,7 +16,7 @@
 						
 						</header> <!-- end article header -->
 					
-						<section class="post_content clear">
+						<section class="post_content clearfix">
 							<?php the_content(); ?>
 							
 					

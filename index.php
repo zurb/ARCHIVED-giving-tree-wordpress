@@ -1,12 +1,12 @@
 <?php get_header(); ?>
 			
-			<div id="content" class="clear">
+			<div id="content" class="clearfix">
 			
-				<div id="main" class="col620 clear" role="main">
+				<div id="main" class="col620 clearfix" role="main">
 
 					<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 					
-					<article id="post-<?php the_ID(); ?>" <?php post_class('clear'); ?>>
+					<article id="post-<?php the_ID(); ?>" <?php post_class('clearfix'); ?>>
 						
 						<header>
 							
@@ -16,7 +16,7 @@
 						
 						</header> <!-- end article header -->
 					
-						<section class="post_content clear">
+						<section class="post_content clearfix">
 							<?php the_content(_e('<span class="read-more">Read more on "'.the_title('', '', false).'" &raquo;</span>', "bonestheme")); ?>
 					
 						</section> <!-- end article section -->
@@ -39,7 +39,7 @@
 						
 					<?php } else { // if it is disabled, display regular wp prev & next links ?>
 						<nav class="wp-prev-next">
-							<ul class="clear">
+							<ul class="clearfix">
 								<li class="prev-link"><?php next_posts_link(_e('&laquo; Older Entries', "bonestheme")) ?></li>
 								<li class="next-link"><?php previous_posts_link(_e('Newer Entries &raquo;', "bonestheme")) ?></li>
 							</ul>

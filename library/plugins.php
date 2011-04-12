@@ -61,7 +61,7 @@ function page_navi($before = '', $after = '') {
 		$start_page = 1;
 	}
 
-	echo $before.'<div class="page-navigation"><ul class="bones_page_navi clear">'."";
+	echo $before.'<div class="page-navigation"><ul class="bones_page_navi clearfix">'."";
 	if ($start_page >= 2 && $pages_to_show < $max_page) {
 		$first_page_text = "First";
 		echo '<li class="bpn-first-page-link"><a href="'.get_pagenum_link().'" title="'.$first_page_text.'">'.$first_page_text.'</a></li>';

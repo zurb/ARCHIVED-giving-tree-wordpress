@@ -1,10 +1,10 @@
 <?php get_header(); ?>
 			
-			<div id="content" class="clear">
+			<div id="content" class="clearfix">
 			
-				<div id="main" class="col620 clear" role="main">
+				<div id="main" class="col620 clearfix" role="main">
 
-					<article id="post-not-found" class="clear">
+					<article id="post-not-found" class="clearfix">
 						
 						<header>
 							

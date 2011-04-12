@@ -123,7 +123,7 @@ function bones_comments($comment, $args, $depth) {
           		
 			<?php endif; ?>
 			
-			<section class="comment_content clear">
+			<section class="comment_content clearfix">
 				<?php comment_text() ?>
 			</section>
 
