@@ -12,6 +12,14 @@ Author: Eddie Machado
 BONES CHANGE LOG & HISTORY
 ******************************************************************/
 
+/*v1.07 w00t! */
+- changed clear to clearfix across the board
+- added 320 & Up Boilerplate Extension by Andy Clarke
+- renamed modernizr to the current version file
+- added all the different sized images & icons
+- updated DOMAssistant to newest version
+
+
 /*v1.06 More Updates */
 - added theme translation to all files
 - removed categories form page meta info
