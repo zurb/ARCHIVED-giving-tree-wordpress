@@ -7,6 +7,7 @@ eddie@themble.com
 
 Special Thanks to:
 Paul Irish, Divya Manian & the HTML5 Boilerplate
+Andy Clarke & the 320 & Up Extension
 Yoast for some WP functions & optimization ideas
 Andrew Rogers for code optimization
 David Dellanave for speed & code optimization
@@ -47,7 +48,7 @@ table { border-collapse:collapse; border-spacing:0; }
 td, td img { vertical-align: top; } 
 
 /* type & header styles */
-body { font-size:14px; line-height: 1.5em; font-family: Georgia, Cambria, "New Century Schoolbook", "Century Schoolbook L", "Times New Roman", serif;  *font-size:small; } 
+body { font-size:14px; line-height: 1.5em; font-family: Georgia, serif;  *font-size:small; } 
 p { hyphenate:auto; hyphenate-before:2; hyphenate-after:3; hyphenate-lines:3; orphans:4; }
 select, input, textarea, button { font:99% sans-serif; }
 body, select, input, textarea {   color: #444; }
@@ -75,28 +76,28 @@ input[type="checkbox"] { vertical-align: bottom; }
 .ie6 input { vertical-align: text-bottom; }
 label, input[type=button], input[type=submit], button { cursor: pointer; }
 button, input, select, textarea { margin: 0; }
+
+/* vaidation */
 input:valid, textarea:valid   {  }
 input:invalid, textarea:invalid { border-radius: 1px;  -moz-box-shadow: 0px 0px 5px red; -webkit-box-shadow: 0px 0px 5px red;  box-shadow: 0px 0px 5px red; }
 .no-boxshadow input:invalid, 
 .no-boxshadow textarea:invalid { background-color: #f0dddd; }
 button {  width: auto; overflow: visible; }
 
-/* text highlight reset */
-::-moz-selection{ background: #6fc2f6; color:#fff; text-shadow: none; }
-::selection { background:#6fc2f6; color:#fff; text-shadow: none; }
-
 /* image resets */
-.ie7 img { -ms-interpolation-mode: bicubic; }
+.ie7 img, .iem7 img { -ms-interpolation-mode: bicubic; }
 
 /* hidden elements */
 .hidden { display: none; visibility: hidden; } 
 .visuallyhidden { position: absolute !important; clip: rect(1px 1px 1px 1px);  clip: rect(1px, 1px, 1px, 1px); }
 
+/* added from 320&Up Project */
+div, input, textarea  { -webkit-box-sizing : border-box; -moz-box-sizing : border-box; -o-box-sizing : border-box; box-sizing : border-box; }
+
 /* clearfixes */
-.clear:after, .menu:after, .menu ul:after {content: ".";display: block;height: 0;clear: both;visibility: hidden;}
-.clear { display: inline-block; }
-* html .clear { height: 1%; }
-.clear { display: block; }
+.clearfix:after, .menu ul:after {content: ".";display: block;height: 0;clear: both;visibility: hidden;}
+.clearfix { zoom: 1; }
+.clearfix:after { clear: both; }
 
 /******************************************************************
 COMMON & REUSABLE STYLES
@@ -125,7 +126,11 @@ mark, .search-term { background: #EBE16F; }
 GENERAL STYLES
 ******************************************************************/
 
-body { background-color: #efefef; }
+body { 
+	background-color: #efefef; 
+	-webkit-text-size-adjust : 100%; /* font size on apple devices */
+	-ms-text-size-adjust : 100%;  /* font size on windows devices */
+}
 
 #container, .wrap {}
 
@@ -142,7 +147,7 @@ a:link {-webkit-tap-highlight-color: #f01d4f; }
 H1, H2, H3, H4, H5 STYLES
 ******************************************************************/
 
-h1 a, .h1 a, h2 a, .h2 a, h3 a, .h3 a, h4 a, .h4 a, h5 a, .h5 a { text-decoration: none; font-weight: 500; }
+h1 a, .h1 a, h2 a, .h2 a, h3 a, .h3 a, h4 a, .h4 a, h5 a, .h5 a { text-decoration: none; font-weight: 500; font-family: sans-serif; }
 h1, .h1 { font-size:2.5em; line-height: 1.333em; }
 h2, .h2 { font-size: 1.75em; line-height: 1.1em; }
 h3, .h3 { font-size: 1.125em; }
@@ -161,10 +166,10 @@ header[role=banner] {}
 NAVIGATION STYLES
 ******************************************************************/
 
-.menu { clear: both; margin: 1.1em 0; }
-	.menu ul { background: #215ea3; }
+.menu { margin: 1.1em 0; font-family: sans-serif; }
+	.menu ul { }
 		.menu ul li { list-style-type: none; float: left; }
-			.menu ul li a { display: block; text-decoration: none; padding: 5px 10px; color: #fff; font-weight: 700; }
+			.menu ul li a { display: block; text-decoration: none; color: #fff; font-weight: 700; }
 				.menu ul li:last-child a {}
 				.menu ul li a:hover { background: #036; color: #fff; }
 		.menu ul li.current-menu-item a, .menu ul li.current_page_item a {}
