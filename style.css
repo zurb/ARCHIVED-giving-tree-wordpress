@@ -11,15 +11,17 @@ Tags: html5, framework, css3, development
 License: GPL or whatever
 License URI: ?
 
-All Default Styles are in library/css/style.css
-I reccomend not editing those files and making all
+All Default Styles are in library/css/default.css
+I reccommend not editing those files and making all
 changes here. That way if something goes awry, you
 can easily revert back to the original, but that's
 totally up to you. Happy Developing!
 
 ******************************************************************/
 
-/* General Layout Styles */
+/******************************************************************
+GENERAL LAYOUT STYLES
+******************************************************************/
 
 body { }
 
@@ -52,13 +54,47 @@ body { }
 	#main { margin-left: 0; } /* fixes alignment (defaulted at col620) */
 	#sidebar1 { margin-right: 0; } /* fixes alignment (defaulted at col300) */
 	
-/* Link Styles & Colors */
+/******************************************************************
+LINK STYLES
+******************************************************************/
 
 a, a:visited {}
 a:hover, a:link {}
 a:active {} /* on click */
+a:link { 
+	-webkit-tap-highlight-color : rgba(0,0,0,0); /* this highlights links on Iphones / iPads */
+}
 
-/* want to style a page via body class? go ahead */
+/******************************************************************
+TEXT SELECTION STYLES
+******************************************************************/
+
+/* Safari, Chrome, iPhones, iPads */
+::-webkit-selection { 
+	background: #6fc2f6; 
+	color:#fff; 
+	text-shadow : none; 
+}
+
+/* Firefox */
+::-moz-selection { 
+	background: #6fc2f6; 
+	color:#fff; 
+	text-shadow : none; 
+}
+
+/* The Rest of em */
+::selection { 
+	background: #6fc2f6; 
+	color:#fff; 
+	text-shadow : none; 
+}
+
+
+/******************************************************************
+WORDPRESS BODY CLASSES
+want to style a page via body class? go ahead
+******************************************************************/
 
 body.rtl {}
 body.home {} /* home page */
@@ -107,7 +143,9 @@ body.browser-ie {} /* ie browsers ( aka dinosaurs) */
 body.browser-iphone {} /* iphones (expirimental, best to use Media Queries) */
 
 
-/* Headlines & Title */
+/******************************************************************
+HEADLINES & TITLES
+******************************************************************/
 
 h1, .h1 {}
 h2, .h2 {}
@@ -117,33 +155,57 @@ h5, .h5 {}
 
 h1 a, h2 a, h3 a, h4 a, h5 a {}
 
-/* Header */
+/******************************************************************
+HEADER SYTLES
+******************************************************************/
 
 header[role=banner] {}
 	#logo {}
 
-/* Main Navigation */
-.nav {}
-	.nav ul { 
-		-moz-border-radius: 1px;
-		-webkit-border-radius: 1px;
-		border-radius: 1px;
+/******************************************************************
+NAVIGATION STYLES
+(Main Navigation)
+******************************************************************/
+nav[role=navigation] {}
+	nav[role=navigation] .menu ul { 
+		background: #215ea3;
+		-moz-border-radius: 3px;
+		-webkit-border-radius: 3px;
+		border-radius: 3px;
 	}
-		.nav ul li {}
-			.nav ul li a { text-shadow: 0 -1px 1px rgba(0,0,0,0.33); }
-				.nav ul li a:hover { background: #036; color: #fff; }
-		.nav ul li.current-menu-item a, .nav ul li.current_page_item a {}
+		nav[role=navigation] .menu ul li {}
+			nav[role=navigation] .menu ul li a { 
+				padding: 10px 20px;
+				text-shadow: 0 -1px 1px rgba(0,0,0,0.33); 
+			}
+				nav[role=navigation] .menu ul li a:hover { 
+					background: #036; 
+					color: #fff; 
+				}
+				
+				nav[role=navigation] .menu ul li:first-child a {
+					-moz-border-radius-topleft: 4px;
+					-webkit-border-top-left-radius: 4px;
+					border-top-left-radius: 4px;
+					-moz-border-radius-bottomright: 4px;
+					-webkit-border-bottom-right-radius: 4px;
+					border-bottom-left-radius: 4px;
+				}
+				
+		nav[role=navigation] .menu ul li.current-menu-item a, .nav ul li.current_page_item a {}
 		
-		.nav ul li ul.sub-menu {}
-			.nav ul li ul li a {}
-				.menu ul li ul li a:hover {}
-			.menu ul li ul li:last-child a {}
-			.menu ul li:hover ul { }
-				.menu ul li ul li ul.sub-menu { }
-					.menu ul li ul li:hover ul.sub-menu { }
+		nav[role=navigation] .menu ul li ul.sub-menu {}
+			nav[role=navigation] .menu ul li ul li a {}
+				nav[role=navigation] .menu ul li ul li a:hover {}
+			nav[role=navigation] .menu ul li ul li:last-child a {}
+			nav[role=navigation] .menu ul li:hover ul { }
+				nav[role=navigation] .menu ul li ul li ul.sub-menu { }
+					nav[role=navigation] .menu ul li ul li:hover ul.sub-menu { }
 
 
-/* Posts & Content */
+/******************************************************************
+POSTS & CONTENT STYLES
+******************************************************************/
 
 #content {}
 	#main { 
@@ -210,7 +272,10 @@ header[role=banner] {}
 		article[id*=post-] footer {}
 	
 	
-/* Page Navi (Special Feature) */
+/******************************************************************
+PAGE NAVI STYLES
+(Special Feature)
+******************************************************************/
 
 	/* page navigation */
 	.page-navigation {}
@@ -232,13 +297,16 @@ header[role=banner] {}
 			.bones_page_navi li.bpn-first-page-link {} /* first page link */
 				.bones_page_navi li.bpn-first-page-link a {}
 					.bones_page_navi li.bpn-first-page-link a:hover {}
+	
 	/* fallback previous & next links */
 	.wp-prev-next {}
 		.wp-prev-next ul {}
 			.wp-prev-next .prev-link {}
 			.wp-prev-next .next-link {}
 	
-/* Comment Styles */
+/******************************************************************
+COMMENT STYLES
+******************************************************************/
 
 #comments /* h3 comment title */
 	#comments span {} /* number of comments span */
@@ -294,7 +362,9 @@ header[role=banner] {}
 				.commentlist .comment-reply-link {}
 					.commentlist a.comment-reply-link:hover {}
 
-/* comment form styles */
+/******************************************************************
+COMMENT FORM STYLES
+******************************************************************/
 
 #respond {}
 	#comment-form-title {}
@@ -310,9 +380,18 @@ header[role=banner] {}
 				#author, #email, #url {}
 			#allowed_tags {}
 				#comment {}
+				#submit {}
 
-/* Sidebars & Asides */
+/******************************************************************
+SIDEBARS & ASIDES
+******************************************************************/
 
+#sidebar1 {}
+
+	.widget {}
+		.widget li {}
+		
+		.widgettitle {}
 
 	/* links widget */
 	.widget_links {}
@@ -402,7 +481,9 @@ header[role=banner] {}
 	.textwidget p {}
 	
 
-/* Footer */
+/******************************************************************
+FOOTER STYLES
+******************************************************************/
 
 footer[role=contentinfo] {}
 	/* footer menu */
@@ -417,35 +498,42 @@ footer[role=contentinfo] {}
 	.attribution {}
 
 	
-/* Media Queries & Other Advanced Features (Optional) */
+/******************************************************************
+MEDIA QUERIES & DEVICE STYLES
+Developed by: Andy Clarke & the 320 & Up Extension
+URL: http://stuffandnonsense.co.uk/projects/320andup/
+******************************************************************/
 
+@media only screen and (min-width: 480px) {
+	/* insert styles here */
+}
 
-/* Smartphones (portrait and landscape) */
-@media only screen and (min-device-width : 320px) and (max-device-width : 480px) { }
-/* Smartphones (landscape) */
-@media only screen and (min-width : 321px) { /* insert styes here */ }
-/* Smartphones (portrait) */
-@media only screen and (max-width : 320px) { /* insert styes here */ }
-/* iPads (portrait and landscape) */
-@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) { /* insert styes here */ }
-/* iPads (landscape) */
-@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape) { /* insert styes here */ }
-/* iPads (portrait) */
-@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : portrait) { /* insert styes here */ }
-/* Desktops and laptops */
-@media only screen and (min-width : 1224px) { /* insert styes here */ }
-/* Large screens */
-@media only screen and (min-width : 1824px) { /* insert styes here */ }
-/* iPhone 4 and high pixel ratio devices */
-@media
-only screen and (-webkit-min-device-pixel-ratio : 1.5),
-only screen and (min-device-pixel-ratio : 1.5) { /* insert styes here */ }
+@media only screen and (min-width: 768px) {
+/* insert styles here */
+}
 
-/* Print Styles (Handled by default, but if you want to edit it, feel free) */
+@media only screen and (min-width: 992px) {
+/* insert styles here */
+}
+
+@media only screen and (min-width: 1382px) {
+/* insert styles here */
+}
+
+@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min-device-pixel-ratio: 2) {
+/* insert styles here */
+}
+
+/******************************************************************
+PRINT STYLES
+(Handled by default, but if you want to edit it, feel free)
+******************************************************************/
+
 @media print { }
 
-
-/* IE Specific Fixes */
+/******************************************************************
+IE SPECIFIC FIXES
+******************************************************************/
 
 /*
 Thanks to the HTML5 Boilerplate there's an easier way
@@ -461,8 +549,6 @@ html.ie7 .post_content { ... }
 To target the .post_content area in IE8, use:
 html.ie8 .post_content { ... }
 
-To target the .post_content area in IE9, use:
-html.ie9 .post_content { ... }
 
 Much easier right? This way, you don't have to call
 any more stylesheets, you can leave it at the bottom
