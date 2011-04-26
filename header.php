@@ -4,7 +4,7 @@
 <!--[if lt IE 7 ]> <html <?php language_attributes(); ?> class="no-js ie6"> <![endif]-->
 <!--[if IE 7 ]>    <html <?php language_attributes(); ?> class="no-js ie7"> <![endif]-->
 <!--[if IE 8 ]>    <html <?php language_attributes(); ?> class="no-js ie8"> <![endif]-->
-<!--[if (gte IE 9)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html <?php language_attributes(); ?> class="no-js" manifest="default.appcache?v=1"><!--<![endif]-->
+<!--[if (gte IE 9)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html <?php language_attributes(); ?> class="no-js"><!--<![endif]-->
 	
 	<head>
 		<meta charset="utf-8">
@@ -35,15 +35,6 @@
 		<link rel="shortcut icon" href="<?php echo get_template_directory_uri(); ?>/library/images/icons/l/apple-touch-icon.png">
 		<!-- For everything else -->
 		<link rel="shortcut icon" href="<?php echo get_template_directory_uri(); ?>/favicon.ico">
-		
-		<!--iOS. Delete if not required -->
-		<meta name="apple-mobile-web-app-capable" content="yes">
-		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-		<link rel="apple-touch-startup-image" href="<?php echo get_template_directory_uri(); ?>/library/images/icons/l/splash.png">
-		
-		<!--Microsoft. Delete if not required -->
-		<meta http-equiv="cleartype" content="on">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 		
 		<!-- Grab Google CDN's jQuery, with a protocol relative URL; fall back to local if necessary -->
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
