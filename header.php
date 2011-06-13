@@ -1,6 +1,6 @@
 <!doctype html>  
 
-<!--[if IEMobile 7 ]><html class="no-js iem7" manifest="default.appcache?v=1"><![endif]-->
+<!--[if IEMobile 7 ]> <html <?php language_attributes(); ?>class="no-js iem7"> <![endif]-->
 <!--[if lt IE 7 ]> <html <?php language_attributes(); ?> class="no-js ie6"> <![endif]-->
 <!--[if IE 7 ]>    <html <?php language_attributes(); ?> class="no-js ie7"> <![endif]-->
 <!--[if IE 8 ]>    <html <?php language_attributes(); ?> class="no-js ie8"> <![endif]-->
@@ -8,18 +8,11 @@
 	
 	<head>
 		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 		
 		<title><?php wp_title('', true, 'right'); ?></title>
 		<meta name="description" content="">
 		<meta name="author" content="">
-		
-		<!-- for an explanation see here: http://t.co/dKP3o1e -->
-		<meta name="HandheldFriendly" content="True">
-		<meta name="MobileOptimized" content="320">
-		<meta name="viewport" content="width=device-width, target-densitydpi=160dpi, initial-scale=1">
-		
-		<!-- For less capable mobile browsers
-		<link rel="stylesheet" media="handheld" href="<?php echo get_template_directory_uri(); ?>/library/css/handheld.css">  -->
 
 		<!-- default stylesheet -->
 		<link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/library/css/default.css">
@@ -37,15 +30,16 @@
 		<link rel="shortcut icon" href="<?php echo get_template_directory_uri(); ?>/favicon.ico">
 		
 		<!-- Grab Google CDN's jQuery, with a protocol relative URL; fall back to local if necessary -->
-		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
-		<script>window.jQuery || document.write(unescape('%3Cscript src="<?php echo get_template_directory_uri(); ?>/library/js/libs/jquery-1.5.1.min.js"%3E%3C/script%3E'))</script>
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
+		<script>window.jQuery || document.write(unescape('%3Cscript src="<?php echo get_template_directory_uri(); ?>/library/js/libs/jquery-1.6.1.min.js"%3E%3C/script%3E'))</script>
 		
-		<script src="<?php echo get_template_directory_uri(); ?>/library/js/modernizr-1.7.min.js"></script>
+		<script src="<?php echo get_template_directory_uri(); ?>/library/js/modernizr-2.0.min.js"></script>
 		
-		<!-- wordpress head functions -->
   		<link rel="pingback" href="<?php bloginfo('pingback_url'); ?>">
 		
+		<!-- wordpress head functions -->
 		<?php wp_head(); ?>
+		<!-- end of wordpress head -->
 		
 		<!-- stylesheet is called after wp_head so you can overwrite plugin styles if needed -->
 		<link rel="stylesheet" href="<?php bloginfo('stylesheet_url'); ?>">
@@ -60,7 +54,7 @@
 			
 				<div id="inner-header" class="clearfix">
 				
-					<h1 id="logo"><a href="<?php echo home_url(); ?>" rel="nofollow"><?php bloginfo('name'); ?></a></h1>
+					<p id="logo" class="h1"><a href="<?php echo home_url(); ?>" rel="nofollow"><?php bloginfo('name'); ?></a></p>
 					
 					<nav role="navigation">
 						<?php bones_main_nav(); // Adjust using Menus in Wordpress Admin ?>
