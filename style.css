@@ -4,7 +4,7 @@ Theme URI: http://www.themble.com/bones
 Description: An incredibly simple starter theme for developers.
 Author: Eddie Machado
 Author URI: http://www.themble.com/bones/
-Version: 1.06
+Version: 1.07
 Tags: html5, framework, css3, development
 
 
@@ -101,36 +101,36 @@ body.home {} /* home page */
 body.blog {} 
 body.archive {} /* archive page */
 body.date {} /* date archive page */
-	body.date-paged-(page number) {}
+	body.date-paged-1 {} /* replace the number to the corresponding page number */
 body.search {} /* search page */
 	body.search-results {} /* search result page */
 	body.search-no-results {} /* no results search page */
-	body.search-paged-(page number) {} /* individual paged search (i.e. body.search-paged-3) */
+	body.search-paged-1 {} /* individual paged search (i.e. body.search-paged-3) */
 body.error404 {} /* 404 page */
 body.single {} /* single post page */
-	body.postid-(id) {} /* individual post page by id (i.e. body.postid-73) */
-	body.single-paged-(page number) {} /* individual paged single (i.e. body.single-paged-3) */
+	body.postid-1 {} /* individual post page by id (i.e. body.postid-73) */
+	body.single-paged-1 {} /* individual paged single (i.e. body.single-paged-3) */
 body.attachment {} /* attatchment page */
-	body.attachmentid-(id) {} /* individual attatchment page (i.e. body.attachmentid-763) */
-	body.attachment-(mime-type) {}
+	body.attachmentid-1 {} /* individual attatchment page (i.e. body.attachmentid-763) */
+	body.attachment-mime-type {} /* style mime type pages 
 body.author {} /* author page */
-	body.author-(user_nicename) {}
-	body.author-paged-(page number) {}
+	body.author-nicename {} /* user nicename (i.e. body.author-samueladams) */
+	body.author-paged-1 {} /* paged author archives (i.e. body.author-paged-4) for page 4 */
 body.category {} /* category page */
-	body.category-(slug) {} /* individual category page (i.e. body.category-6) */
-	body.category-paged-(page number) {}
+	body.category-1 {} /* individual category page (i.e. body.category-6) */
+	body.category-paged-1 {} /* replace the number to the corresponding page number */
 body.tag {} /* tag page */
-	body.tag-(slug) {} /* individual tag page (i.e. body.tag-news) */
-	body.tag-paged-(page number) {}
+	body.tag-slug {} /* individual tag page (i.e. body.tag-news) */
+	body.tag-paged-1 {} /* replace the number to the corresponding page number */
 body.page-template {} /* custom page template page */
-	body.page-template-(template file name) {} /* individual page template (i.e. body.page-template-contact-php */
-	body.page-paged-(page number) {}
+	body.page-template-page-php {} /* individual page template (i.e. body.page-template-contact-php */
+	body.page-paged-1 {} /* replace the number to the corresponding page number */
 	body.page-parent {}
 	body.page-child {}
-	body.parent-pageid-(id) {}
+	body.parent-pageid-1 {} /* replace the number to the corresponding page number */
 body.logged-in {} /* if user is logged in */
 body.paged {} /* paged items like search results or archives */
-	body.paged-(page number) {} /* individual paged (i.e. body.paged-3) */
+	body.paged-1 {} /* individual paged (i.e. body.paged-3) */
 	
 /* new browser classes */
 body.browser-lynx {} /* lynx browsers */
@@ -224,8 +224,8 @@ POSTS & CONTENT STYLES
 		.attachment {} /* general style on an attatchment */
 		.sticky {} /* sticky post style */
 		.hentry {} /* hentry class */
-		.category-(slug) {} /* style by category (i.e. category-videos) */
-		.tag-(slug) {} /* style by tag (i.e. tag-news) */
+		.category-slug {} /* style by category (i.e. category-videos) */
+		.tag-slug {} /* style by tag (i.e. tag-news) */
 	
 		/* post meta */
 		.meta {}
@@ -308,7 +308,7 @@ PAGE NAVI STYLES
 COMMENT STYLES
 ******************************************************************/
 
-#comments /* h3 comment title */
+#comments {}/* h3 comment title */
 	#comments span {} /* number of comments span */
 .comment-nav {}
 	.comment-nav ul {}
@@ -325,7 +325,7 @@ COMMENT STYLES
 				.commentlist li ul.children li.alt {}
 				.commentlist li ul.children li.byuser {}
 				.commentlist li ul.children li.comment {}
-				.commentlist li ul.children li.depth-{id} {}
+				.commentlist li ul.children li.depth-1 {} /* change number for different depth */
 				.commentlist li ul.children li.bypostauthor {}
 				.commentlist li ul.children li.comment-author-admin {}
 				.commentlist li ul.children .alt {}
