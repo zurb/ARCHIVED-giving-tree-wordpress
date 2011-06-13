@@ -12,6 +12,16 @@ Author: Eddie Machado
 BONES CHANGE LOG & HISTORY
 ******************************************************************/
 
+/*v1.07 changes */
+- added modernizr 2.0 custom build
+- added IE=edge,chrome=1 for older, shitty browsers
+- removed iphone stuff ( you can add later if you want it )
+- changed h1 in the header to a p
+- removed *font-size: small; from default.css
+- removed empty selectors on default.css stylesheet
+- fixed errors on style.css (mostly removing example using parenthesis)
+- added jquery 1.6.1
+
 /*v1.07 w00t! */
 - changed clear to clearfix across the board
 - added 320 & Up Boilerplate Extension by Andy Clarke
