@@ -12,6 +12,10 @@ Author: Eddie Machado
 BONES CHANGE LOG & HISTORY
 ******************************************************************/
 
+/*v1.07 more changes */
+- updated selectivizr
+- compressed images
+
 /*v1.07 changes */
 - added modernizr 2.0 custom build
 - added IE=edge,chrome=1 for older, shitty browsers
