@@ -1,70 +1,29 @@
 <?php
 /*
-
 Author: Eddie Machado
 URL: htp://themble.com/bones/
 
-This is the Bones Core file. It powers everything.
-YOU DON'T WANT TO MESS W/ THIS FILE UNLESS YOU KNOW WHAT YOU'RE DOING.
-At most, the only thing you should edit is adding or removing the
-expirimental features.
+This is where you can drop your custom functions or
+just edit things like thumbnail sizes, header images, 
+sidebars, comments, ect.
 */
+
 // Get Bones Core Up & Running!
-include_once('library/bones.php');
-/*
-Inside the bones.php file:
+require_once('library/bones.php');            // core functions (don't remove)
+require_once('library/plugins.php');          // plugins & extra functions (optional)
+require_once('library/custom-post-type.php'); // custom post type example
 
-	1. removing some wp calls in the header
-		a. rsd_link (simple discovery link)
-		b. wlwmanifest_link (windows live writer link)
-		c. wp_generator (version number)
-	2. adding comment reply script via wp
-	3. adding custom scripts file in the footer
-	4. PNG fix for IE
-	5. adding wp 3.0 functions
-		a. menus
-		b. thumbnails
-		c. custom bg images
-		d. custom header images
-	6. relates posts scripts (optional)
-
-To Use Expirimental Features keep the line below enabled
-
-(DISABLE IF YOU DON'T WANT IT OR ENCOUNTER ANY ERRORS)
-
-To disable, simply add two slashes before it (//). 
-When disabled, it would look like this:
-
-// include_once('library/plugins.php');
-
-*/
-
-// Expirimental Features
-include_once('library/plugins.php');
-
-// Adding Custom Post Type
-include_once('library/custom-post-type.php');
-
-// Adding Translation
-load_theme_textdomain( 'bonestheme', TEMPLATEPATH.'/languages' );
- 
-$locale = get_locale();
-$locale_file = TEMPLATEPATH."/languages/$locale.php";
-if ( is_readable($locale_file) )
-    require_once($locale_file);
-
-/* BONES FUNCTIONS (DO NOT EDIT) */
+/************* THUMBNAIL SIZE OPTIONS *************/
 
 // Thumbnail sizes
 add_image_size( 'bones-thumb-600', 600, 150, true );
 add_image_size( 'bones-thumb-300', 300, 100, true );
-
 /* 
 to add more sizes, simply copy a line from above 
 and change the dimensions & name. As long as you
 upload a "featured image" as large as the biggest
 set width or height, all the other sizes will be
-autocropped.
+auto-cropped.
 
 To call a different size, simply change the text
 inside the thumbnail function.
@@ -78,6 +37,8 @@ for the 600 x 100 image:
 You can change the names and dimensions to whatever
 you like. Enjoy!
 */
+
+/************* ACTIVE SIDEBARS ********************/
 
 // Sidebars & Widgetizes Areas
 function bones_register_sidebars() {
@@ -97,41 +58,65 @@ function bones_register_sidebars() {
     your new sidebar just use the following code:
     
     Just change the name to whatever your new
-    sidebar's id is.
+    sidebar's id is, for example:
+    
+    register_sidebar(array(
+    	'id' => 'sidebar2',
+    	'name' => 'Sidebar 2',
+    	'description' => 'The second (secondary) sidebar.',
+    	'before_widget' => '<div id="%1$s" class="widget %2$s">',
+    	'after_widget' => '</div>',
+    	'before_title' => '<h4 class="widgettitle">',
+    	'after_title' => '</h4>',
+    ));
+    
+    To call the sidebar in your template, you can just copy
+    the sidebar.php file and rename it to your sidebar's name.
+    So using the above example, it would be:
+    sidebar-sidebar2.php
+    
     */
-}
+} // don't remove this bracket!
 
-// adding sidebars to Wordpress
-add_action( 'widgets_init', 'bones_register_sidebars' );
+/************* COMMENT LAYOUT *********************/
 		
 // Comment Layout
 function bones_comments($comment, $args, $depth) {
    $GLOBALS['comment'] = $comment; ?>
 	<li <?php comment_class(); ?>>
-		<article id="comment-<?php comment_ID(); ?>">
+		<article id="comment-<?php comment_ID(); ?>" class="clearfix">
 			<header class="comment-author vcard">
 				<?php echo get_avatar($comment,$size='32',$default='<path_to_url>' ); ?>
 				<?php printf(__('<cite class="fn">%s</cite>'), get_comment_author_link()) ?>
 				<time><a href="<?php echo htmlspecialchars( get_comment_link( $comment->comment_ID ) ) ?>"><?php printf(__('%1$s'), get_comment_date(),  get_comment_time()) ?></a></time>
 				<?php edit_comment_link(__('(Edit)'),'  ','') ?>
 			</header>
-
 			<?php if ($comment->comment_approved == '0') : ?>
        			<div class="help">
           			<p><?php _e('Your comment is awaiting moderation.') ?></p>
           		</div>
-          		
 			<?php endif; ?>
-			
 			<section class="comment_content clearfix">
 				<?php comment_text() ?>
 			</section>
-
 			<?php comment_reply_link(array_merge( $args, array('depth' => $depth, 'max_depth' => $args['max_depth']))) ?>
-			
 		</article>
     <!-- </li> is added by wordpress automatically -->
 <?php
-}
+} // don't remove this bracket!
+
+/************* SEARCH FORM LAYOUT *****************/
+
+// Search Form
+function bones_wpsearch($form) {
+    $form = '<form role="search" method="get" id="searchform" action="' . home_url( '/' ) . '" >
+    <div><label class="screen-reader-text" for="s">' . __('Search for:', 'bonestheme') . '</label>
+    <input type="text" value="' . get_search_query() . '" name="s" id="s" placeholder="Search the Site..." />
+    <input type="submit" id="searchsubmit" value="'. esc_attr__('Search') .'" />
+    </div>
+    </form>';
+    return $form;
+} // don't remove this bracket!
+
 
 ?>
