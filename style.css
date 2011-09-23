@@ -1,76 +1,111 @@
 /******************************************************************
 Theme Name: Bones
 Theme URI: http://www.themble.com/bones
-Description: An incredibly simple starter theme for developers.
+Description: This site was built using the Bones Development Theme. For more information about Bones or to view documentation, you can visit the <a href="http://themble.com/bones/docs/" title="Bones Documentation">Bones Documentation</a> page. You can also view the conversation on Twitter by following the hashtag: <a href="http://twitter.com/#!/search/%23wpbones">#wpbones</a>.
 Author: Eddie Machado
 Author URI: http://www.themble.com/bones/
-Version: 1.07
-Tags: html5, framework, css3, development
-
+Version: 1.08
+Tags: html5, css3, fixed, development, bones, h5bp
 
 License: GPL or whatever
-License URI: ?
+License URI: http://www.gnu.org/copyleft/gpl.html
 
-All Default Styles are in library/css/default.css
+All Default Styles are in library/css/normalize.css
 I reccommend not editing those files and making all
 changes here. That way if something goes awry, you
 can easily revert back to the original, but that's
 totally up to you. Happy Developing!
-
 ******************************************************************/
+
+/******************************************************************
+COMMON & REUSABLE STYLES
+******************************************************************/
+
+/* floats */
+.left { float: left; }
+.right { float: right; }
+
+/* text alignment */
+.text-left { text-align: left; }
+.text-center { text-align: center; }
+.text-right { text-align: right; }
+
+/* highlighting search term on search page */
+mark, .search-term { background: #EBE16F; }
+
+/* alerts & notices */
+.help, .info, .error, .success { margin: 10px; padding: 5px 18px; border: 1px solid #cecece; }
+.help { border-color: #E0C618; background: #EBE16F; }
+.info { border-color: #92cae4; background: #d5edf8; }
+.error { border-color: #fbc2c4; background: #fbe3e4; }
+.success { border-color: #c6d880; background: #e6efc2; } 
 
 /******************************************************************
 GENERAL LAYOUT STYLES
 ******************************************************************/
 
-body { }
+body { 
+	background: #fefefe;
+}
+
+/******************************************************************
+GRID STYLES
+******************************************************************/
+
+/* 960 Grid System (http://960.gs/ ) */
 
 #container, .wrap { 
-	width: 92%;
+	width: 940px;
 	margin: 0 auto;
-	padding: 0 4%;
-	max-width: 1044px; /* remove or edit to adjust width */
-	min-width: 1044px; /* remove or edit to adjust width */
+	padding: 0 10px;
 }
 	
-	/* layout options ( all have margins right & left of 1%) */
-	.col60 { width: 6.333%; } /* width 60px / grid_1 */
-	.col140 { width: 14.667%; } /* width 140px / grid_2 */
-	.col220 { width: 23.0%; } /* width 220px / grid_3 */
-	.col300 { width: 31.333%; } /* width 300px / grid_4 */
-	.col380 { width: 39.667%; } /* width 380px / grid_5 */
-	.col480 { width: 48.0%; } /* width 480px / grid_6 */
-	.col540 { width: 56.333%; } /* width 540px / grid_7 */
-	.col620 { width: 64.667%; } /* width 620px / grid_8 */
-	.col700 { width: 73.0%; } /* width 700px / grid_9 */
-	.col780 { width: 81.333%; } /* width 780px / grid_10 */
-	.col860 { width: 89.667%; } /* width 860px / grid_11 */
-	.col940 { width: 98.0%; } /* width 940px / grid_12 */
+	/* layout options ( all have margins right & left of 2.1276596%) */
+	.col60  { width: 6.3829787%; } /* width 60px  / grid_1  */
+	.col140 { width: 14.893617%; } /* width 140px / grid_2  */
+	.col220 { width: 23.404255%; } /* width 220px / grid_3  */
+	.col300 { width: 31.914894%; } /* width 300px / grid_4  */
+	.col380 { width: 40.425532%; } /* width 380px / grid_5  */
+	.col480 { width: 51.06383%;  } /* width 480px / grid_6  */
+	.col540 { width: 57.446809%; } /* width 540px / grid_7  */
+	.col620 { width: 65.957447%; } /* width 620px / grid_8  */
+	.col700 { width: 74.468085%; } /* width 700px / grid_9  */
+	.col780 { width: 82.978723%; } /* width 780px / grid_10 */
+	.col860 { width: 91.489362%; } /* width 860px / grid_11 */
+	.col940 { width: 100.0%;     } /* width 940px / grid_12 */
 	
 	/* layout & column defaults */
-	.col60, .col140, .col220, .col300, .col380, .col480, .col540, .col620, .col700, .col780, .col860, .col940 { display: inline; float: left; margin-left: 1%; margin-right: 1%; position: relative; }
+	*[class^="col"] { display: inline; float: left; position: relative;
+		margin-left: 2.1276596%;   /* 20px */ 
+		margin-right: 2.1276596%;  /* 20px */
+		position: relative;
+	}
 	
 	/* default styles & fixes */
 	#main { margin-left: 0; } /* fixes alignment (defaulted at col620) */
 	#sidebar1 { margin-right: 0; } /* fixes alignment (defaulted at col300) */
 	
+/* To Use Another Grid System, simply visit:
+http://themble.com/bones/docs/grids
+There, you can check out how to replace this grid with other like:
+960, Blueprint, and any other custom ones.
+*/
+	
 /******************************************************************
 LINK STYLES
 ******************************************************************/
 
-a, a:visited {}
-a:hover, a:link {}
+a, a:visited { color: #f01d4f; }
+a:hover, a:focus { color: #f05e81; }
 a:active {} /* on click */
-a:link { 
-	-webkit-tap-highlight-color : rgba(0,0,0,0); /* this highlights links on Iphones / iPads */
-}
+a:link { -webkit-tap-highlight-color : rgba(0,0,0,0); /* this highlights links on Iphones / iPads */ }
 
 /******************************************************************
 TEXT SELECTION STYLES
 ******************************************************************/
 
-/* Safari, Chrome, iPhones, iPads */
-::-webkit-selection { 
+/* Highlighted Text */
+::selection { 
 	background: #6fc2f6; 
 	color:#fff; 
 	text-shadow : none; 
@@ -82,14 +117,6 @@ TEXT SELECTION STYLES
 	color:#fff; 
 	text-shadow : none; 
 }
-
-/* The Rest of em */
-::selection { 
-	background: #6fc2f6; 
-	color:#fff; 
-	text-shadow : none; 
-}
-
 
 /******************************************************************
 WORDPRESS BODY CLASSES
@@ -112,7 +139,7 @@ body.single {} /* single post page */
 	body.single-paged-1 {} /* individual paged single (i.e. body.single-paged-3) */
 body.attachment {} /* attatchment page */
 	body.attachmentid-1 {} /* individual attatchment page (i.e. body.attachmentid-763) */
-	body.attachment-mime-type {} /* style mime type pages 
+	body.attachment-mime-type {} /* style mime type pages */
 body.author {} /* author page */
 	body.author-nicename {} /* user nicename (i.e. body.author-samueladams) */
 	body.author-paged-1 {} /* paged author archives (i.e. body.author-paged-4) for page 4 */
@@ -131,17 +158,6 @@ body.page-template {} /* custom page template page */
 body.logged-in {} /* if user is logged in */
 body.paged {} /* paged items like search results or archives */
 	body.paged-1 {} /* individual paged (i.e. body.paged-3) */
-	
-/* new browser classes */
-body.browser-lynx {} /* lynx browsers */
-body.browser-gecko {} /* firefox browsers */
-body.browser-opera {} /* opera browsers */
-body.browser-ns4 {} /* ns4 browsers */
-body.browser-safari {} /* safari browsers */
-body.browser-chrome {} /* chrome browsers */
-body.browser-ie {} /* ie browsers ( aka dinosaurs) */
-body.browser-iphone {} /* iphones (expirimental, best to use Media Queries) */
-
 
 /******************************************************************
 HEADLINES & TITLES
@@ -160,41 +176,39 @@ HEADER SYTLES
 ******************************************************************/
 
 header[role=banner] {}
-	#logo {}
+	#logo { margin: 1.1em 0; }
 
 /******************************************************************
 NAVIGATION STYLES
 (Main Navigation)
 ******************************************************************/
 nav[role=navigation] {}
+	nav[role=navigation] .menu {
+		margin: 1.1em 0; font-family: sans-serif;
+	}
 	nav[role=navigation] .menu ul { 
-		background: #215ea3;
-		-moz-border-radius: 3px;
-		-webkit-border-radius: 3px;
-		border-radius: 3px;
+		background: #4598bb;
 	}
 		nav[role=navigation] .menu ul li {}
 			nav[role=navigation] .menu ul li a { 
+				color: #fefefe;
+				font-weight: 700;
 				padding: 10px 20px;
+				
 				text-shadow: 0 -1px 1px rgba(0,0,0,0.33); 
 			}
 				nav[role=navigation] .menu ul li a:hover { 
-					background: #036; 
+					background: #4eabd2; 
 					color: #fff; 
 				}
 				
-				nav[role=navigation] .menu ul li:first-child a {
-					-moz-border-radius-topleft: 4px;
-					-webkit-border-top-left-radius: 4px;
-					border-top-left-radius: 4px;
-					-moz-border-radius-bottomright: 4px;
-					-webkit-border-bottom-right-radius: 4px;
-					border-bottom-left-radius: 4px;
-				}
+				nav[role=navigation] .menu ul li:first-child a {}
 				
 		nav[role=navigation] .menu ul li.current-menu-item a, .nav ul li.current_page_item a {}
 		
-		nav[role=navigation] .menu ul li ul.sub-menu {}
+		nav[role=navigation] .menu ul li ul.sub-menu, nav[role=navigation] .menu ul li ul.children {
+			background: #4598bb;
+		}
 			nav[role=navigation] .menu ul li ul li a {}
 				nav[role=navigation] .menu ul li ul li a:hover {}
 			nav[role=navigation] .menu ul li ul li:last-child a {}
@@ -208,14 +222,17 @@ POSTS & CONTENT STYLES
 ******************************************************************/
 
 #content {}
-	#main { 
-		background: #fafafa; /* adds bg to post area */
-		-moz-border-radius: 1px;
-		-webkit-border-radius: 1px;
-		border-radius: 1px;
+	#main {}
 	
-	}
-		article[id*=post-] {}
+		article[id*=post-] {
+			padding: 2.2em 20px 0;
+		}
+		
+		single-title {}
+		page-title {}
+		.archive_title {
+			padding: 0 20px;
+		}
 	
 		/* want to style individual post classes? Booya! */
 		.post-id {} /* post by id (i.e. post-3) */
@@ -241,6 +258,9 @@ POSTS & CONTENT STYLES
 			.post_content ul li {}
 			.post_content ol li {}
 			
+			.post_content h2 {}
+			.post_content h3 {}
+			
 			.post_content blockquote {}
 			.post_content blockquote:before {} /* this adds the quote before the blockquote */
 			
@@ -251,6 +271,13 @@ POSTS & CONTENT STYLES
 			.post_content img {}
 			.post_content video {}
 			.post_content object {}
+			.post_content pre, .post_content code {
+				font-size: 0.9em;
+				line-height: 1.7em;
+				padding: 1em;
+				background: #eee;
+				border: 2px solid #cecece;
+			}
 			
 			.wp-caption {}
 			.wp-caption img {}
@@ -277,26 +304,26 @@ PAGE NAVI STYLES
 (Special Feature)
 ******************************************************************/
 
-	/* page navigation */
-	.page-navigation {}
-		.bones_page_navi {}
-			.bones_page_navi li.bpn-prev-link {} /* previous link */
-				.bones_page_navi li.bpn-prev-link a {}
-					.bones_page_navi li.bpn-prev-link a:hover {}
-			.bones_page_navi li {} /* regular links */
-				.bones_page_navi li a {}
-					.bones_page_navi li a:hover {}
-			.bones_page_navi li.bpn-current {} /* current page link */
-					.bones_page_navi li.bpn-current:hover {}
-			.bones_page_navi li.bpn-next-link {} /* next page link */
-				.bones_page_navi li.bpn-next-link a {}
-					.bones_page_navi li.bpn-next-link a:hover {}
-			.bones_page_navi li.bpn-last-page-link {} /* last page link */
-				.bones_page_navi li.bpn-last-page-link a {}
-					.bones_page_navi li.bpn-last-page-link a:hover {}
-			.bones_page_navi li.bpn-first-page-link {} /* first page link */
-				.bones_page_navi li.bpn-first-page-link a {}
-					.bones_page_navi li.bpn-first-page-link a:hover {}
+/* page navigation */
+.page-navigation, .wp-prev-next { }
+	.bones_page_navi, .wp-prev-next ul { }
+		.bones_page_navi li { } /* regular links */
+			.bones_page_navi li a { padding: 3px 6px; }
+				.bones_page_navi li a:hover { color: #f01d4f; }
+		.bones_page_navi li.bpn-current { padding: 3px 6px; border-bottom: 2px solid #f01d4f; } /* current page link */
+				.bones_page_navi li.bpn-current:hover {}
+		.bones_page_navi li.bpn-prev-link { } /* previous link */
+			.bones_page_navi li.bpn-prev-link a { padding: 0; }
+				.bones_page_navi li.bpn-prev-link a:hover { background: none; }
+		.bones_page_navi li.bpn-next-link { font-weight: 700; } /* next page link */
+			.bones_page_navi li.bpn-next-link a { padding: 0; }
+				.bones_page_navi li.bpn-next-link a:hover { background: none; }
+		.bones_page_navi li.bpn-last-page-link {} /* last page link */
+			.bones_page_navi li.bpn-last-page-link a {}
+				.bones_page_navi li.bpn-last-page-link a:hover { background: none; }
+		.bones_page_navi li.bpn-first-page-link {} /* first page link */
+			.bones_page_navi li.bpn-first-page-link a {}
+				.bones_page_navi li.bpn-first-page-link a:hover { background: none; }
 	
 	/* fallback previous & next links */
 	.wp-prev-next {}
@@ -309,18 +336,42 @@ COMMENT STYLES
 ******************************************************************/
 
 #comments {}/* h3 comment title */
-	#comments span {} /* number of comments span */
+	#comments span { 
+		font-weight: 700;
+		color: #1a90db; 
+	} /* number of comments span */
+	
 .comment-nav {}
 	.comment-nav ul {}
 		.comment-nav ul li {}
-.commentlist {}
-	.commentlist li {}
-		.commentlist li[class*=depth-] {}
-			.commentlist li.depth-1 {}
+		
+.commentlist {
+	margin: 0 20px;
+}
+	.commentlist li {
+		margin-bottom: 1.5em; 
+		padding: 0.7335em 10px;
+	}
+		.commentlist li[class*=depth-] {
+			padding-left: 20px; 
+			margin-top: 1.1em;
+		}
+			.commentlist li.depth-1 {
+				margin-left: 0; 
+				margin-top: 0;
+			}
+				.commentlist li:not(.depth-1) { 
+					margin-right: -10px; 
+					margin-top: 0; 
+					padding-bottom: 0; 
+				}
 			.commentlist li.depth-2 {}
 			.commentlist li.depth-3 {}
 			.commentlist li.depth-4 {}
 			.commentlist li.depth-5 {}
+			.commentlist li:last-child { 
+				margin-bottom: 0; 
+			}
 				.commentlist li ul.children li {}
 				.commentlist li ul.children li.alt {}
 				.commentlist li ul.children li.byuser {}
@@ -332,11 +383,11 @@ COMMENT STYLES
 				.commentlist li ul.children .odd {}
 				.commentlist li ul.children .even {}
 			.commentlist .alt {}
-			.commentlist .odd {}
-			.commentlist .even {}
+			.commentlist .odd { background: #eee; }
+			.commentlist .even { background: #fefefe; }
 			.commentlist .parent {}
 			.commentlist .comment {}
-			.commentlist .children {}
+			.commentlist .children { border-left: 2px solid #6ac8d3; }
 			.commentlist .pingback {}
 			.commentlist .bypostauthor {}
 			.commentlist .comment-author {}
@@ -344,24 +395,26 @@ COMMENT STYLES
 			.commentlist .thread-alt {}
 			.commentlist .thread-odd {}
 			.commentlist .thread-even {}	
-			.commentlist .vcard {}
-				.commentlist .vcard cite.fn {}
-				.commentlist .vcard time {}
-					.commentlist .vcard time a {}
-						.commentlist .vcard time a:hover {}
+			
+			.commentlist .vcard { margin-left: 55px; }
+				.commentlist .vcard cite.fn { font-weight: 700; font-style: normal; }
+				.commentlist .vcard time { float: right; }
+					.commentlist .vcard time a { color: #999; }
+						.commentlist .vcard time a:hover { text-decoration: underline; }
 				.commentlist .vcard img.photo {}
-				.commentlist .vcard img.avatar {}
-				.commentlist .vcard cite.fn a.url {}
-			.commentlist .comment-meta {} 
-				.commentlist .comment-meta a {}
-			.commentlist .commentmetadata {}
-				.commentlist .commentmetadata a {}
-			.commentlist li .comment_content {}
-				.commentlist li .comment_content p {}
-				.commentlist li ul {}
-				.commentlist .comment-reply-link {}
-					.commentlist a.comment-reply-link:hover {}
-
+				.commentlist .vcard img.avatar { position: absolute; left: 20px; padding: 2px; border: 1px solid #cecece; background: #fff; }
+					.commentlist .vcard cite.fn a.url {}
+				.commentlist .comment-meta {} 
+					.commentlist .comment-meta a {}
+				.commentlist .commentmetadata {}
+					.commentlist .commentmetadata a {}
+			.commentlist li .comment_content { margin-left: 55px; }
+				.commentlist li .comment_content p { margin: 0.7335em 0 1.5em; }
+				.commentlist li ul { }		
+				.commentlist .comment-reply-link { text-decoration: none; float: right;  background: #4598bb; padding: 3px 5px; color: #fff; opacity: 0.65; margin-bottom: 10px; font-weight: 700; }
+					.commentlist a.comment-reply-link:hover { opacity: 1; }
+			
+				
 /******************************************************************
 COMMENT FORM STYLES
 ******************************************************************/
@@ -386,12 +439,27 @@ COMMENT FORM STYLES
 SIDEBARS & ASIDES
 ******************************************************************/
 
-#sidebar1 {}
+#sidebar1 {
+	margin-top: 2.2em;
+}
 
-	.widget {}
-		.widget li {}
+	.widget {
+		padding: 0 10px;
+		margin: 2.2em 0; 
+	}
+		.widget li {
+			margin-bottom: 0.75em; 
+		}
 		
-		.widgettitle {}
+		.widget li ul { 
+			margin-top: 0.75em; 
+			padding-left: 1em; 
+		}
+		
+		.widgettitle {
+			border-bottom: 2px solid #444; 
+			margin-bottom: 0.75em;
+		}
 
 	/* links widget */
 	.widget_links {}
@@ -485,8 +553,17 @@ SIDEBARS & ASIDES
 FOOTER STYLES
 ******************************************************************/
 
-footer[role=contentinfo] {}
+footer[role=contentinfo] {
+	border-top: 1px solid #cecece; 
+	padding: 1.1em 0 3.3em; 
+	margin-top: 2.2em;
+}
+
 	/* footer menu */
+	footer[role=contentinfo] nav {
+		float: left;
+		margin: 1em 0;
+	}
 	.footer-links {}
 		.footer-links ul {}
 			.footer-links ul li {}
@@ -495,13 +572,14 @@ footer[role=contentinfo] {}
 			.footer-links ul li a:hover, .nav ul li.current-menu-item a, .nav ul li.current_page_item a {}
 			.footer-links ul li ul.sub-menu {} /* you shouldn't have that many links in the footer anyway so it's set to display none ;P */
 			
-	.attribution {}
+	.attribution {
+		margin: 1em 0;
+	}
 
 	
 /******************************************************************
 MEDIA QUERIES & DEVICE STYLES
-Developed by: Andy Clarke & the 320 & Up Extension
-URL: http://stuffandnonsense.co.uk/projects/320andup/
+To use a responsive design, it's reccomended to use the responsive version of Bones. You can find it on github: https://github.com/eddiemachado/bones-responsive
 ******************************************************************/
 
 @media only screen and (min-width: 480px) {
