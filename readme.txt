@@ -13,6 +13,8 @@ Designed by Eddie Machado
 http://themble.com/bones
 eddie@themble.com
 
+XHTML/CSS released under a Creative Commons Attribution 2.5 licence.
+
 Special Thanks to:
 Paul Irish & the HTML5 Boilerplate
 Yoast for some WP functions & optimization ideas
@@ -23,14 +25,12 @@ and several other developers. :)
 For support and or questions please head over to these helpful pages:
 
 Documentation:
-http://themble.com/documentation/bones-documentation/
+http://themble.com/bones
 
 Submit Bugs & or Fixes:
-http://themble.com/bones/dev/
+http://themble.com/bones/
 
 To view Release & Update Notes, read the log.txt file inside 
 the library folder.
 
-This file was added to conform to the recommended
- Wordpress Theme Guidelines.
 ******************************************************************/

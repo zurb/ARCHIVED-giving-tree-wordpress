@@ -4,13 +4,53 @@ This theme is meant to make development easier & take
 advantage of modern web development & design techniques.
 For more information, please visit:
 
-http://themble.com/documentation/bones-documentation/
+http://themble.com/bones/
 
 Author: Eddie Machado
 
 /******************************************************************
 BONES CHANGE LOG & HISTORY
 ******************************************************************/
+
+/*v1.08 release (hellz yea!) */
+- replaced default.css with normalize.css
+- added responsive.css 
+- completely revamped styles & stylesheets
+- moved most design related styles to style.css
+- newer, cleaner default comment styles
+- refined grid system
+- added pubdate and time microformat to all templates
+- changed page navi from div to nav and from ul to ol
+- added Read More filter to replace the [...]
+- removed default "Bones" text in footer if you don't have a menu
+- updated modernizr to 2.0.6 & added FULL support (respond, load, ect)
+- updated jQuery to 1.6.2
+- added IE6 meta to remove toolbar
+- added IE9 meta for pinned sites
+- added viewport meta to help responsive designs
+- removed PNG fixes for IE6...(fuck 'em)
+- added prompt for IE6 users to install Google Chrome Frame
+- removed respond.js since it's called in modernizr
+- removed DOMAssistant for ancient IE users
+- removed flowplayer folder (lighten the load)
+- remove ie folder for IE scripts that are now gone
+- moved translation function to bones.php
+- removed overflow: hidden from some comment styles
+- cleaned up head with more removals
+- moved related posts & page navi plugin to bones.php
+- removing wp version from rss feed
+- removing useless wordpress dashboard widgets
+- organizing bones & functions for simplicity
+- removed analytics
+- added auto hyphens to normalize.css (http://blog.fontdeck.com/post/9037028497/hyphens)
+- removed the custom header image support
+- removed all the favicons & icons
+- added proper title tag
+- added google+ link to profile
+- added rel=me thanks to yoast's tutorial
+- added author.php template
+- removed html5 video shortcode
+
 
 /*v1.07 more changes */
 - updated selectivizr
