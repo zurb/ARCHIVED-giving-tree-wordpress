@@ -56,7 +56,7 @@ The comments page for Bones
 
 <?php if ( comments_open() ) : ?>
 
-<section id="respond">
+<section id="respond" class="respond-form">
 
 	<h3 id="comment-form-title" class="h2"><?php comment_form_title( 'Leave a Reply', 'Leave a Reply to %s' ); ?></h3>
 
@@ -107,7 +107,9 @@ The comments page for Bones
 	  <?php comment_id_fields(); ?>
 	</p>
 	
-	<p id="allowed_tags"><strong>XHTML:</strong> You can use these tags: <code><?php echo allowed_tags(); ?></code></p>
+	<div class="help">
+		<p id="allowed_tags" class="small"><strong>XHTML:</strong> You can use these tags: <code><?php echo allowed_tags(); ?></code></p>
+	</div>
 	
 	<?php do_action('comment_form', $post->ID); ?>
 	
