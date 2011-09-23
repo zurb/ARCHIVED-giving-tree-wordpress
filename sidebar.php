@@ -1,4 +1,4 @@
-				<div id="sidebar1" class="sidebar col300" role="complementary">
+				<div id="sidebar1" class="sidebar right col300 clearfix" role="complementary">
 				
 					<?php get_search_form(); ?>
 
