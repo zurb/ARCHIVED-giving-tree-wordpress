@@ -2,7 +2,7 @@
 			
 			<div id="content" class="clearfix">
 			
-				<div id="main" class="col620 clearfix" role="main">
+				<div id="main" class="col620 left clearfix" role="main">
 
 					<article id="post-not-found" class="clearfix">
 						

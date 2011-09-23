@@ -8,7 +8,7 @@ Template Name: Custom Page Example
 			
 			<div id="content" class="clearfix">
 			
-				<div id="main" class="col620 clearfix" role="main">
+				<div id="main" class="col620 left clearfix" role="main">
 
 					<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 					
@@ -18,7 +18,7 @@ Template Name: Custom Page Example
 							
 							<h1><?php the_title(); ?></h1>
 							
-							<p class="meta"><?php _e("Posted", "bonestheme"); ?> <time><?php the_time('F jS, Y'); ?></time> <?php _e("by", "bonestheme"); ?> <?php the_author_posts_link(); ?>.</p>
+							<p class="meta"><?php _e("Posted", "bonestheme"); ?> <time datetime="<?php echo the_time('Y-m-j'); ?>" pubdate><?php the_time('F jS, Y'); ?></time> <?php _e("by", "bonestheme"); ?> <?php the_author_posts_link(); ?>.</p>
 						
 						</header> <!-- end article header -->
 					
