@@ -228,8 +228,8 @@ POSTS & CONTENT STYLES
 			padding: 2.2em 20px 0;
 		}
 		
-		single-title {}
-		page-title {}
+		.single-title {}
+		.page-title {}
 		.archive_title {
 			padding: 0 20px;
 		}
