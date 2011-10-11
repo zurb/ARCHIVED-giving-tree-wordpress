@@ -8,7 +8,7 @@ Template Name: Custom Page Example
 			
 			<div id="content" class="clearfix">
 			
-				<div id="main" class="col620 left clearfix" role="main">
+				<div id="main" class="col620 left first clearfix" role="main">
 
 					<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 					

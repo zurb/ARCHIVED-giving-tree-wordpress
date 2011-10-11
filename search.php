@@ -2,7 +2,7 @@
 			
 			<div id="content" class="clearfix">
 			
-				<div id="main" class="col700 left clearfix" role="main">
+				<div id="main" class="col700 left first clearfix" role="main">
 				
 					<h1 class="archive_title"><span>Search Results for:</span> <?php echo esc_attr(get_search_query()); ?></h1>
 
@@ -64,7 +64,7 @@
 			
 				</div> <!-- end #main -->
     			
-    			<div id="sidebar1" class="sidebar right col220">
+    			<div id="sidebar1" class="sidebar right last col220">
     				
     				<?php get_search_form(); ?>
     				

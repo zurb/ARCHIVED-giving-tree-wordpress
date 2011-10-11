@@ -2,7 +2,7 @@
 			
 			<div id="content" class="clearfix">
 			
-				<div id="main" class="col620 left clearfix" role="main">
+				<div id="main" class="col620 left first clearfix" role="main">
 				
 					<?php if (is_category()) { ?>
 						<h1 class="archive_title h2">
