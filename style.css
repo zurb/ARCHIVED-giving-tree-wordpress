@@ -4,7 +4,7 @@ Theme URI: http://www.themble.com/bones
 Description: This site was built using the Bones Development Theme. For more information about Bones or to view documentation, you can visit the <a href="http://themble.com/bones/docs/" title="Bones Documentation">Bones Documentation</a> page. You can also view the conversation on Twitter by following the hashtag: <a href="http://twitter.com/#!/search/%23wpbones">#wpbones</a>.
 Author: Eddie Machado
 Author URI: http://www.themble.com/bones/
-Version: 1.08
+Version: 1.09
 Tags: html5, css3, fixed, development, bones, h5bp
 
 License: GPL or whatever
@@ -90,6 +90,27 @@ mark, .search-term { background: #EBE16F; }
 .info { border-color: #92cae4; background: #d5edf8; }
 .error { border-color: #fbc2c4; background: #fbe3e4; }
 .success { border-color: #c6d880; background: #e6efc2; } 
+
+/* 	To embed your own fonts, use this syntax
+	and place your fonts inside the 
+	library/fonts folder. For more information
+	on embedding fonts, go to:
+	http://www.fontsquirrel.com/
+	Be sure to remove the comment brackets.
+*/
+
+/*	@font-face {
+    	font-family: 'Font Name';
+    	src: url('library/fonts/font-name.eot');
+    	src: url('library/fonts/font-name.eot?#iefix') format('embedded-opentype'),
+             url('library/fonts/font-name.woff') format('woff'),
+             url('library/fonts/font-name.ttf') format('truetype'),
+             url('library/fonts/font-name.svg#font-name') format('svg');
+    	font-weight: normal;
+    	font-style: normal;
+	}
+*/
+
 	
 /******************************************************************
 LINK STYLES
