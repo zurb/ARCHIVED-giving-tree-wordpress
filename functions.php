@@ -110,10 +110,9 @@ function bones_comments($comment, $args, $depth) {
 // Search Form
 function bones_wpsearch($form) {
     $form = '<form role="search" method="get" id="searchform" action="' . home_url( '/' ) . '" >
-    <div><label class="screen-reader-text" for="s">' . __('Search for:', 'bonestheme') . '</label>
+    <label class="screen-reader-text" for="s">' . __('Search for:', 'bonestheme') . '</label>
     <input type="text" value="' . get_search_query() . '" name="s" id="s" placeholder="Search the Site..." />
     <input type="submit" id="searchsubmit" value="'. esc_attr__('Search') .'" />
-    </div>
     </form>';
     return $form;
 } // don't remove this bracket!
