@@ -26,13 +26,6 @@
 		<meta name="description" content="">
 		<meta name="author" content="">
 		
-		<!-- mobile optimized -->
-		<meta name="viewport" content="width=device-width,initial-scale=1">
-		<!-- IE6 toolbar removal -->
-		<meta http-equiv="imagetoolbar" content="false" />
-		<!-- allow pinned sites -->
-		<meta name="application-name" content="<?php bloginfo('name'); ?>" />
-		
 		<!-- icons & favicons (for more: http://themble.com/support/adding-icons-favicons/) -->
 		<link rel="shortcut icon" href="<?php echo get_template_directory_uri(); ?>/favicon.ico">
 
