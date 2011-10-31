@@ -12,6 +12,8 @@ Author: Eddie Machado
 BONES CHANGE LOG & HISTORY
 ******************************************************************/
 
+So many changes...
+
 /*v1.08 release (hellz yea!) */
 - replaced default.css with normalize.css
 - added responsive.css 

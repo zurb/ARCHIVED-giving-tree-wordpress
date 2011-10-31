@@ -25,10 +25,10 @@ and several other developers. :)
 For support and or questions please head over to these helpful pages:
 
 Documentation:
-http://themble.com/bones
+http://themble.com/docs
 
 Submit Bugs & or Fixes:
-http://themble.com/bones/
+https://github.com/eddiemachado/bones/issues
 
 To view Release & Update Notes, read the log.txt file inside 
 the library folder.

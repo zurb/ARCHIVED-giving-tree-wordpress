@@ -9,8 +9,8 @@ This file contains extra features not 100% ready to be included
 in the core. Feel free to edit anything here or even help us fix
 and optimize the code! 
 
-IF YOU WANT TO SUBMIT A FIX OR CORRECTION, PLEASE CONTACT US HERE:
-http://themble.com/bones/dev
+IF YOU WANT TO SUBMIT A FIX OR CORRECTION, JOIN US ON GITHUB:
+https://github.com/eddiemachado/bones/issues
 
 IF YOU WANT TO DISABLE THIS FILE, REMOVE IT'S CALL IN THE FUNCTIONS.PHP FILE
 
