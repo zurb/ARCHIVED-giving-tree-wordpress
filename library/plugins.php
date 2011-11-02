@@ -17,37 +17,66 @@ IF YOU WANT TO DISABLE THIS FILE, REMOVE IT'S CALL IN THE FUNCTIONS.PHP FILE
 */
 
 
-
-
 /* 
-Facebook Connect Image Fix
-This was built of a post from Yoast that should
-fix the facebook issue when sharing something w/
-facebook where it selects a random photo from
-your site. This should use a photo from the actual post.
+Social Integration
+This is a collection of snippets I edited or reused from
+social plugins. No need to use a plugin when you can 
+replicate it in only a few lines I say, so here we go.
+For more info, or to add more open graph stuff, check
+out: http://yoast.com/facebook-open-graph-protocol/
 */
+
+// get the image for the google + and facebook integration 
+function bones_get_socialimage() {
+  $src = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), '', '' );
+  if ( has_post_thumbnail($post->ID) ) {
+    $socialimg = $src[0];
+  } else {
+    global $post, $posts;
+    $socialimg = '';
+    $output = preg_match_all('/<img.+src=[\'"]([^\'"]+)[\'"].*>/i',
+    $post->post_content, $matches);
+    $socialimg = $matches [1] [0];
+  }
+  if(empty($socialimg)) {
+	$socialimg = get_template_directory_uri() . '/library/images/nothumb.gif';
+  }
+  return $socialimg;
+}
 
 // facebook share correct image fix (thanks to yoast)
 function bones_facebook_connect() {
+	echo "\n" . '<!-- facebook open graph stuff -->' . "\n";
+	echo '<!-- place your facebook app id below -->';
+	echo '<meta property="fb:app_id" content="1234567890"/>' . "\n";
+	global $post;	
+	echo '<meta property="og:site_name" content="'. get_bloginfo("name") .'"/>' . "\n";
+	echo '<meta property="og:url" content="'. get_permalink() .'"/>' . "\n";
+	echo '<meta property="og:title" content="'.get_the_title().'" />' . "\n";
 	if (is_singular()) {
-	  global $post;
-	  if ( current_theme_supports('post-thumbnails') 
-	      && has_post_thumbnail( $post->ID ) ) {
-	    $thumbnail = wp_get_attachment_image_src( 
-	      get_post_thumbnail_id( $post->ID ), 'thumbnail', false);
-	    echo '<meta property="og:image" 
-	      content="'.$thumbnail[0].'" />';	
-	  }
-	  echo '<meta property="og:title" 
-	    content="'.get_the_title().'" />';
-	  if ( get_the_excerpt() != '' )
-	    echo '<meta property="og:description" 
-	      content="'.strip_tags( get_the_excerpt() ).'" />';
+		echo '<meta property="og:type" content="article"/>' . "\n";
+		echo '<meta property="og:description" content="' .strip_tags( get_the_excerpt() ).'" />' . "\n";
 	}
+	echo '<meta property="og:image" content="'. bones_get_socialimage() .'"/>' . "\n";
+	echo '<!-- end facebook open graph -->' . "\n";
 }
 
+// google +1 meta info
+function bones_google_header() {
+	if (is_singular()) {
+		echo '<!-- google +1 tags -->' . "\n";
+		global $post;
+		echo '<meta itemprop="name" content="'.get_the_title().'">' . "\n";
+		echo '<meta itemprop="description" content="' .strip_tags( get_the_excerpt() ).'">' . "\n";
+		echo '<meta itemprop="image" content="'. bones_get_socialimage() .'">' . "\n";
+		echo '<!-- end google +1 tags -->' . "\n";
+	}
+}
+	
 	// add this in the header 
 	add_action('wp_head', 'bones_facebook_connect');
+	add_action('wp_head', 'bones_google_header');
+
 	
 // adding the rel=me thanks to yoast	
 function yoast_allow_rel() {
