@@ -230,7 +230,9 @@ nav[role=navigation] {}
 				
 				nav[role=navigation] .menu ul li:first-child a {}
 				
-		nav[role=navigation] .menu ul li.current-menu-item a, .nav ul li.current_page_item a {}
+		nav[role=navigation] .menu ul li.current-menu-item a, 
+		nav[role=navigation] .menu ul li.current_page_item a,
+		nav[role=navigation] .menu ul li.current-page-ancestor a {}
 
 		/* sub menus */
 		nav[role=navigation] .menu ul li ul, nav[role=navigation] .menu ul li ul li ul { 
