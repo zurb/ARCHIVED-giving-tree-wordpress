@@ -22,6 +22,7 @@ BONES CHANGE LOG & HISTORY
 - added a font-face example to stylesheet
 - removed extra < div > around search function
 - added role=article to article element
+- added tag & category examples to custom post type
 
 
 /*v1.08 release (hellz yea!) */
