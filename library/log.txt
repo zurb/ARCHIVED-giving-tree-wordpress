@@ -12,7 +12,17 @@ Author: Eddie Machado
 BONES CHANGE LOG & HISTORY
 ******************************************************************/
 
-So many changes...
+/* v1.09 updates */
+- added snippet to remove < p > from imgs (http://css-tricks.com/snippets/wordpress/remove-paragraph-tags-from-around-images/) 
+- added custom admin functions file
+- updated normalize
+- added site description < p > to the header
+- added page-ancestor class for nav to css
+- added facebook open graph and google+ meta info (plugins.php)
+- added a font-face example to stylesheet
+- removed extra < div > around search function
+- added role=article to article element
+
 
 /*v1.08 release (hellz yea!) */
 - replaced default.css with normalize.css
