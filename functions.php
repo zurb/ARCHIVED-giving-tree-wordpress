@@ -91,7 +91,7 @@ function bones_comments($comment, $args, $depth) {
 			<header class="comment-author vcard">
 				<?php echo get_avatar($comment,$size='32',$default='<path_to_url>' ); ?>
 				<?php printf(__('<cite class="fn">%s</cite>'), get_comment_author_link()) ?>
-				<time><a href="<?php echo htmlspecialchars( get_comment_link( $comment->comment_ID ) ) ?>"><?php printf(__('%1$s'), get_comment_date(),  get_comment_time()) ?></a></time>
+				<time datetime="<?php echo comment_time('Y-m-j'); ?>"><a href="<?php echo htmlspecialchars( get_comment_link( $comment->comment_ID ) ) ?>"><?php comment_time('F jS, Y'); ?> </a></time>
 				<?php edit_comment_link(__('(Edit)'),'  ','') ?>
 			</header>
 			<?php if ($comment->comment_approved == '0') : ?>
