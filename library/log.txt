@@ -12,6 +12,11 @@ Author: Eddie Machado
 BONES CHANGE LOG & HISTORY
 ******************************************************************/
 
+/* v1.09 more updates */
+- updated admin.php to include custom widget examples, admin login styles, and admin footer
+- login.css added for custom login styles
+- custom login logo included
+
 /* v1.09 updates */
 - added snippet to remove < p > from imgs (http://css-tricks.com/snippets/wordpress/remove-paragraph-tags-from-around-images/) 
 - added custom admin functions file
