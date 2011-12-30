@@ -18,8 +18,8 @@ if ( is_readable($locale_file) ) require_once($locale_file);
 // Cleaning up the Wordpress Head
 function bones_head_cleanup() {
 	// remove header links
-	remove_action( 'wp_head', 'feed_links_extra', 3 );                    // Category Feeds
-	remove_action( 'wp_head', 'feed_links', 2 );                          // Post and Comment Feeds
+	// remove_action( 'wp_head', 'feed_links_extra', 3 );                    // Category Feeds
+	// remove_action( 'wp_head', 'feed_links', 2 );                          // Post and Comment Feeds
 	remove_action( 'wp_head', 'rsd_link' );                               // EditURI link
 	remove_action( 'wp_head', 'wlwmanifest_link' );                       // Windows Live Writer
 	remove_action( 'wp_head', 'index_rel_link' );                         // index link
