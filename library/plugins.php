@@ -28,19 +28,23 @@ out: http://yoast.com/facebook-open-graph-protocol/
 
 // get the image for the google + and facebook integration 
 function bones_get_socialimage() {
+  global $post, $posts;
+
   $src = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), '', '' );
+
   if ( has_post_thumbnail($post->ID) ) {
     $socialimg = $src[0];
   } else {
-    global $post, $posts;
     $socialimg = '';
-    $output = preg_match_all('/<img.+src=[\'"]([^\'"]+)[\'"].*>/i',
-    $post->post_content, $matches);
-    $socialimg = $matches [1] [0];
+    $output = preg_match_all('/<img.+src=[\'"]([^\'"]+)[\'"].*>/i', $post->post_content, $matches);
+    if (array_key_exists(1, $matches))
+      if (array_key_exists(0, $matches[1]))
+        $socialimg = $matches [1] [0];
   }
-  if(empty($socialimg)) {
-	$socialimg = get_template_directory_uri() . '/library/images/nothumb.gif';
-  }
+
+  if(empty($socialimg))
+    $socialimg = get_template_directory_uri() . '/library/images/nothumb.gif';
+
   return $socialimg;
 }
 
