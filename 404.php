@@ -8,13 +8,13 @@
 						
 						<header>
 							
-							<h1>Epic 404 - Article Not Found</h1>
+							<h1><?php _e("Epic 404 - Article Not Found", "bonestheme"); ?></h1>
 						
 						</header> <!-- end article header -->
 					
 						<section class="post_content">
 							
-							<p>The article you were looking for was not found, but maybe try looking again!</p>
+							<p><?php _e("The article you were looking for was not found, but maybe try looking again!", "bonestheme"); ?></p>
 					
 						</section> <!-- end article section -->
 						
