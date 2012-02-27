@@ -1,5 +1,5 @@
 /******************************************************************
-Bones 
+Bones .
 A Lightweight Wordpress Development Theme
 
 Bones is designed to make the life of developers easier. It's built
