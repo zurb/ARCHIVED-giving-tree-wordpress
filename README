@@ -2,6 +2,15 @@
 Bones 
 A Lightweight Wordpress Development Theme
 
+_______________________________________________________________
+HEADS UP!!!
+Bones & Bones (Responsive Edition) are going to be merged into one repo 
+any day now. Since the responsive version seems to be the way to go, 
+that version is going to take precedence. If you like the Classic
+Version of Bones, I suggest forking it and keeping your very own
+version!
+_______________________________________________________________
+
 Bones is designed to make the life of developers easier. It's built
 using HTML5 & has a strong semantic foundation. It was updated recently
 using some of the HTML5 Boilerplate's recommended markup and setup.
