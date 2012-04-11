@@ -23,6 +23,7 @@ function custom_post_example() {
 		array('labels' => array(
 			'name' => __('Custom Types', 'post type general name'), /* This is the Title of the Group */
 			'singular_name' => __('Custom Post', 'post type singular name'), /* This is the individual type */
+			'all_items' => __('All Custom Posts'), /* the all items menu item */
 			'add_new' => __('Add New', 'custom post type item'), /* The add new menu item */
 			'add_new_item' => __('Add New Custom Type'), /* Add New Display Title */
 			'edit' => __( 'Edit' ), /* Edit Dialog */
