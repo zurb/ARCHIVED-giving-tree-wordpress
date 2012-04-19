@@ -9,7 +9,7 @@ The comments page for Bones
 
   if ( post_password_required() ) { ?>
   	<div class="help">
-    	<p class="nocomments">This post is password protected. Enter the password to view comments.</p>
+    	<p class="nocomments"><?php __("This post is password protected. Enter the password to view comments.", "bonestheme"); ?></p>
   	</div>
   <?php
     return;
@@ -46,8 +46,9 @@ The comments page for Bones
     	<!-- If comments are open, but there are no comments. -->
 
 	<?php else : // comments are closed ?>
+	
 	<!-- If comments are closed. -->
-	<p class="nocomments">Comments are closed.</p>
+	<p class="nocomments"><?php __("Comments are closed.", "bonestheme"); ?></p>
 
 	<?php endif; ?>
 
@@ -74,25 +75,25 @@ The comments page for Bones
 
 	<?php if ( is_user_logged_in() ) : ?>
 
-	<p class="comments-logged-in-as">Logged in as <a href="<?php echo get_option('siteurl'); ?>/wp-admin/profile.php"><?php echo $user_identity; ?></a>. <a href="<?php echo wp_logout_url(get_permalink()); ?>" title="Log out of this account">Log out &raquo;</a></p>
+	<p class="comments-logged-in-as"><?php __("Logged in as", "bonestheme"); ?> <a href="<?php echo get_option('siteurl'); ?>/wp-admin/profile.php"><?php echo $user_identity; ?></a>. <a href="<?php echo wp_logout_url(get_permalink()); ?>" title="Log out of this account"><?php __("Log out", "bonestheme"); ?> &raquo;</a></p>
 
 	<?php else : ?>
 	
 	<ul id="comment-form-elements" class="clearfix">
 		
 		<li>
-		  <label for="author">Name <?php if ($req) echo "(required)"; ?></label>
+		  <label for="author"><?php __("Name", "bonestheme"); ?> <?php if ($req) echo "(required)"; ?></label>
 		  <input type="text" name="author" id="author" value="<?php echo esc_attr($comment_author); ?>" placeholder="Your Name" tabindex="1" <?php if ($req) echo "aria-required='true'"; ?> />
 		</li>
 		
 		<li>
-		  <label for="email">Mail <?php if ($req) echo "(required)"; ?></label>
+		  <label for="email"><?php __("Mail", "bonestheme"); ?> <?php if ($req) echo "(required)"; ?></label>
 		  <input type="email" name="email" id="email" value="<?php echo esc_attr($comment_author_email); ?>" placeholder="Your Email" tabindex="2" <?php if ($req) echo "aria-required='true'"; ?> />
-		  <small>(will not be published)</small>
+		  <small><?php __("(will not be published)", "bonestheme"); ?></small>
 		</li>
 		
 		<li>
-		  <label for="url">Website</label>
+		  <label for="url"><?php __("Website", "bonestheme"); ?></label>
 		  <input type="url" name="url" id="url" value="<?php echo esc_attr($comment_author_url); ?>" placeholder="Your Website" tabindex="3" />
 		</li>
 		
