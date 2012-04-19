@@ -1,4 +1,4 @@
-				<div id="sidebar1" class="sidebar right col300 last clearfix" role="complementary">
+				<div id="sidebar1" class="sidebar fourcol last clearfix" role="complementary">
 				
 					<?php get_search_form(); ?>
 
@@ -11,9 +11,7 @@
 						<!-- This content shows up if there are no widgets defined in the backend. -->
 						
 						<div class="help">
-						
 							<p>Please activate some Widgets.</p>
-						
 						</div>
 
 					<?php endif; ?>
