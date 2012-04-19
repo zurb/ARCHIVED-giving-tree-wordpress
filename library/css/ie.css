@@ -1,0 +1,77 @@
+.post-content .alignleft, .post-content img.alignleft {
+  margin-right: 1.5em;
+  display: inline;
+  float: left; }
+.post-content .alignright, .post-content img.alignright {
+  margin-left: 1.5em;
+  display: inline;
+  float: right; }
+.post-content .aligncenter, .post-content img.aligncenter {
+  margin-right: auto;
+  margin-left: auto;
+  display: block;
+  clear: both; }
+
+.wrap {
+  max-width: 1000px; }
+
+.onecol {
+  width: 5.801%; }
+
+.twocol {
+  width: 14.365%; }
+
+.threecol {
+  width: 22.928%; }
+
+.fourcol {
+  width: 31.492%; }
+
+.fivecol {
+  width: 40.055%; }
+
+.sixcol {
+  width: 48.619%; }
+
+.sevencol {
+  width: 57.182%; }
+
+.eightcol {
+  width: 65.746%; }
+
+.ninecol {
+  width: 74.309%; }
+
+.tencol {
+  width: 82.873%; }
+
+.elevencol {
+  width: 91.436%; }
+
+.twelvecol {
+  width: 100.0%; }
+
+.onecol, .twocol, .threecol, .fourcol, .fivecol, .sixcol, .sevencol, .eightcol, .ninecol, .tencol, .elevencol, .twelvecol {
+  position: relative;
+  float: left;
+  margin-left: 2.762%; }
+
+.first {
+  margin-left: 0; }
+
+.last {
+  float: right; }
+
+.widgettitle {
+  border-bottom: 4px double #cccccc;
+  margin-bottom: 0.75em;
+  font-weight: 300; }
+
+.widget {
+  padding: 0 10px;
+  margin: 2.2em 0; }
+  .widget ul li {
+    margin-bottom: 0.75em; }
+    .widget ul li ul {
+      margin-top: 0.75em;
+      padding-left: 1em; }
