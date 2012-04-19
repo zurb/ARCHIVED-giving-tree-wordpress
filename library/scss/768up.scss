@@ -1,0 +1,666 @@
+/******************************************************************
+Site Name: 
+Author: 
+
+Stylesheet: Tablet & Small Desktop Stylesheet
+
+Here's where you can start getting into the good stuff.
+This size will work on iPads, other tablets, and desktops.
+So you can start working with more styles, background images,
+and other resources. You'll also notice the grid starts to
+come into play. Have fun!
+
+******************************************************************/
+
+
+/*********************
+GENERAL STYLES
+*********************/
+
+body {}
+
+/********************
+WORDPRESS BODY CLASSES
+style a page via class
+********************/
+
+.rtl {}
+.home {}                            /* home page */
+.blog {}                            /* blog page */
+.archive {}                         /* archive page */
+.date {}                            /* date archive page */
+	.date-paged-1 {}                /* replace the number to the corresponding page number */
+.search {}                          /* search page */
+	.search-results {}              /* search result page */
+	.search-no-results {}           /* no results search page */
+	.search-paged-1 {}              /* individual paged search (i.e. body.search-paged-3) */
+.error404 {}                        /* 404 page */
+.single {}                          /* single post page */
+	.postid-1 {}                    /* individual post page by id (i.e. body.postid-73) */
+	.single-paged-1 {}              /* individual paged single (i.e. body.single-paged-3) */
+.attachment {}                      /* attatchment page */
+	.attachmentid-1 {}              /* individual attatchment page (i.e. body.attachmentid-763) */
+	.attachment-mime-type {}        /* style mime type pages */
+.author {}                          /* author page */
+	.author-nicename {}             /* user nicename (i.e. body.author-samueladams) */
+	.author-paged-1 {}              /* paged author archives (i.e. body.author-paged-4) for page 4 */
+.category {}                        /* category page */
+	.category-1 {}                  /* individual category page (i.e. body.category-6) */
+	.category-paged-1 {}            /* replace the number to the corresponding page number */
+.tag {}                             /* tag page */
+	.tag-slug {}                    /* individual tag page (i.e. body.tag-news) */
+	.tag-paged-1 {}                 /* replace the number to the corresponding page number */
+.page-template {}                   /* custom page template page */
+	.page-template-page-php {}      /* individual page template (i.e. body.page-template-contact-php */
+	.page-paged-1 {}                /* replace the number to the corresponding page number */
+	.page-parent {}
+	.page-child {}
+	.parent-pageid-1 {}             /* replace the number to the corresponding page number */
+.logged-in {}                       /* if user is logged in */
+.paged {}                           /* paged items like search results or archives */
+	.paged-1 {}                     /* individual paged (i.e. body.paged-3) */
+
+/*********************
+LAYOUT & GRID STYLES
+*********************/
+
+.wrap {
+	max-width: 1140px;
+}
+	/*
+		This is a combination of the 1140 grid and Twitter Boostrap.
+		I liked 1140 but Boostrap's grid was way more detailed so
+		I merged them together, let's see how this works out.
+		If you want to use 1140, the original values are commented
+		out on each line.
+	*/
+	.onecol    { width: 5.801104972%;  }       /* 4.85%;  } /* grid_1  */
+	.twocol    { width: 14.364640883%; }       /* 13.45%; } /* grid_2  */
+	.threecol  { width: 22.928176794%; }       /* 22.05%; } /* grid_3  */
+	.fourcol   { width: 31.491712705%; }       /* 30.75%; } /* grid_4  */
+	.fivecol   { width: 40.055248616%; }       /* 39.45%; } /* grid_5  */
+	.sixcol    { width: 48.618784527%; }       /* 48%;    } /* grid_6  */
+	.sevencol  { width: 57.182320438000005%; } /* 56.75%; } /* grid_7  */
+	.eightcol  { width: 65.74585634900001%; }  /* 65.4%;  } /* grid_8  */
+	.ninecol   { width: 74.30939226%; }        /* 74.05%; } /* grid_9  */
+	.tencol    { width: 82.87292817100001%; }  /* 82.7%;  } /* grid_10 */
+	.elevencol { width: 91.436464082%; }       /* 91.35%; } /* grid_11 */
+	.twelvecol { width: 99.999999993%; }       /* 100%;   } /* grid_12 */
+	
+	/* layout & column defaults */
+	.onecol, .twocol, .threecol, .fourcol, .fivecol, .sixcol, .sevencol, .eightcol, .ninecol, .tencol, .elevencol, .twelvecol { 
+		position: relative;
+		float: left; 
+		margin-left:  2.762430939%;
+	}
+	
+	.first {
+		margin-left:  0;
+	}
+	
+	.last {
+		float:  right;
+	}
+
+/*********************
+HEADER SYTLES
+*********************/
+
+.header {}
+
+	#logo {}
+	
+/*********************
+NAVIGATION STYLES
+*********************/
+
+.nav {}
+
+	/* .menu is clearfixed inside mixins.less */
+	.menu {
+		ul {
+			background: #eee; 
+			
+			li {
+				float: left;
+				position: relative;
+				
+				a {
+					border-bottom: 0;
+					
+					/*
+					you can use hover styles here even though this size
+					has the possibility of bieng a mobile device.
+					*/
+					&:hover, &:focus {
+						background-color: #dedede;
+					
+					}
+				}
+				
+				&:first-child {}
+				&:last-child {}
+				
+				/*
+				plan your menus and drop-downs wisely.
+				*/
+				ul.sub-menu,
+				ul.children {
+					width: 200px;
+					border: 1px solid #ccc;
+					border-top: 0;
+					position: absolute;
+					display: none;
+					z-index: 8999;
+						
+					li {
+						a {
+							padding-left: 10px;
+							border-right: 0;
+							display: block;
+							width: 180px;
+							border-bottom: 1px solid #ccc;
+							
+							&:hover,
+							&:focus {}
+							&:link {}
+						}
+						&:first-child {}
+						&:last-child {
+							a {
+								border-bottom: 0;
+							}
+						}
+						
+						/*
+						if you need to go deeper, go nuts
+						just remember deeper menus suck
+						for usability. k, bai.
+						*/
+						ul {}
+					}
+					
+					/* highlight sub-menu current page */
+					li.current-menu-item, 
+					li.current_page_item,
+					li.current-page-ancestor {
+						a {}
+					}
+				}
+				
+				/* showing sub-menus */
+				&:hover ul {
+					top: auto;
+					display: block;
+				}
+				
+			} /* end .menu ul li */
+			
+			/* highlight current page */
+			li.current-menu-item, 
+			li.current_page_item,
+			li.current-page-ancestor {
+				a {}
+			}  /* end current highlighters */
+		} /* end .menu ul */
+	} /* end .menu */
+
+/*********************
+POSTS & CONTENT STYLES
+*********************/
+
+#content {}
+	
+		.hentry {
+			header {}
+			footer {}
+		} /* end .hentry */
+		
+		.single-title, 
+		.page-title {}
+		.single-title {}
+		.page-title {}
+		.archive_title { }
+	
+		/* want to style individual post classes? Booya! */
+		.post-id {} /* post by id (i.e. post-3) */
+		.post {} /* general post style */
+		.page {} /* general article on a page style */
+		.attachment {} /* general style on an attatchment */
+		.sticky {} /* sticky post style */
+		.hentry {} /* hentry class */
+		.category-slug {} /* style by category (i.e. category-videos) */
+		.tag-slug {} /* style by tag (i.e. tag-news) */
+	
+		/* post meta */
+		.meta {
+			time {}
+		}
+			
+		/* post content */
+		.post-content {
+			p {}
+			ul, ol, table, dl {}
+			ul, ol {
+				li {}
+			}
+			ul {
+				li {}
+			}
+			ol {
+				li {}
+			}
+			blockquote {	
+				&:before {}
+			}
+			dl {}
+			dt {}
+			dd {}
+			
+			img {}
+			
+			/* at this larger size, we can start to align images */
+			.alignleft, img.alignleft {}
+			.alignright, img.alignright {}
+			.aligncenter, img.aligncenter {}
+			
+			video, object {}
+			pre, code {}
+		} /* end .post-content */
+			
+		.wp-caption {
+			/* images inside wp-caption */
+			img {}
+			p.wp-caption-text {}
+		} /* end .wp-caption */
+			
+		/* image gallery styles */
+		.gallery {
+			dl {
+				a {}
+				img {}
+			}
+			dt {}
+			dd {}
+		} /* end .gallery */
+		
+		/* gallery caption styles */	
+		.gallery-caption {}
+		
+		.size-full {}
+		.size-large {}
+		.size-medium {}
+		.size-thumbnail {}
+
+/******************************************************************
+PAGE NAVI STYLES
+******************************************************************/
+
+.page-navigation, 
+.wp-prev-next {}
+
+	.bones_page_navi {	
+		li {
+			a {	
+				&:hover, 
+				&:focus {}
+			}
+		}
+		
+		/* current page link */	
+		li.bpn-current { 
+			a {
+				/* hovering on current page link */
+				&:hover,
+				&:focus {}
+			}
+		} /* end .bones_page_navi .bpn-current */
+		
+		/* common styles for page-navi links */
+		li.bpn-prev-link, 
+		li.bpn-next-link {
+			a {}
+		}
+		
+		/* remove the bg on end links */
+		li.bpn-prev-link a:hover, 
+		li.bpn-next-link a:hover, 
+		li.bpn-first-page-link a:hover, 
+		li.bpn-last-page-link a:hover {} 
+		
+		/* previous link */
+		li.bpn-prev-link { 
+			a {
+				&:hover,
+				&:focus {}
+			}
+		} 
+		
+		/* next page link */		
+		li.bpn-next-link { 
+			a {
+				&:hover,
+				&:focus {}
+			}
+		} 
+				
+		/* first page link */
+		li.bpn-first-page-link {
+			a {
+				&:hover,
+				&:focus {}
+			}
+		} 
+		
+		/* last page link */
+		li.bpn-last-page-link {
+			a {}
+		} 
+	} /* end .bones_page_navi */
+	
+	/* fallback previous & next links */
+	.wp-prev-next {
+		ul {}
+		.prev-link {}
+		.next-link {}
+	} /* end .wp-prev-next */
+
+/******************************************************************
+COMMENT STYLES
+******************************************************************/
+
+/* h3 comment title */
+#comments {
+	/* number of comments span */
+	span {}
+}
+	
+.comment-nav {
+	ul {
+		li {}
+	}
+}
+		
+.commentlist {	
+	li { 
+		&:last-child {}
+		
+		ul.children {
+			li {}
+			
+			/* variations */
+			.comment {}
+			.alt {}
+			.odd {}
+			.even {}
+			.depth-1 {} /* change number for different depth */
+			.byuser {}
+			.bypostauthor {}
+			.comment-author-admin {}
+		
+		} /* end .commentlist li ul.children */
+	}
+	
+	li[class*=depth-] {}
+	li.depth-1 {}
+	
+	li:not(.depth-1) {}
+	
+	li.depth-2 {}
+	li.depth-3 {}
+	li.depth-4 {}
+	li.depth-5 {}
+	
+	/* general comment classes */
+	.alt {}
+	.odd {}
+	.even {}
+	.parent {}
+	.comment {}
+	.children {}
+	.pingback {}
+	.bypostauthor {}
+	.comment-author {}
+	.comment-author-admin {}
+	.thread-alt {}
+	.thread-odd {}
+	.thread-even {}	
+			
+	/* vcard */
+	.vcard { 
+		
+		cite.fn {
+			a.url {}
+		}
+		
+		time {
+			a {
+				&:hover {}
+			}
+		}
+		
+		img.photo {}
+		img.avatar {}
+	} /* end .commentlist .vcard */
+
+	/* comment meta */
+	.comment-meta {
+		a {}
+	} 
+	.commentmetadata {
+		a {}
+	}
+	
+	/* comment content */
+	.comment_content {
+		p {}
+	} /* end .commentlist .comment_content */
+	
+	/* comment reply link */
+	.comment-reply-link {
+		&:hover,
+		&:focus {}
+	} /* end .commentlist .comment-reply-link */
+		
+} /* end .commentlist */
+
+
+/******************************************************************
+COMMENT FORM STYLES
+******************************************************************/
+
+.respond-form {
+	form {
+		li {	
+			label,
+			small {}
+		}
+		
+		input[type=text], 
+		input[type=email], 
+		input[type=url], 
+		textarea {
+			&:focus {}
+			/* form validation */
+			&:invalid {}
+		}
+		
+		input[type=text],
+		input[type=email], 
+		input[type=url] {}
+		textarea {}
+	}
+}
+	
+	/* comment submit button */
+	#submit {}
+	
+	/* comment form title */
+	#comment-form-title {}
+	
+	/* cancel comment reply link */
+	#cancel-comment-reply {
+		a {}
+	}
+			
+	/* logged in comments */
+	.comments-logged-in-as {}
+		
+	/* allowed tags */
+	#allowed_tags {}		
+	
+	/* no comments */
+	.nocomments {}		
+	
+	
+/*********************
+SIDEBARS & ASIDES
+*********************/
+
+.sidebar {
+	margin-top: 2.2em;
+}
+
+	.widgettitle {
+		border-bottom: 2px solid #444;
+		margin-bottom: 0.75em;
+	}
+
+	.widget {
+		padding: 0 10px;
+		margin: 2.2em 0;
+		
+		ul {
+			li {
+				margin-bottom: 0.75em;
+				
+				&:first-child {}
+				&:last-child {}
+				a {}
+				/* deep nesting */
+				
+				ul {
+					margin-top: 0.75em;
+					padding-left: 1em;
+				}
+			}
+		}
+	}
+
+
+	/* links widget */
+	.widget_links {}
+	.widget_links ul {}
+	.widget_links ul li {}
+	.widget_links ul li a {}
+	
+	/* meta widget */
+	.widget_meta {}
+	.widget_meta ul {}
+	.widget_meta ul li {}
+	.widget_meta ul li a {}
+	
+	/* pages widget */
+	.widget_pages {}
+	.widget_pages ul {}
+	.widget_pages ul li {}
+	.widget_pages ul li a {}
+	
+	/* recent-posts widget */
+	.widget_recent_entries {}
+	.widget_recent_entries ul {}
+	.widget_recent_entries ul li {}
+	.widget_recent_entries ul li a {}
+	
+	/* archives widget */
+	.widget_archive {}
+	.widget_archive ul {}
+	.widget_archive ul li {} 
+	.widget_archive ul li a {}
+	.widget_archive select {}
+	.widget_archive option {}
+	
+	/* tag-cloud widget */
+	.widget_links {}
+	.widget_links li:after {}
+	.widget_links li:before {}
+	.widget_tag_cloud {}
+	.widget_tag_cloud a {}
+	.widget_tag_cloud a:after {}
+	.widget_tag_cloud a:before {}
+	
+	/* calendar widget */
+	.widget_calendar {}
+	#calendar_wrap {}
+	#calendar_wrap th {}
+	#calendar_wrap td {}
+	#wp-calendar tr td {}
+	#wp-calendar caption {}
+	#wp-calendar a {}
+	#wp-calendar #today {}
+	#wp-calendar #prev {}
+	#wp-calendar #next {}
+	#wp-calendar #next a {}
+	#wp-calendar #prev a {}
+	
+	/* category widget */
+	.widget_categories {}
+	.widget_categories ul {}
+	.widget_categories ul li {} 
+	.widget_categories ul ul.children {}
+	.widget_categories a {}
+	.widget_categories select{}
+	.widget_categories select#cat {}
+	.widget_categories select.postform {}
+	.widget_categories option {}
+	.widget_categories .level-0 {}
+	.widget_categories .level-1 {}
+	.widget_categories .level-2 {}
+	.widget_categories .level-3 {}
+	
+	/* recent-comments widget */
+	.recentcomments {}
+	#recentcomments {}
+	#recentcomments li {}
+	#recentcomments li a {}
+	.widget_recent_comments {}
+	
+	/* search widget */
+	#searchform {}
+	.widget_search {}
+	.screen-reader-text {}
+	
+	/* text widget */
+	.textwidget {}
+	.widget_text {}
+	.textwidget p {}
+	
+
+/*********************
+FOOTER STYLES
+*********************/
+
+.footer {}
+	
+	/*
+	you'll probably need to do quite a bit
+	of overriding here if you styled them for
+	mobile. Make sure to double check these!
+	*/
+	.footer-links {
+		ul {
+			li {
+				a {
+					&:hover {}
+				}
+				/* 
+				be careful with the depth of your menus.
+				it's very rare to have multi-depth menus in
+				the footer.
+				*/
+				ul {}
+			}
+		}
+	} /* end .footer-links */
+			
+	.attribution {}
