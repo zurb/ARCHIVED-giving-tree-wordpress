@@ -1,6 +1,4 @@
 				<div id="sidebar1" class="sidebar fourcol last clearfix" role="complementary">
-				
-					<?php get_search_form(); ?>
 
 					<?php if ( is_active_sidebar( 'sidebar1' ) ) : ?>
 
@@ -10,7 +8,7 @@
 
 						<!-- This content shows up if there are no widgets defined in the backend. -->
 						
-						<div class="help">
+						<div class="alert help">
 							<p>Please activate some Widgets.</p>
 						</div>
 
