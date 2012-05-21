@@ -6,7 +6,7 @@
     					<?php bones_footer_links(); // Adjust using Menus in Wordpress Admin ?>
 	                </nav>
 	                		
-					<p class="attribution">&copy; <?php bloginfo('name'); ?> <?php __("is powered by", "bonestheme"); ?> <a href="http://wordpress.org/" title="WordPress">WordPress</a> <span class="amp">&</span> <a href="http://www.themble.com/bones" title="Bones" class="footer_bones_link">Bones</a>.</p>
+					<p class="attribution">&copy; <?php the_date('Y'); ?> <?php bloginfo('name'); ?>.</p>
 				
 				</div> <!-- end #inner-footer -->
 				
