@@ -24,7 +24,7 @@ Template Name: Custom Page Example
 						
 						    </header> <!-- end article header -->
 					
-						    <section class="post_content">
+						    <section class="post-content">
 							    <?php the_content(); ?>
 						    </section> <!-- end article section -->
 						

@@ -18,7 +18,7 @@
 						
 						    </header> <!-- end article header -->
 					
-						    <section class="post_content clearfix">
+						    <section class="post-content clearfix">
 							    <?php the_content(); ?>
 						    </section> <!-- end article section -->
 						

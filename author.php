@@ -31,7 +31,7 @@
 						
 						    </header> <!-- end article header -->
 					
-						    <section class="post_content">
+						    <section class="post-content">
 						
 							    <?php the_post_thumbnail( 'bones-thumb-300' ); ?>
 						

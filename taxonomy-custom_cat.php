@@ -35,9 +35,7 @@ taxonomy-shoes.php
 						
 						    </header> <!-- end article header -->
 					
-						    <section class="post_content">
-						
-							    <?php the_post_thumbnail( 'bones-thumb-300' ); ?>
+						    <section class="post-content">
 						
 							    <?php the_excerpt('<span class="read-more">Read More &raquo;</span>'); ?>
 					
