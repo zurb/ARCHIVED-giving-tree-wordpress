@@ -8,7 +8,7 @@ The comments page for Bones
     die ('Please do not load this page directly. Thanks!');
 
   if ( post_password_required() ) { ?>
-  	<div class="help">
+  	<div class="alert help">
     	<p class="nocomments"><?php __("This post is password protected. Enter the password to view comments.", "bonestheme"); ?></p>
   	</div>
   <?php
@@ -66,7 +66,7 @@ The comments page for Bones
 	</div>
 
 	<?php if ( get_option('comment_registration') && !is_user_logged_in() ) : ?>
-  	<div class="help">
+  	<div class="alert help">
   		<p>You must be <a href="<?php echo wp_login_url( get_permalink() ); ?>">logged in</a> to post a comment.</p>
   	</div>
 	<?php else : ?>
@@ -104,11 +104,11 @@ The comments page for Bones
 	<p><textarea name="comment" id="comment" placeholder="Your Comment Here..." tabindex="4"></textarea></p>
 	
 	<p>
-	  <input name="submit" type="submit" id="submit" tabindex="5" value="Submit Comment" />
+	  <input name="submit" type="submit" id="submit" class="button" tabindex="5" value="Submit Comment" />
 	  <?php comment_id_fields(); ?>
 	</p>
 	
-	<div class="help">
+	<div class="alert info">
 		<p id="allowed_tags" class="small"><strong>XHTML:</strong> You can use these tags: <code><?php echo allowed_tags(); ?></code></p>
 	</div>
 	
