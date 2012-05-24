@@ -9,7 +9,7 @@
 					<article id="post-<?php the_ID(); ?>" <?php post_class('clearfix'); ?>>
       
       					<header>
-        					<h1 class="h2"><a href="<?php echo get_permalink($post->post_parent); ?>" rev="attachment"><?php echo get_the_title($post->post_parent); ?></a> &raquo; <?php the_title(); ?></h2>
+        					<h1 class="h2"><a href="<?php echo get_permalink($post->post_parent); ?>" rev="attachment"><?php echo get_the_title($post->post_parent); ?></a> &raquo; <?php the_title(); ?></h1>
       					</header>
       
       					<section class="post_content clearfix">
