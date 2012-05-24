@@ -10,7 +10,7 @@
 						<?php $curauth = (get_query_var('author_name')) ? get_user_by('slug', get_query_var('author_name')) : get_userdata(get_query_var('author'));
 						$google_profile = get_the_author_meta( 'google_profile', $curauth->ID );
 						if ( $google_profile ) {
-							echo '<a href="' . esc_url( $google_profile ) . '" rel="me">' . $curauth->display_name . '</a>'; ?></a>
+							echo '<a href="' . esc_url( $google_profile ) . '" rel="me">' . $curauth->display_name . '</a>'; ?>
 						<?php } else { ?>
 						<?php echo get_author_name(get_query_var('author')); ?>
 						<?php } ?>
