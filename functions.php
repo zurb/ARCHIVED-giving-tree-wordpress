@@ -20,6 +20,8 @@ sidebars, comments, ect.
 	- page-navi function
 	- removing <p> from around images
 	- customizing the post excerpt
+	- custom google+ integration
+	- adding custom fields to user profiles
 */
 require_once('library/bones.php'); // if you remove this, bones will break
 /*
@@ -38,15 +40,7 @@ require_once('library/custom-post-type.php'); // you can disable this if you lik
 */
 // require_once('library/admin.php'); // this comes turned off by default
 /*
-4. library/plugins.php
-    - expirimental functions or add-ons
-    - custom facebook open graph integration
-    - custom google+ integration
-    - adding custom fields to user profiles
-*/
-// require_once('library/plugins.php'); // this comes turned off by default
-/*
-5. library/translation/translation.php
+4. library/translation/translation.php
     - adding support for other languages
 */
 // require_once('library/translation/translation.php'); // this comes turned off by default
@@ -136,7 +130,7 @@ function bones_comments($comment, $args, $depth) {
 				<?php edit_comment_link(__('(Edit)'),'  ','') ?>
 			</header>
 			<?php if ($comment->comment_approved == '0') : ?>
-       			<div class="help">
+       			<div class="alert info">
           			<p><?php __('Your comment is awaiting moderation.') ?></p>
           		</div>
 			<?php endif; ?>
