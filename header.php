@@ -18,7 +18,7 @@
 		<!-- mobile meta (hooray!) -->
 		<meta name="HandheldFriendly" content="True">
 		<meta name="MobileOptimized" content="320">
-		<meta name="viewport" content="width=device-width">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 		
 		<!-- icons & favicons (for more: http://themble.com/support/adding-icons-favicons/) -->
 		<link rel="shortcut icon" href="<?php echo get_template_directory_uri(); ?>/favicon.ico">
