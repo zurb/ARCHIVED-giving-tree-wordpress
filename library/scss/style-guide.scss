@@ -78,6 +78,17 @@ body.style-guide {
 	float: right;
 }
 
+.sg-title {
+	margin: 2.2em 0 0;
+	border-bottom: 1px solid #ccc;
+}
+
+.sg-subtitle {
+	margin: 1.1em 0 0;
+	background: #efefef;
+	padding: 0.76em 0.4em;
+}
+
 /* 
 If you're using icon fonts, you can display
 a table with each character so it's easy to
@@ -150,6 +161,56 @@ style guide to your client.
 	background: #ebe16f;
 	border-bottom: 1px dashed darken(#ebe16f, 30%);
 }
+
+/*
+These are the examples used in the style guide.
+you can add more of change these if you like.
+*/
+
+.sg-box,
+.sg-gradient-box,
+.transition-box {
+	padding: 7px 14px;
+	margin: 1.5em;
+	text-align: center;	
+	
+	p {
+		padding: 0 !important;
+	}
+}
+
+.sg-box {
+	background: #fae389;
+	border: 1px solid #d9ad24;
+}
+
+/* border-radius example */
+.sg-round {
+	@include rounded(4px);
+}
+
+.sg-round24 {
+	@include rounded(24px);
+}
+
+/* gradient example */
+.sg-gradient-box {
+	border: 1px solid #d9ad24;
+	@include css-gradient(#fae389,#fad648);
+}
+
+/*transition example */
+.transition-box {
+	border: 1px solid #d9ad24;
+	background: #fae389;
+	@include css-transition(all, 2s, ease);
+
+	&:hover {
+		background: #7dcce3;
+		border-color: #1e68b5;
+	}
+}
+
 
 
 /********************
