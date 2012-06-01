@@ -12,13 +12,7 @@ changing a color or adding CSS3 techniques like box shadow and
 border-radius.
 
 A WORD OF WARNING: It's very easy to overdo it here. Be careful and
-remember LESS is more. See what I did there? Nice.
-
-Helpful Articles or Links:
-http://www.sitepoint.com/a-comprehensive-introduction-to-less-mixins/
-
-(Have a useful link? add a pull request and I'll add it. Just don't make
-it to spammy. let's keep this legit.)
+remember less is more. 
 
 ******************************************************************/
 
@@ -28,17 +22,14 @@ CLEARFIXIN'
 
 /* Contain floats: nicolasgallagher.com/micro-clearfix-hack/ */ 
 .clearfix { 
-	
 	&:before,
 	&:after {
 		content: "";
     	display: table;
 	}
-	
 	&:after {
 		clear: both;
 	}
-	
 	/* for IE */
 	zoom: 1; 
 }
@@ -60,30 +51,16 @@ Need help w/ choosing your colors? Try this site out:
 http://0to255.com/
 *********************/
 
-@yellow:                #ebe16f;
-@red:                    #fbe3e4;
-@green:                #e6efc2;
-@blue:                  #d5edf8;
+@yellow:            #ebe16f;
+@red:               #fbe3e4;
+@green:             #e6efc2;
+@blue:              #d5edf8;
 
-@black:                 #000;
-@grayDarker:        lighten(@black, 10%);
-@grayDark:           lighten(@black, 25%);
-@gray:                  lighten(@black, 50%);
-@grayLight:          lighten(@black, 75%);
-@grayLighter:       lighten(@black, 90%);
-@white:                #fff;
+@black:             #000;
+@white:             #fff;
 
-/* this is pulled from Bootstrap */
-@baseColor:         @blue;                  // Set a base color
-@complement:      spin(@baseColor, 180);  // Determine a complementary color
-@split1:                  spin(@baseColor, 158);  // Split complements
-@split2:                 spin(@baseColor, -158);
-@triad1:                 spin(@baseColor, 135);  // Triads colors
-@triad2:                spin(@baseColor, -135);
-@tetra1:                spin(@baseColor, 90);   // Tetra colors
-@tetra2:               spin(@baseColor, -90);
-@analog1:            spin(@baseColor, 22);   // Analogs colors
-@analog2:            spin(@baseColor, -22);
+@bones-pink:        #f01d4f;
+@bones-blue:        #1990db;
 
 /*********************
 TYPOGRAPHY
@@ -123,16 +100,13 @@ span.amp {
 }
 
 /* text alignment */
-.text-left { text-align: left; }
+.text-left   { text-align: left; }
 .text-center { text-align: center; }
-.text-right { text-align: right; }
+.text-right  { text-align: right; }
 
 
-/*********************
-ALERTS & NOTICES
-*********************/
-
-.help, .info, .error, .success { 
+/* alerts & notices */
+.alert { 
 	margin: 10px; 
 	padding: 5px 18px; 
 	border: 1px solid; 
@@ -162,8 +136,8 @@ ALERTS & NOTICES
 BORDER RADIUS
 *********************/
 
-/* .borderRadius(4px); */
-.borderRadius(@radius: 4px) {
+/* .rounded(4px); */
+.rounded(@radius: 4px) {
   -webkit-border-radius: @radius;
      -moz-border-radius: @radius;
       -ms-border-radius: @radius;
@@ -171,8 +145,8 @@ BORDER RADIUS
           border-radius: @radius;
 }
 
-/* .borderRadius-left(4px); */
-.borderRadius-left(@radius: 4px) {
+/* .rounded-left(4px); */
+.rounded-left(@radius: 4px) {
 	-webkit-border-bottom-left-radius: @radius;
   	   -webkit-border-top-left-radius: @radius;
 		-moz-border-radius-bottomleft: @radius;
@@ -181,8 +155,8 @@ BORDER RADIUS
 			   border-top-left-radius: @radius;
 }
 
-/* .borderRadius-right(4px); */
-.borderRadius-right(@radius: 4px) {
+/* .rounded-right(4px); */
+.rounded-right(@radius: 4px) {
 	-webkit-border-bottom-right-radius: @radius;
   	   -webkit-border-top-right-radius: @radius;
 		-moz-border-radius-bottomright: @radius;
@@ -191,8 +165,8 @@ BORDER RADIUS
 			   border-top-right-radius: @radius;
 }
 
-/* .borderRadius-bottom(4px); */
-.borderRadius-bottom(@radius: 4px) {
+/* .rounded-bottom(4px); */
+.rounded-bottom(@radius: 4px) {
 	-webkit-border-bottom-right-radius: @radius;
 	 -webkit-border-bottom-left-radius: @radius;
 	    -moz-border-radius-bottomright: @radius;
@@ -201,8 +175,8 @@ BORDER RADIUS
 	         border-bottom-left-radius: @radius;
 }
 
-/* .borderRadius-top(4px); */
-.borderRadius-top(@radius: 4px) {
+/* .rounded-top(4px); */
+.rounded-top(@radius: 4px) {
 	-webkit-border-top-right-radius: @radius;
 	 -webkit-border-top-left-radius: @radius;
 	    -moz-border-radius-topright: @radius;
@@ -272,9 +246,9 @@ BUTTONS
 *********************/
 
 .button, .button:visited {
-	border: 1px solid darken(@blue, 13%);
-	border-top-color: darken(@blue, 7%);
-	border-left-color: darken(@blue, 7%);
+	border: 1px solid darken(@bones-pink, 13%);
+	border-top-color: darken(@bones-pink, 7%);
+	border-left-color: darken(@bones-pink, 7%);
 	padding: 4px 12px;
 	color: @white;
 	display: inline-block;
@@ -287,18 +261,33 @@ BUTTONS
 	line-height: 21px;
 	.transition();
 	.borderRadius(4px);
-	.css-gradient(@blue,darken(@blue, 5%));
+	.css-gradient(@bones-pink,darken(@bones-pink, 5%));
 
 	&:hover, &:focus {
 		color: @white;
-	  	border: 1px solid darken(@blue, 13%);
-	  	border-top-color: darken(@blue, 20%);
-	 	border-left-color: darken(@blue, 20%);
-		.css-gradient(darken(@blue, 5%),darken(@blue, 10%));
+	  	border: 1px solid darken(@bones-pink, 13%);
+	  	border-top-color: darken(@bones-pink, 20%);
+	 	border-left-color: darken(@bones-pink, 20%);
+		.css-gradient(darken(@bones-pink, 5%),darken(@bones-pink, 10%));
 	}
 	
 	&:active {
-		.css-gradient(darken(@blue, 5%),@blue);
+		.css-gradient(darken(@bones-pink, 5%),@bones-pink);
+	}	
+}
+
+.blue-button, .blue-button:visited {
+	border-color: darken(@bones-blue, 10%);
+	text-shadow: 0 1px 1px darken(@bones-blue, 10%);
+	@include css-gradient( @bones-blue, darken(@bones-blue, 5%) );
+	-webkit-box-shadow: inset 0 0 3px lighten(@bones-blue, 16%);
+       -moz-box-shadow: inset 0 0 3px lighten(@bones-blue, 16%);
+   	        box-shadow: inset 0 0 3px lighten(@bones-blue, 16%);
+	&:hover, &:focus {
+		border-color: darken(@bones-blue, 15%);
+		@include css-gradient( darken(@bones-blue, 4%), darken(@bones-blue, 10%) );
 	}
-		
+	&:active {
+		@include css-gradient( darken(@bones-blue, 5%), @bones-blue );
+	}
 }
