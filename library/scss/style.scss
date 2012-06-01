@@ -5,27 +5,36 @@ Author:
 Stylesheet: Main Stylesheet
 
 Here's where the magic happens. Here, you'll see we are calling in
-the seperate functions for each media query. The base mobile 
-stylesheet is called in the header, so here we're working up from 
-there. To edit the css, just find the corresponding LESS file.
+the separate media queries. The base mobile goes outside any query
+and is called at the beginning, after that we call the rest
+of the styles inside media queries.
 ******************************************************************/
 
-/*
-Base.css contains the main mobile styles and is called in the 
-header. This way mobile devices get ONLY the styles that apply
-to them. No muss, no fuss.
 
-normalize.css and the mixins are also called within that base file 
-*/
+/*********************
+IMPORTING STYLES
+*********************/
 
+/* import normalize */
+@import "normalize";
 /* import mixins */
 @import "mixins";
 
 /******************************************************************
-AVERAGE VIEWING SIZE 
+BASE (MOBILE) SIZE 
 This is the average viewing window. So Desktops, Laptops, and 
 in general anyone not viewing on a mobile device. Here's where
 you can add resource intensive styles.
+******************************************************************/
+
+/* styles in base.scss */
+@import "base";
+
+/******************************************************************
+LARGER MOBILE DEVICES
+This is for devices like the Galaxy Note or something that's 
+larger than in iPhone but smaller than a tablet. Let's call them
+tweeners.
 ******************************************************************/
 @media only screen and (min-width: 481px) {
 	
@@ -72,8 +81,21 @@ This is for the larger monitors and possibly full screen viewers.
 } /* end of media query */
 
 /******************************************************************
-PRINT STYLESHEET
+RETINA (2x RESOLUTION DEVICES)
+This applies to the retina iPhone (4s) and iPad (2,3) along with 
+other displays with a 2x resolution. You can also create a media
+query for retina AND a certain size if you want. Go Nuts.
 ******************************************************************/
+
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5),
+       only screen and (min--moz-device-pixel-ratio: 1.5),
+       only screen and (min-device-pixel-ratio: 1.5) {
+	
+	/* styles in 2x.scss */
+	@import "2x"; 
+
+} /* end of media query */
+
 /******************************************************************
 PRINT STYLESHEET
 Feel free to customize this. Remember to add things that won't make
