@@ -10,9 +10,9 @@ URL: http://themble.com/bones/
 
 
 // Adding Translation Option
-load_theme_textdomain( 'bonestheme', TEMPLATEPATH.'/languages' );
-$locale = get_locale();
-$locale_file = TEMPLATEPATH."/languages/$locale.php";
+load_theme_textdomain( 'bonestheme', TEMPLATEPATH.'/library/translation' );
+	$locale = get_locale();
+	$locale_file = TEMPLATEPATH."/library/translation/$locale.php";
 if ( is_readable($locale_file) ) require_once($locale_file);
 
 
