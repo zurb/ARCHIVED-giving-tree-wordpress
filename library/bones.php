@@ -33,24 +33,7 @@ function bones_ahoy() {
     add_filter('gallery_style', 'bones_gallery_style');
 
     // enqueue base scripts and styles
-    add_action('wp_enqueue_scripts', 'bones_scripts_and_styles', 1);
-    
-    // let's set our variable for the google cdn jquery
-    $bones_google_jquery_url = 'http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js'; 
-
-    // test if Google version is working
-    $bones_test_google_url = @fopen($bones_google_jquery_url,'r');  
-    if($bones_test_google_url !== false) {
-	    add_action('wp_enqueue_scripts', 'bones_load_external_jQuery');   
-    } 
-    // if it fails, load the local version
-    else {
-	    add_action('wp_enqueue_scripts', 'bones_load_local_jQuery');  
-    } 
-    
-    // enqueue responsive scripts and styles
-    add_action('wp_enqueue_scripts', 'bones_responsive_css', 999); 
-    
+    add_action('wp_enqueue_scripts', 'bones_scripts_and_styles', 999);
     
     // launching this stuff after theme setup
     add_action('after_setup_theme','bones_theme_support');	
@@ -75,13 +58,13 @@ need.
 *********************/
 
 function bones_head_cleanup() {
-	// Category Feeds
+	// category feeds
 	// remove_action( 'wp_head', 'feed_links_extra', 3 );                    
-	// Post and Comment Feeds
+	// post and comment feeds
 	// remove_action( 'wp_head', 'feed_links', 2 );                          
 	// EditURI link
 	remove_action( 'wp_head', 'rsd_link' );                               
-	// Windows Live Writer
+	// windows live writer
 	remove_action( 'wp_head', 'wlwmanifest_link' );                       
 	// index link
 	remove_action( 'wp_head', 'index_rel_link' );                         
@@ -89,7 +72,7 @@ function bones_head_cleanup() {
 	remove_action( 'wp_head', 'parent_post_rel_link', 10, 0 );            
 	// start link
 	remove_action( 'wp_head', 'start_post_rel_link', 10, 0 );             
-	// Links for Adjacent Posts
+	// links for adjacent posts
 	remove_action( 'wp_head', 'adjacent_posts_rel_link_wp_head', 10, 0 ); 
 	// WP version
 	remove_action( 'wp_head', 'wp_generator' );                           
@@ -124,32 +107,15 @@ function bones_gallery_style($css) {
 SCRIPTS & ENQEUEING
 *********************/
 
-/*
-loading google cdn is good because it's usually already 
-cached so the page will load faster. So let's use that
-instead of the local wp version (if it's available).
-*/
-function bones_load_external_jQuery() {  
-	wp_deregister_script( 'jquery' );  
-	wp_register_script('google_jquery', 'http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js');
-	wp_enqueue_script('google_jquery');   
-}
-// fallback if google cdn isn't responding
-function bones_load_local_jQuery() {  
-	wp_enqueue_script( 'jquery' );  
-}
-
 // loading modernizr and jquery, and reply script 
 function bones_scripts_and_styles() {
   if (!is_admin()) {
   
     // modernizr (without media query polyfill)
     wp_register_script( 'bones-modernizr', get_template_directory_uri() . '/library/js/libs/modernizr.custom.min.js', array(), '2.5.3', false );
-    wp_enqueue_script( 'bones-modernizr' );
  
     // register mobile stylesheet
-    wp_register_style( 'bones-base-style', get_template_directory_uri() . '/library/css/base.css', array(), '', 'all' );
-    wp_enqueue_style( 'bones-base-style' );
+    wp_register_style( 'bones-stylesheet', get_template_directory_uri() . '/library/css/style.css', array(), '', 'all' );
     
     // comment reply script for threaded comments
     if ( is_singular() AND comments_open() AND (get_option('thread_comments') == 1)) {
@@ -157,20 +123,19 @@ function bones_scripts_and_styles() {
     }
     
     //adding scripts file in the footer
-    wp_register_script( 'bones-js', get_template_directory_uri() . '/library/js/scripts.js', array( 'bones-modernizr' ), '', true );
+    wp_register_script( 'bones-js', get_template_directory_uri() . '/library/js/scripts.js', array( 'jquery' ), '', true );
+    
+    // enqueue styles and scripts
+    wp_enqueue_script( 'bones-modernizr' ); 
+    wp_enqueue_style( 'bones-stylesheet' ); 
+    /*
+    I reccomend using a plugin to call jQuery
+    using the google cdn. That way it stays cached
+    and your site will load faster.
+    */
+    wp_enqueue_script( 'jquery' ); 
     wp_enqueue_script( 'bones-js' ); 
     
-  }
-}
-
-// loading responsive scripts and styles
-function bones_responsive_css() {
-  if (!is_admin()) {
-
-	// responsive stylesheet for those browsers that can read it
-    wp_register_style( 'bones-responsive-css', get_template_directory_uri() . '/library/css/style.css', array(), '', '(min-width:481px)' );
-    wp_enqueue_style( 'bones-responsive-css' );
-  
   }
 }
 
@@ -180,30 +145,44 @@ THEME SUPPORT
 	
 // Adding WP 3+ Functions & Theme Support
 function bones_theme_support() {
-	add_theme_support('post-thumbnails');      // wp thumbnails (sizes handled in functions.php)
-	set_post_thumbnail_size(125, 125, true);   // default thumb size
-	add_custom_background();                   // wp custom background
-	add_theme_support('automatic-feed-links'); // rss thingy
+	
+	// wp thumbnails (sizes handled in functions.php)
+	add_theme_support('post-thumbnails');   
+	
+	// default thumb size   
+	set_post_thumbnail_size(125, 125, true);   
+	
+	// wp custom background
+	add_custom_background();        
+	
+	// rss thingy           
+	add_theme_support('automatic-feed-links'); 
+	
 	// to add header image support go here: http://themble.com/support/adding-header-background-image-support/
+	
 	// adding post format support
-	add_theme_support( 'post-formats',      // post formats
+	add_theme_support( 'post-formats',  
 		array( 
-			'aside',   // title less blurb
-			'gallery', // gallery of images
-			'link',    // quick link to other site
-			'image',   // an image
-			'quote',   // a quick quote
-			'status',  // a Facebook like status update
-			'video',   // video 
-			'audio',   // audio
-			'chat'     // chat transcript 
+			'aside',             // title less blurb
+			'gallery',           // gallery of images
+			'link',              // quick link to other site
+			'image',             // an image
+			'quote',             // a quick quote
+			'status',            // a Facebook like status update
+			'video',             // video 
+			'audio',             // audio
+			'chat'               // chat transcript 
 		)
 	);	
-	add_theme_support( 'menus' );            // wp menus
-	register_nav_menus(                      // wp3+ menus
+	
+	// wp menus
+	add_theme_support( 'menus' );  
+	
+	// registering wp3+ menus          
+	register_nav_menus(                      
 		array( 
-			'main_nav' => 'The Main Menu',   // main nav in header
-			'footer_links' => 'Footer Links' // secondary nav in footer
+			'main_nav' => 'The Main Menu',           // main nav in header
+			'footer_links' => 'Footer Links'         // secondary nav in footer
 		)
 	);	
 } /* end bones theme support */
@@ -217,17 +196,17 @@ MENUS & NAVIGATION
 function bones_main_nav() {
 	// display the wp3 menu if available
     wp_nav_menu(array( 
-    	'container' => false,                            // remove nav container
+    	'container' => false,                           // remove nav container
     	'container_class' => 'menu clearfix',           // class of container (should you choose to use it)
     	'menu' => 'main_nav',                           // nav name
-    	'menu_class' => 'nav clearfix',                          // adding custom nav class
+    	'menu_class' => 'nav top-nav clearfix',         // adding custom nav class
     	'theme_location' => 'main_nav',                 // where it's located in the theme
     	'before' => '',                                 // before the menu
         'after' => '',                                  // after the menu
         'link_before' => '',                            // before each link
         'link_after' => '',                             // after each link
         'depth' => 0,                                   // limit the depth of the nav
-    	'fallback_cb' => 'bones_main_nav_fallback'     // fallback function
+    	'fallback_cb' => 'bones_main_nav_fallback'      // fallback function
 	));
 } /* end bones main nav */
 
@@ -235,10 +214,10 @@ function bones_main_nav() {
 function bones_footer_links() { 
 	// display the wp3 menu if available
     wp_nav_menu(array( 
-    	'container' => '',                            // remove nav container
+    	'container' => '',                              // remove nav container
     	'container_class' => 'footer-links clearfix',   // class of container (should you choose to use it)
     	'menu' => 'footer_links',                       // nav name
-    	'menu_class' => 'footer-nav clearfix',                   // adding custom nav class
+    	'menu_class' => 'nav footer-nav clearfix',      // adding custom nav class
     	'theme_location' => 'footer_links',             // where it's located in the theme
     	'before' => '',                                 // before the menu
         'after' => '',                                  // after the menu
@@ -364,6 +343,6 @@ function bones_excerpt_more($more) {
 	return '...  <a href="'. get_permalink($post->ID) . '" title="Read '.get_the_title($post->ID).'">Read more &raquo;</a>';
 }
 
-                        	
+                  	
 
 ?>
