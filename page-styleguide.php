@@ -33,15 +33,10 @@ how to use a Style Guide, check out this link:
 			I put it in here just to be sure, but you can also set this
 			using an SEO plugin if you prefer.
 		-->
-		<!-- no index-->
+		<!-- no index meta tag here -->
 		
 		<!-- Google Chrome Frame for IE -->
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-		
-		<!-- mobile meta (hooray!) -->
-		<meta name="HandheldFriendly" content="True">
-		<meta name="MobileOptimized" content="320">
-		<meta name="viewport" content="width=device-width">
 		
 		<!-- icons & favicons (for more: http://themble.com/support/adding-icons-favicons/) -->
 		<link rel="shortcut icon" href="<?php echo get_template_directory_uri(); ?>/favicon.ico">
@@ -91,7 +86,6 @@ how to use a Style Guide, check out this link:
 								<li><a href="#sg-title-paragraphs">Paragraphs</a></li>
 								<li><a href="#sg-title-lists">Lists</a></li>
 								<li><a href="#sg-title-datalists">Datalists</a></li>
-								<li><a href="#sg-title-tables">Tables</a></li>
 							</ul>
 						</li>
 						<li><a href="#sg-title-content">Content</a>
@@ -189,17 +183,7 @@ how to use a Style Guide, check out this link:
 						<li>Ordered List Item 4</li>
 					</ol>
 						
-					<p class="sg-highlight">There are also a few pre-defined list styles you can use by adding classes. Here they are with examples.</p>
-						
-					<pre>&lt;ul class="list-checks"></pre>
-						
-					<ul class="list-checks">
-						<li>Ordered List Item 1</li>
-						<li>Ordered List Item 2</li>
-						<li>Ordered List Item 3</li>
-						<li>Ordered List Item 4</li>
-					</ul>
-						
+											
 					<h4 class="sg-subtitle">Datalist</h4>
 						
 					<dl>
@@ -208,30 +192,34 @@ how to use a Style Guide, check out this link:
 						<dt>This is a Datalist Title</dt>
 						<dd>This is the description for the datalist. It's where the data goes.</dd>
 					</dl>
+					
+					<h3 id="sg-title-content" class="h2 sg-title">Content</h3>
 						
 					<h3 id="sg-title-mixins" class="h2 sg-title">Mixins</h3>
+					
+					<p class="sg-highlight">These mixins apply to the <strong>scss syntax</strong>, if you're using another syntax, you'll need to adjust this content.</p>
 						
 					<h4 id="sg-title-rounded-corners" class="sg-subtitle">Rounded Corners</h4>
 						
 					<p>To use rounded corners on an element, we can use the power of mixins inside Sass. This looks and sounds more complex than it really is. In the css, this is how you would add a border-radius of 4px:</p>
 						
 					<pre>.sg-box {
-						background: #fae389;
-						border: 1px solid #d9ad24;
-						@include borderRadius(4px);
-					}</pre>
+    background: #fae389;
+    border: 1px solid #d9ad24;
+    @include rounded(4px);
+}</pre>
 						
 					<div class="sg-box sg-round">
 						<p>This is a box with rounded corners.</p>
 					</div>
 					
-					<p>As you can see we just used <strong>@include borderRadius(4px);</strong> and that automatically added all the border-radius markup we estamblished in our mixins.scss file. If you wanted to change the radius to, let's say 24px, all you would do is change that number:</p>
+					<p>As you can see we just used <strong>@include rounded(4px);</strong> and that automatically added all the border-radius markup we established in our mixins.scss file. If you wanted to change the radius to, let's say 24px, all you would do is change that number:</p>
 						
 					<pre>.sg-box {
-						background: #fae389;
-						border: 1px solid #d9ad24;
-						@include borderRadius(24px);
-					}</pre>
+    background: #fae389;
+    border: 1px solid #d9ad24;
+    @include rounded(24px);
+}</pre>
 					
 					<div class="sg-box sg-round24">
 						<p>This is a box with a border radius of 24px.</p>
@@ -240,11 +228,11 @@ how to use a Style Guide, check out this link:
 					<p>All the markup is changed without having to re-type every single line. Here are all the various Border Radius mixins. Remember, you can declare the number in the include and all the versions will be displayed.</p>
 						
 					<ul>
-						<li><strong>@include .borderRadius(4px);</strong> - Rounded on all corners</li>
-						<li><strong>@include .borderTopRadius(4px);</strong> - Rounded on the top corners only</li>
-						<li><strong>@include .borderBottomRadius(4px);</strong> - Rounded on the bottom corners only</li>
-						<li><strong>@include .borderLeftRadius(4px);</strong> - Rounded on left side only</li>
-						<li><strong>@include .borderRightRadius(4px);</strong> - Rounded on right side only</li>
+						<li><strong>@include .rounded(4px);</strong> - Rounded on all corners</li>
+						<li><strong>@include .rounded-top(4px);</strong> - Rounded on the top corners only</li>
+						<li><strong>@include .rounded-bottom(4px);</strong> - Rounded on the bottom corners only</li>
+						<li><strong>@include .rounded-left(4px);</strong> - Rounded on left side only</li>
+						<li><strong>@include .rounded-right(4px);</strong> - Rounded on right side only</li>
 					</ul>
 						
 					<h4 id="sg-title-gradients" class="sg-subtitle">CSS3 Gradients</h3>
@@ -252,9 +240,9 @@ how to use a Style Guide, check out this link:
 					<p>Again, we're going to use mixins to display gradients instead of using images. The gradient markup is very complex and down right confusing. We simplify that the same way we do with the border radius example above.</p>
 						
 					<pre>.gradient-box {
-						border: 1px solid #d9ad24;
-						@include css-gradient(#fae389,#fad648);
-					}</pre>
+   border: 1px solid #d9ad24;
+   @include css-gradient(#fae389,#fad648);
+}</pre>
 					
 					<div class="sg-gradient-box">
 						<p>This is a box with a gradient. Pretty neat huh?</p>
@@ -267,15 +255,15 @@ how to use a Style Guide, check out this link:
 					<p>Transitions are used to ease things like buttons and link color. It adds subtle animations to changes in state. You can use the animation syntax like so. As an example, we are going to use a transition on this box below. Since there's really no change on hover, we'll say to transition <strong>all</strong>, make it last <strong>2 seconds</strong>, and use the transition <strong>ease</strong>.</p>
 						
 					<pre>.transition-box {
-						border: 1px solid #d9ad24;
-						background: #fae389;
-						@include css-transition(all, 2s, ease);
-					}
-					
-					.transition-box:hover {
-						background: #7dcce3;
-						border-color: #1e68b5;
-					}</pre>
+    border: 1px solid #d9ad24;
+    background: #fae389;
+    @include css-transition(all, 2s, ease);
+}
+
+.transition-box:hover {
+    background: #7dcce3;
+    border-color: #1e68b5;
+}</pre>
 					
 					<div class="transition-box">
 						<p>Hover over me to see the transition on the background color change.</p>
@@ -284,6 +272,16 @@ how to use a Style Guide, check out this link:
 					<p>You can specify what to to transition, how long the transition should last, and what kind of transition it should be within the parenthesis. You can also leave the parenthesis empty and it will use the defaults. Again, this is something to be used sparingly as it too, can affect performance.</p>
 						
 					<h3 id="sg-title-forms" class="h2 sg-title">Forms</h3>
+					
+					<h4 id="sg-title-inputs" class="sg-subtitle">Inputs</h4>
+					
+					<p>Bones doesn't come with any form styles so you should add your own.</p>
+					
+					<label>Text Input</label>
+					<input type="text" name="" value="" placeholder="This is a Text Input" />
+					
+					<label>Textarea</label>
+					<textarea placeholder="This is a Textarea"></textarea>>
 						
 					<h4 id="sg-title-buttons" class="sg-subtitle">Buttons</h4>
 						
@@ -293,9 +291,9 @@ how to use a Style Guide, check out this link:
 						
 					<a class="button" href="#">Standard Button</a>
 						
-					<pre>&lt;a class="button orange-button" href="#">Orange Button&lt;/a></pre>
+					<pre>&lt;a class="button blue-button" href="#">Blue Button&lt;/a></pre>
 						
-					<a class="button orange-button" href="#">Orange Button</a>
+					<a class="button blue-button" href="#">Blue Button</a>
 						
 					<p>You can create more button styles if you like.</p>
 					
@@ -327,7 +325,7 @@ how to use a Style Guide, check out this link:
 						
 					<table class="icon-font-guide">
 							<thead>
-								<th colspan="7">You can display a reminder here.</th>
+								<th colspan="7">These are example icon names</th>
 							</thead>
 							<tbody>
 								<tr>
@@ -367,361 +365,9 @@ how to use a Style Guide, check out this link:
 										<p>podcast</p>
 									</td>
 								</tr>
-								<tr>
-									<td>
-										<em>\0030</em>
-										<span class="bg-icon ic-speakers-on"></span>
-										<p>speakers</p>
-									</td>
-									<td>
-										<em>\0031</em>
-										<span class="bg-icon ic-speakers-off"></span>
-										<p>speakers-off</p>
-									</td>
-									<td>
-										<em>\0032</em>
-										<span class="bg-icon ic-thumbtack"></span>
-										<p>thumbtack</p>
-									</td>
-									<td>
-										<em>\0033</em>
-										<span class="bg-icon ic-star"></span>
-										<p>star</p>
-									</td>
-									<td>
-										<em>\0034</em>
-										<span class="bg-icon ic-star-empty"></span>
-										<p>star-empty</p>
-									</td>
-									<td>
-										<em>\0035</em>
-										<span class="bg-icon ic-heart"></span>
-										<p>heart</p>
-									</td>
-									<td>
-										<em>\0036</em>
-										<span class="bg-icon ic-heart-empty"></span>
-										<p>heart-empty</p>
-									</td>
-								</tr>
-								<tr>
-									<td>
-										<em>\0037</em>
-										<span class="bg-icon ic-checked-box"></span>
-										<p>checked-box</p>
-									</td>
-									<td>
-										<em>\0038</em>
-										<span class="bg-icon ic-unchecked-box"></span>
-										<p>unchecked-box</p>
-									</td>
-									<td>
-										<em>\0039</em>
-										<span class="bg-icon ic-filled-box"></span>
-										<p>filled-box</p>
-									</td>
-									<td>
-										<em>\003b</em>
-										<span class="bg-icon ic-arrow-up"></span>
-										<p>arrow-up</p>
-									</td>
-									<td>
-										<em>\003c</em>
-										<span class="bg-icon ic-arrow-left"></span>
-										<p>arrow-left</p>
-									</td>
-									<td>
-										<em>\003d</em>
-										<span class="bg-icon ic-arrow-down"></span>
-										<p>arrow-down</p>
-									</td>
-									<td>
-										<em>\003e</em>
-										<span class="bg-icon ic-arrow-right"></span>
-										<p>arrow-right</p>
-									</td>
-								</tr>
-								<tr>
-									<td>
-										<em>\003f</em>
-										<span class="bg-icon ic-grid"></span>
-										<p>grid</p>
-									</td>
-									<td>
-										<em>\0041</em>
-										<span class="bg-icon ic-home"></span>
-										<p>home</p>
-									</td>
-									<td>
-										<em>\0042</em>
-										<span class="bg-icon ic-people"></span>
-										<p>people</p>
-									</td>
-									<td>
-										<em>\0043</em>
-										<span class="bg-icon ic-briefcase"></span>
-										<p>briefcase</p>
-									</td>
-									<td>
-										<em>\0044</em>
-										<span class="bg-icon ic-documents"></span>
-										<p>documents</p>
-									</td>
-									<td>
-										<em>\0045</em>
-										<span class="bg-icon ic-mail"></span>
-										<p>mail</p>
-									</td>
-									<td>
-										<em>\0046</em>
-										<span class="bg-icon ic-info"></span>
-										<p>info</p>
-									</td>
-								</tr>
-								<tr>
-									<td>
-										<em>\0047</em>
-										<span class="bg-icon ic-question"></span>
-										<p>question</p>
-									</td>
-									<td>
-										<em>\0048</em>
-										<span class="bg-icon ic-person"></span>
-										<p>person</p>
-									</td>
-									<td>
-										<em>\0049</em>
-										<span class="bg-icon ic-loading"></span>
-										<p>loading</p>
-									</td>
-									<td>
-										<em>\004a</em>
-										<span class="bg-icon ic-conversation"></span>
-										<p>conversation</p>
-									</td>
-									<td>
-										<em>\004b</em>
-										<span class="bg-icon ic-comment"></span>
-										<p>comment</p>
-									</td>
-									<td>
-										<em>\004c</em>
-										<span class="bg-icon ic-list"></span>
-										<p>list</p>
-									</td>
-									<td>
-										<em>\004d</em>
-										<span class="bg-icon ic-download"></span>
-										<p>download</p>
-									</td>
-								</tr>
-								<tr>
-									<td>
-										<em>\004e</em>
-										<span class="bg-icon ic-camera"></span>
-										<p>camera</p>
-									</td>
-									<td>
-										<em>\004f</em>
-										<span class="bg-icon ic-video"></span>
-										<p>video</p>
-									</td>
-									<td>
-										<em>\0050</em>
-										<span class="bg-icon ic-link"></span>
-										<p>link</p>
-									</td>
-									<td>
-										<em>\0051</em>
-										<span class="bg-icon ic-support"></span>
-										<p>support</p>
-									</td>
-									<td>
-										<em>\0052</em>
-										<span class="bg-icon ic-phone"></span>
-										<p>phone</p>
-									</td>
-									<td>
-										<em>\0053</em>
-										<span class="bg-icon ic-zoom-out"></span>
-										<p>zoom-out</p>
-									</td>
-									<td>
-										<em>\0054</em>
-										<span class="bg-icon ic-zoom-in"></span>
-										<p>zoom-in</p>
-									</td>
-								</tr>
-								<tr>
-									<td>
-										<em>\0055</em>
-										<span class="bg-icon ic-clipboard"></span>
-										<p>clipboard</p>
-									</td>
-									<td>
-										<em>\0056</em>
-										<span class="bg-icon ic-company"></span>
-										<p>company</p>
-									</td>
-									<td>
-										<em>\0057</em>
-										<span class="bg-icon ic-tick-down"></span>
-										<p>tick-down</p>
-									</td>
-									<td>
-										<em>\0058</em>
-										<span class="bg-icon ic-tick-up"></span>
-										<p>tick-up</p>
-									</td>
-									<td>
-										<em>\0059</em>
-										<span class="bg-icon ic-plus"></span>
-										<p>plus</p>
-									</td>
-									<td>
-										<em>\005a</em>
-										<span class="bg-icon ic-minus"></span>
-										<p>minus</p>
-									</td>
-									<td>
-										<em>\0061</em>
-										<span class="bg-icon ic-close"></span>
-										<p>close</p>
-									</td>
-								</tr>
-								<tr>
-									<td>
-										<em>\0062</em>
-										<span class="bg-icon ic-check"></span>
-										<p>check</p>
-									</td>
-									<td>
-										<em>\0063</em>
-										<span class="bg-icon ic-magnify"></span>
-										<p>magnify</p>
-									</td>
-									<td>
-										<em>\0064</em>
-										<span class="bg-icon ic-tag"></span>
-										<p>tag</p>
-									</td>
-									<td>
-										<em>\0065</em>
-										<span class="bg-icon ic-reload"></span>
-										<p>reload</p>
-									</td>
-									<td>
-										<em>\0066</em>
-										<span class="bg-icon ic-print"></span>
-										<p>print</p>
-									</td>
-									<td>
-										<em>\0067</em>
-										<span class="bg-icon ic-quote"></span>
-										<p>quote</p>
-									</td>
-									<td>
-										<em>\006c</em>
-										<span class="bg-icon ic-settings"></span>
-										<p>settings</p>
-									</td>
-								</tr>
-								<tr>
-									<td>
-										<em>\0068</em>
-										<span class="bg-icon ic-half-up"></span>
-										<p>half-up</p>
-									</td>
-									<td>
-										<em>\0069</em>
-										<span class="bg-icon ic-half-down"></span>
-										<p>half-down</p>
-									</td>
-									<td>
-										<em>\006a</em>
-										<span class="bg-icon ic-half-left"></span>
-										<p>half-left</p>
-									</td>
-									<td>
-										<em>\006b</em>
-										<span class="bg-icon ic-half-right"></span>
-										<p>half-right</p>
-									</td>
-									<td>
-										<em>\006d</em>
-										<span class="bg-icon ic-locked"></span>
-										<p>locked</p>
-									</td>
-									<td>
-										<em>\006e</em>
-										<span class="bg-icon ic-un-locked"></span>
-										<p>un-locked</p>
-									</td>
-									<td>
-										<em>\006f</em>
-										<span class="bg-icon ic-new"></span>
-										<p>new</p>
-									</td>
-								</tr>
-								<tr>
-									<td>
-										<em>\0070</em>
-										<span class="bg-icon ic-rss"></span>
-										<p>rss</p>
-									</td>
-									<td>
-										<em>\0071</em>
-										<span class="bg-icon ic-rss-box"></span>
-										<p>rss-box</p>
-									</td>
-									<td>
-										<em>\0072</em>
-										<span class="bg-icon ic-twitter"></span>
-										<p>twitter</p>
-									</td>
-									<td>
-										<em>\0073</em>
-										<span class="bg-icon ic-twitter-box"></span>
-										<p>twitter-box</p>
-									</td>
-									<td>
-										<em>\0074</em>
-										<span class="bg-icon ic-facebook-box"></span>
-										<p>facebook-box</p>
-									</td>
-									<td>
-										<em>\0075</em>
-										<span class="bg-icon ic-google-box"></span>
-										<p>google-box</p>
-									</td>
-									<td>
-										<em>\0076</em>
-										<span class="bg-icon ic-linkedin-box"></span>
-										<p>linkedin-box</p>
-									</td>
-								</tr>
-								<tr>
-									<td>
-										<em>\0077</em>
-										<span class="bg-icon ic-stumble-box"></span>
-										<p>stumble-box</p>
-									</td>
-									<td>
-										<em>\0078</em>
-										<span class="bg-icon ic-youtube-box"></span>
-										<p>youtube-box</p>
-									</td>
-									<td>
-										<em>\0079</em>
-										<span class="bg-icon ic-tumblr-box"></span>
-										<p>tumblr-box</p>
-									</td>
-									<td>
-										<em>\007a</em>
-										<span class="bg-icon ic-pinterest-box"></span>
-										<p>pinterest-box</p>
-									</td>
-								</tr>
+								
+								<!-- add more rows to add more icons -->
+								
 							</tbody>
 						</table>
 				
