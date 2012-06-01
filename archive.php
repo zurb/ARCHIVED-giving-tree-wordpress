@@ -28,12 +28,12 @@
 		
 		    			<?php } elseif (is_month()) { ?>
 			    		    <h1 class="archive-title h2">
-				    	    	<span><?php __("Monthly Archives:", "bonestheme"); ?>:</span> <?php the_time('F Y'); ?>
+				    	    	<span><?php __("Monthly Archives:", "bonestheme"); ?></span> <?php the_time('F Y'); ?>
 					        </h1>
 					
 					    <?php } elseif (is_year()) { ?>
 					        <h1 class="archive-title h2">
-					    	    <span><?php __("Yearly Archives:", "bonestheme"); ?>:</span> <?php the_time('Y'); ?>
+					    	    <span><?php __("Yearly Archives:", "bonestheme"); ?></span> <?php the_time('Y'); ?>
 					        </h1>
 					    <?php } ?>
 
