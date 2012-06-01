@@ -7,45 +7,28 @@ Stylesheet: IE Stylesheet
 So instead of using the respond.js file to add media query support
 to IE, we're going to use LESS to create an easily readable css file.
 Here, we import all the styles the standard stylesheet gets, only
-without the media queries. No need to worry about editing anything
-since it's all bieng pulled from the same source!
+without the media queries. No need to worry about editing anything!
 
 ******************************************************************/
 
 /*
-Base.css contains the main mobile styles and is called in the 
-header. This way mobile devices get ONLY the styles that apply
-to them. No muss, no fuss.
-
-normalize.css is also called within that base file.
-
-we'll also need to call the mixins here so they apply to the
-rest of the stylesheets.
+Remember, all the BASE styles are called already since IE can
+read those. Below, we need to import only the stuff IE can't 
+understand (what's inside the media queries). We also need to
+import the mixins file so LESS can understand the variables.
 */
 
+/* import mixins */
 @import "mixins.less";
-
-/*
-let's now call the FUNCTIONS for these different stylesets. 
-We need this so that the styles will load.
-*/
 
 @import "481up.less";
 @import "768up.less";
 @import "1030up.less";
+
 /* 
 you can call the larger styles if you want, but there's really no need 
 */
 
-/*
-Now we call the functions that contain all the CSS. This means
-you don't have to maintain an IE stylesheet AND a standard 
-responsive stylesheet.
-*/
-
-.481up();
-.768up();
-.1030up();
 
 /******************************************************************
 ADDITIONAL IE FIXES
@@ -60,8 +43,11 @@ For example, you can use something like:
 
 .no-textshadow .class { ... }
 
-You can also target specific versions by using something like:
+You can also target specific versions by using the classes applied to
+the html element. These can sometimes change, so take a look inside the
+header.php file to see what they are:
 
-.ie7 .class { ... }
+
+.lt-ie8 .class { ... }
 
 */
