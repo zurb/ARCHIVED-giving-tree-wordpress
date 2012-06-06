@@ -15,58 +15,63 @@ single-bookmarks.php
 
 <?php get_header(); ?>
 			
-			<div id="content" class="clearfix">
+			<div id="content">
 			
-				<div id="main" class="col620 left first clearfix" role="main">
+				<div id="inner-content" class="wrap clearfix">
+			
+				    <div id="main" class="eightcol first clearfix" role="main">
 
-					<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
+					    <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 					
-					<article id="post-<?php the_ID(); ?>" <?php post_class('clearfix'); ?> role="article">
+					    <article id="post-<?php the_ID(); ?>" <?php post_class('clearfix'); ?> role="article">
 						
-						<header>
+						    <header class="article-header">
 							
-							<h1><?php the_title(); ?></h1>
+							    <h1 class="single-title custom-post-type-title"><?php the_title(); ?></h1>
 							
-							<p class="meta"><?php _e("Posted", "bonestheme"); ?> <time datetime="<?php echo the_time('Y-m-j'); ?>" pubdate><?php the_time('F jS, Y'); ?></time> <?php _e("by", "bonestheme"); ?> <?php the_author_posts_link(); ?> <span class="amp">&</span> <?php _e("filed under", "bonestheme"); ?> <?php echo get_the_term_list( get_the_ID(), 'custom_cat', "" ) ?>.</p>
+							    <p class="meta"><?php __("Posted", "bonestheme"); ?> <time datetime="<?php echo the_time('Y-m-j'); ?>" pubdate><?php the_time('F jS, Y'); ?></time> <?php __("by", "bonestheme"); ?> <?php the_author_posts_link(); ?> <span class="amp">&</span> <?php __("filed under", "bonestheme"); ?> <?php echo get_the_term_list( get_the_ID(), 'custom_cat', "" ) ?>.</p>
 						
-						</header> <!-- end article header -->
+						    </header> <!-- end article header -->
 					
-						<section class="post_content clearfix">
+						    <section class="post-content clearfix">
 							
-							<?php the_content(); ?>
+							    <?php the_content(); ?>
 					
-						</section> <!-- end article section -->
+						    </section> <!-- end article section -->
 						
-						<footer>
+						    <footer class="article-header">
 			
-							<p class="tags"><?php echo get_the_term_list( get_the_ID(), 'custom_tag', '<span class="tags-title">Custom Tags:</span> ', ', ' ) ?></p>
+							    <p class="tags"><?php echo get_the_term_list( get_the_ID(), 'custom_tag', '<span class="tags-title">Custom Tags:</span> ', ', ' ) ?></p>
 							
-						</footer> <!-- end article footer -->
+						    </footer> <!-- end article footer -->
+						
+						    <?php comments_template(); // you may not need this ?>
 					
-					</article> <!-- end article -->
+					    </article> <!-- end article -->
 					
-					<?php comments_template(); ?>
+					    <?php endwhile; ?>			
 					
-					<?php endwhile; ?>			
+					    <?php else : ?>
 					
-					<?php else : ?>
+        					<article id="post-not-found" class="hentry clearfix">
+        						<header class="article-header">
+        							<h1><?php __("Oops, Post Not Found!", "bonestheme"); ?></h1>
+        						</header>
+        						<section class="post-content">
+        							<p><?php __("Uh Oh. Something is missing. Try double checking things.", "bonestheme"); ?></p>
+        						</section>
+        						<footer class="article-footer">
+        						    <p><?php __("This is the error message in the single-custom_type.php template.", "bonestheme"); ?></p>
+        						</footer>
+        					</article>
 					
-					<article id="post-not-found">
-					    <header>
-					    	<h1>Not Found</h1>
-					    </header>
-					    <section class="post_content">
-					    	<p>Sorry, but the requested resource was not found on this site.</p>
-					    </section>
-					    <footer>
-					    </footer>
-					</article>
-					
-					<?php endif; ?>
+					    <?php endif; ?>
 			
-				</div> <!-- end #main -->
+				    </div> <!-- end #main -->
     
-				<?php get_sidebar(); // sidebar 1 ?>
+				    <?php get_sidebar(); // sidebar 1 ?>
+				    
+				</div> <!-- end #inner-content -->
     
 			</div> <!-- end #content -->
 
