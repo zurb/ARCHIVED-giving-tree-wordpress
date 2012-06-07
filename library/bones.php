@@ -230,7 +230,7 @@ function bones_footer_links() {
  
 // this is the fallback for header menu
 function bones_main_nav_fallback() { 
-	wp_page_menu( 'show_home=Home&menu_class=menu' ); 
+	wp_page_menu( 'show_home=Home' ); 
 }
 
 // this is the fallback for footer menu
