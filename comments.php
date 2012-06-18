@@ -48,7 +48,7 @@ The comments page for Bones
 	<?php else : // comments are closed ?>
 	
 	<!-- If comments are closed. -->
-	<p class="nocomments"><?php __("Comments are closed.", "bonestheme"); ?></p>
+	<p class="nocomments"><?php _e("Comments are closed.", "bonestheme"); ?></p>
 
 	<?php endif; ?>
 
@@ -67,7 +67,7 @@ The comments page for Bones
 
 	<?php if ( get_option('comment_registration') && !is_user_logged_in() ) : ?>
   	<div class="alert help">
-  		<p>You must be <a href="<?php echo wp_login_url( get_permalink() ); ?>">logged in</a> to post a comment.</p>
+  		<p><?php printf( 'You must be %1$slogged in%2$s to post a comment.', '<a href="<?php echo wp_login_url( get_permalink() ); ?>">', '</a>' ); ?></p>
   	</div>
 	<?php else : ?>
 
@@ -75,41 +75,41 @@ The comments page for Bones
 
 	<?php if ( is_user_logged_in() ) : ?>
 
-	<p class="comments-logged-in-as"><?php __("Logged in as", "bonestheme"); ?> <a href="<?php echo get_option('siteurl'); ?>/wp-admin/profile.php"><?php echo $user_identity; ?></a>. <a href="<?php echo wp_logout_url(get_permalink()); ?>" title="Log out of this account"><?php __("Log out", "bonestheme"); ?> &raquo;</a></p>
+	<p class="comments-logged-in-as"><?php _e("Logged in as", "bonestheme"); ?> <a href="<?php echo get_option('siteurl'); ?>/wp-admin/profile.php"><?php echo $user_identity; ?></a>. <a href="<?php echo wp_logout_url(get_permalink()); ?>" title="Log out of this account"><?php _e("Log out", "bonestheme"); ?> &raquo;</a></p>
 
 	<?php else : ?>
 	
 	<ul id="comment-form-elements" class="clearfix">
 		
 		<li>
-		  <label for="author"><?php __("Name", "bonestheme"); ?> <?php if ($req) echo "(required)"; ?></label>
-		  <input type="text" name="author" id="author" value="<?php echo esc_attr($comment_author); ?>" placeholder="Your Name" tabindex="1" <?php if ($req) echo "aria-required='true'"; ?> />
+		  <label for="author"><?php _e("Name", "bonestheme"); ?> <?php if ($req) echo "(required)"; ?></label>
+		  <input type="text" name="author" id="author" value="<?php echo esc_attr($comment_author); ?>" placeholder="<?php _e('Your Name*', 'bonestheme'); ?>" tabindex="1" <?php if ($req) echo "aria-required='true'"; ?> />
 		</li>
 		
 		<li>
-		  <label for="email"><?php __("Mail", "bonestheme"); ?> <?php if ($req) echo "(required)"; ?></label>
-		  <input type="email" name="email" id="email" value="<?php echo esc_attr($comment_author_email); ?>" placeholder="Your Email" tabindex="2" <?php if ($req) echo "aria-required='true'"; ?> />
+		  <label for="email"><?php _e("Mail", "bonestheme"); ?> <?php if ($req) echo "(required)"; ?></label>
+		  <input type="email" name="email" id="email" value="<?php echo esc_attr($comment_author_email); ?>" placeholder="<?php _e('Your E-Mail*', 'bonestheme'); ?>" tabindex="2" <?php if ($req) echo "aria-required='true'"; ?> />
 		  <small><?php __("(will not be published)", "bonestheme"); ?></small>
 		</li>
 		
 		<li>
-		  <label for="url"><?php __("Website", "bonestheme"); ?></label>
-		  <input type="url" name="url" id="url" value="<?php echo esc_attr($comment_author_url); ?>" placeholder="Your Website" tabindex="3" />
+		  <label for="url"><?php _e("Website", "bonestheme"); ?></label>
+		  <input type="url" name="url" id="url" value="<?php echo esc_attr($comment_author_url); ?>" placeholder="<?php _e('Got a website?', 'bonestheme'); ?>" tabindex="3" />
 		</li>
 		
 	</ul>
 
 	<?php endif; ?>
 	
-	<p><textarea name="comment" id="comment" placeholder="Your Comment Here..." tabindex="4"></textarea></p>
+	<p><textarea name="comment" id="comment" placeholder="<?php _e('Your Comment here…', 'bonestheme'); ?>" tabindex="4"></textarea></p>
 	
 	<p>
-	  <input name="submit" type="submit" id="submit" class="button" tabindex="5" value="Submit Comment" />
+	  <input name="submit" type="submit" id="submit" class="button" tabindex="5" value="<?php _e('Submit', 'bonestheme'); ?>" />
 	  <?php comment_id_fields(); ?>
 	</p>
 	
 	<div class="alert info">
-		<p id="allowed_tags" class="small"><strong>XHTML:</strong> You can use these tags: <code><?php echo allowed_tags(); ?></code></p>
+		<p id="allowed_tags" class="small"><strong>XHTML:</strong> <?php _e('You can use these tags:', 'bonestheme'); ?> <code><?php echo allowed_tags(); ?></code></p>
 	</div>
 	
 	<?php do_action('comment_form', $post->ID); ?>
