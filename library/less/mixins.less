@@ -137,32 +137,31 @@ BORDER RADIUS
 *********************/
 
 /* .rounded(4px); */
+/* NOTE: For older browser support (and some mobile), don't use the shorthand to define *different* corners. */
 .rounded(@radius: 4px) {
   -webkit-border-radius: @radius;
      -moz-border-radius: @radius;
-      -ms-border-radius: @radius;
-       -o-border-radius: @radius;
           border-radius: @radius;
 }
 
 /* .rounded-left(4px); */
 .rounded-left(@radius: 4px) {
 	-webkit-border-bottom-left-radius: @radius;
-  	   -webkit-border-top-left-radius: @radius;
-		-moz-border-radius-bottomleft: @radius;
-		   -moz-border-radius-topleft: @radius;
-			border-bottom-left-radius: @radius;
-			   border-top-left-radius: @radius;
+  	 -webkit-border-top-left-radius: @radius;
+			-moz-border-radius-bottomleft: @radius;
+		   	 -moz-border-radius-topleft: @radius;
+					border-bottom-left-radius: @radius;
+			   		 border-top-left-radius: @radius;
 }
 
 /* .rounded-right(4px); */
 .rounded-right(@radius: 4px) {
 	-webkit-border-bottom-right-radius: @radius;
-  	   -webkit-border-top-right-radius: @radius;
-		-moz-border-radius-bottomright: @radius;
-		   -moz-border-radius-topright: @radius;
-			border-bottom-right-radius: @radius;
-			   border-top-right-radius: @radius;
+  	 -webkit-border-top-right-radius: @radius;
+			-moz-border-radius-bottomright: @radius;
+		   	 -moz-border-radius-topright: @radius;
+					border-bottom-right-radius: @radius;
+			   		 border-top-right-radius: @radius;
 }
 
 /* .rounded-bottom(4px); */
@@ -193,7 +192,6 @@ TRANISTION
 .transition(@what: all, @time: 0.2s) {
 	-webkit-transition: @what @time ease-out;
 	   -moz-transition: @what @time ease-out;
- 	    -ms-transition: @what @time ease-out;
 	     -o-transition: @what @time ease-out;
 	        transition: @what @time ease-out;
 }
@@ -211,8 +209,7 @@ really slow down your CSS. Don't overdue it.
 	background-image: -webkit-linear-gradient(top, @from, @to);
 	background-image: -moz-linear-gradient(top, @from, @to);
 	background-image: -o-linear-gradient(top, @from, @to);
-	background-image: -ms-linear-gradient(top, @from, @to);
-	background-image: linear-gradient(top, @from, @to);
+	background-image: linear-gradient(to bottom, @from, @to);
 }
 
 /*********************
@@ -220,12 +217,13 @@ BOX SIZING
 *********************/
 
 /* .boxSizing(border-box); */
+/* NOTE: value of "padding-box" is only supported in Gecko. So 
+probably best not to use it. I mean, were you going to anyway? */
 .boxSizing(@type: border-box) {
 	-webkit-box-sizing: @type;
 	   -moz-box-sizing: @type;
-		-ms-box-sizing: @type;
-	     -o-box-sizing: @type; 
-			box-sizing: @type; 
+			-ms-box-sizing: @type;
+					box-sizing: @type;
 }
 
 /*********************
@@ -236,9 +234,7 @@ BOX SHADOW
 .boxShadow(@x: 0, @y: 0, @radius: 4px, @spread: 0, @color: rgba(0,0,0,0.5)) {
 	-webkit-box-shadow: @x @y @radius @spread @color;
 	   -moz-box-shadow: @x @y @radius @spread @color;
-		-ms-box-shadow: @x @y @radius @spread @color;
-	     -o-box-shadow: @x @y @radius @spread @color; 
-			box-shadow: @x @y @radius @spread @color; 
+					box-shadow: @x @y @radius @spread @color; 
 }
 
 /*********************
