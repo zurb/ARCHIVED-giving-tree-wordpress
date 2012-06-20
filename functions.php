@@ -125,13 +125,13 @@ function bones_comments($comment, $args, $depth) {
 			    <!-- custom gravatar call -->
 			    <img data-gravatar="http://www.gravatar.com/avatar/<?php echo md5($bgauthemail); ?>&s=32" class="load-gravatar avatar avatar-48 photo" height="32" width="32" src="<?php echo get_template_directory_uri(); ?>/library/images/nothing.gif" />
 			    <!-- end custom gravatar call -->
-				<?php printf(__('<cite class="fn">%s</cite>'), get_comment_author_link()) ?>
+				<?php printf(_e('<cite class="fn">%s</cite>'), get_comment_author_link()) ?>
 				<time datetime="<?php echo comment_time('Y-m-j'); ?>"><a href="<?php echo htmlspecialchars( get_comment_link( $comment->comment_ID ) ) ?>"><?php comment_time('F jS, Y'); ?> </a></time>
-				<?php edit_comment_link(__('(Edit)'),'  ','') ?>
+				<?php edit_comment_link(_e('(Edit)'),'  ','') ?>
 			</header>
 			<?php if ($comment->comment_approved == '0') : ?>
        			<div class="alert info">
-          			<p><?php __('Your comment is awaiting moderation.') ?></p>
+          			<p><?php _e('Your comment is awaiting moderation.') ?></p>
           		</div>
 			<?php endif; ?>
 			<section class="comment_content clearfix">
@@ -148,9 +148,9 @@ function bones_comments($comment, $args, $depth) {
 // Search Form
 function bones_wpsearch($form) {
     $form = '<form role="search" method="get" id="searchform" action="' . home_url( '/' ) . '" >
-    <label class="screen-reader-text" for="s">' . __('Search for:', 'bonestheme') . '</label>
+    <label class="screen-reader-text" for="s">' . _e('Search for:', 'bonestheme') . '</label>
     <input type="text" value="' . get_search_query() . '" name="s" id="s" placeholder="Search the Site..." />
-    <input type="submit" id="searchsubmit" value="'. esc_attr__('Search') .'" />
+    <input type="submit" id="searchsubmit" value="'. esc_attr_e('Search') .'" />
     </form>';
     return $form;
 } // don't remove this bracket!

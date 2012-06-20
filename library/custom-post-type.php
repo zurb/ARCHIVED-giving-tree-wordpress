@@ -21,21 +21,21 @@ function custom_post_example() {
 	register_post_type( 'custom_type', /* (http://codex.wordpress.org/Function_Reference/register_post_type) */
 	 	// let's now add all the options for this post type
 		array('labels' => array(
-			'name' => __('Custom Types', 'post type general name'), /* This is the Title of the Group */
-			'singular_name' => __('Custom Post', 'post type singular name'), /* This is the individual type */
-			'all_items' => __('All Custom Posts'), /* the all items menu item */
-			'add_new' => __('Add New', 'custom post type item'), /* The add new menu item */
-			'add_new_item' => __('Add New Custom Type'), /* Add New Display Title */
-			'edit' => __( 'Edit' ), /* Edit Dialog */
-			'edit_item' => __('Edit Post Types'), /* Edit Display Title */
-			'new_item' => __('New Post Type'), /* New Display Title */
-			'view_item' => __('View Post Type'), /* View Display Title */
-			'search_items' => __('Search Post Type'), /* Search Custom Type Title */ 
-			'not_found' =>  __('Nothing found in the Database.'), /* This displays if there are no entries yet */ 
-			'not_found_in_trash' => __('Nothing found in Trash'), /* This displays if there is nothing in the trash */
+			'name' => _e('Custom Types', 'post type general name'), /* This is the Title of the Group */
+			'singular_name' => _e('Custom Post', 'post type singular name'), /* This is the individual type */
+			'all_items' => _e('All Custom Posts'), /* the all items menu item */
+			'add_new' => _e('Add New', 'custom post type item'), /* The add new menu item */
+			'add_new_item' => _e('Add New Custom Type'), /* Add New Display Title */
+			'edit' => _e( 'Edit' ), /* Edit Dialog */
+			'edit_item' => _e('Edit Post Types'), /* Edit Display Title */
+			'new_item' => _e('New Post Type'), /* New Display Title */
+			'view_item' => _e('View Post Type'), /* View Display Title */
+			'search_items' => _e('Search Post Type'), /* Search Custom Type Title */ 
+			'not_found' =>  _e('Nothing found in the Database.'), /* This displays if there are no entries yet */ 
+			'not_found_in_trash' => _e('Nothing found in Trash'), /* This displays if there is nothing in the trash */
 			'parent_item_colon' => ''
 			), /* end of arrays */
-			'description' => __( 'This is the example custom post type' ), /* Custom Type Description */
+			'description' => _e( 'This is the example custom post type' ), /* Custom Type Description */
 			'public' => true,
 			'publicly_queryable' => true,
 			'exclude_from_search' => false,
@@ -72,16 +72,16 @@ function custom_post_example() {
     	array('custom_type'), /* if you change the name of register_post_type( 'custom_type', then you have to change this */
     	array('hierarchical' => true,     /* if this is true it acts like categories */             
     		'labels' => array(
-    			'name' => __( 'Custom Categories' ), /* name of the custom taxonomy */
-    			'singular_name' => __( 'Custom Category' ), /* single taxonomy name */
-    			'search_items' =>  __( 'Search Custom Categories' ), /* search title for taxomony */
-    			'all_items' => __( 'All Custom Categories' ), /* all title for taxonomies */
-    			'parent_item' => __( 'Parent Custom Category' ), /* parent title for taxonomy */
-    			'parent_item_colon' => __( 'Parent Custom Category:' ), /* parent taxonomy title */
-    			'edit_item' => __( 'Edit Custom Category' ), /* edit custom taxonomy title */
-    			'update_item' => __( 'Update Custom Category' ), /* update title for taxonomy */
-    			'add_new_item' => __( 'Add New Custom Category' ), /* add new title for taxonomy */
-    			'new_item_name' => __( 'New Custom Category Name' ) /* name title for taxonomy */
+    			'name' => _e( 'Custom Categories' ), /* name of the custom taxonomy */
+    			'singular_name' => _e( 'Custom Category' ), /* single taxonomy name */
+    			'search_items' =>  _e( 'Search Custom Categories' ), /* search title for taxomony */
+    			'all_items' => _e( 'All Custom Categories' ), /* all title for taxonomies */
+    			'parent_item' => _e( 'Parent Custom Category' ), /* parent title for taxonomy */
+    			'parent_item_colon' => _e( 'Parent Custom Category:' ), /* parent taxonomy title */
+    			'edit_item' => _e( 'Edit Custom Category' ), /* edit custom taxonomy title */
+    			'update_item' => _e( 'Update Custom Category' ), /* update title for taxonomy */
+    			'add_new_item' => _e( 'Add New Custom Category' ), /* add new title for taxonomy */
+    			'new_item_name' => _e( 'New Custom Category Name' ) /* name title for taxonomy */
     		),
     		'show_ui' => true,
     		'query_var' => true,
@@ -93,16 +93,16 @@ function custom_post_example() {
     	array('custom_type'), /* if you change the name of register_post_type( 'custom_type', then you have to change this */
     	array('hierarchical' => false,    /* if this is false, it acts like tags */                
     		'labels' => array(
-    			'name' => __( 'Custom Tags' ), /* name of the custom taxonomy */
-    			'singular_name' => __( 'Custom Tag' ), /* single taxonomy name */
-    			'search_items' =>  __( 'Search Custom Tags' ), /* search title for taxomony */
-    			'all_items' => __( 'All Custom Tags' ), /* all title for taxonomies */
-    			'parent_item' => __( 'Parent Custom Tag' ), /* parent title for taxonomy */
-    			'parent_item_colon' => __( 'Parent Custom Tag:' ), /* parent taxonomy title */
-    			'edit_item' => __( 'Edit Custom Tag' ), /* edit custom taxonomy title */
-    			'update_item' => __( 'Update Custom Tag' ), /* update title for taxonomy */
-    			'add_new_item' => __( 'Add New Custom Tag' ), /* add new title for taxonomy */
-    			'new_item_name' => __( 'New Custom Tag Name' ) /* name title for taxonomy */
+    			'name' => _e( 'Custom Tags' ), /* name of the custom taxonomy */
+    			'singular_name' => _e( 'Custom Tag' ), /* single taxonomy name */
+    			'search_items' =>  _e( 'Search Custom Tags' ), /* search title for taxomony */
+    			'all_items' => _e( 'All Custom Tags' ), /* all title for taxonomies */
+    			'parent_item' => _e( 'Parent Custom Tag' ), /* parent title for taxonomy */
+    			'parent_item_colon' => _e( 'Parent Custom Tag:' ), /* parent taxonomy title */
+    			'edit_item' => _e( 'Edit Custom Tag' ), /* edit custom taxonomy title */
+    			'update_item' => _e( 'Update Custom Tag' ), /* update title for taxonomy */
+    			'add_new_item' => _e( 'Add New Custom Tag' ), /* add new title for taxonomy */
+    			'new_item_name' => _e( 'New Custom Tag Name' ) /* name title for taxonomy */
     		),
     		'show_ui' => true,
     		'query_var' => true,

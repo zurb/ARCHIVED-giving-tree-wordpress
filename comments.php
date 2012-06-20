@@ -9,7 +9,7 @@ The comments page for Bones
 
   if ( post_password_required() ) { ?>
   	<div class="alert help">
-    	<p class="nocomments"><?php __("This post is password protected. Enter the password to view comments.", "bonestheme"); ?></p>
+    	<p class="nocomments"><?php _e("This post is password protected. Enter the password to view comments.", "bonestheme"); ?></p>
   	</div>
   <?php
     return;
@@ -89,7 +89,7 @@ The comments page for Bones
 		<li>
 		  <label for="email"><?php _e("Mail", "bonestheme"); ?> <?php if ($req) echo "(required)"; ?></label>
 		  <input type="email" name="email" id="email" value="<?php echo esc_attr($comment_author_email); ?>" placeholder="<?php _e('Your E-Mail*', 'bonestheme'); ?>" tabindex="2" <?php if ($req) echo "aria-required='true'"; ?> />
-		  <small><?php __("(will not be published)", "bonestheme"); ?></small>
+		  <small><?php _e("(will not be published)", "bonestheme"); ?></small>
 		</li>
 		
 		<li>

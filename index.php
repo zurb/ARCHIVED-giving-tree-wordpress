@@ -14,7 +14,7 @@
 							
 							    <h1 class="h2"><a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a></h1>
 							
-							    <p class="meta"><?php __('Posted', 'bonestheme'); ?> <time datetime="<?php echo the_time('Y-m-j'); ?>" pubdate><?php the_time(get_option('date_format')); ?></time> <?php __('by', 'bonestheme'); ?> <?php the_author_posts_link(); ?> <span class="amp">&</span> <?php __('filed under', 'bonestheme'); ?> <?php the_category(', '); ?>.</p>
+							    <p class="meta"><?php _e('Posted', 'bonestheme'); ?> <time datetime="<?php echo the_time('Y-m-j'); ?>" pubdate><?php the_time(get_option('date_format')); ?></time> <?php _e('by', 'bonestheme'); ?> <?php the_author_posts_link(); ?> <span class="amp">&</span> <?php _e('filed under', 'bonestheme'); ?> <?php the_category(', '); ?>.</p>
 						
 						    </header> <!-- end article header -->
 					
@@ -41,8 +41,8 @@
 					        <?php } else { // if it is disabled, display regular wp prev & next links ?>
 						        <nav class="wp-prev-next">
 							        <ul class="clearfix">
-								        <li class="prev-link"><?php next_posts_link(__('&laquo; Older Entries', 'bonestheme')) ?></li>
-								        <li class="next-link"><?php previous_posts_link(__('Newer Entries &raquo;', 'bonestheme')) ?></li>
+								        <li class="prev-link"><?php next_posts_link(_e('&laquo; Older Entries', 'bonestheme')) ?></li>
+								        <li class="next-link"><?php previous_posts_link(_e('Newer Entries &raquo;', 'bonestheme')) ?></li>
 							        </ul>
 						        </nav>
 					        <?php } ?>		
@@ -51,13 +51,13 @@
 					    
 					        <article id="post-not-found" class="hentry clearfix">
 					            <header class="article-header">
-					        	    <h1><?php __("Oops, Post Not Found!", "bonestheme"); ?></h1>
+					        	    <h1><?php _e("Oops, Post Not Found!", "bonestheme"); ?></h1>
 					        	</header>
 					            <section class="post-content">
-					        	    <p><?php __("Uh Oh. Something is missing. Try double checking things.", "bonestheme"); ?></p>
+					        	    <p><?php _e("Uh Oh. Something is missing. Try double checking things.", "bonestheme"); ?></p>
 					        	</section>
 					        	<footer class="article-footer">
-					        	    <p><?php __("This is the error message in the index.php template.", "bonestheme"); ?></p>
+					        	    <p><?php _e("This is the error message in the index.php template.", "bonestheme"); ?></p>
 					        	</footer>
 					        </article>
 					

@@ -14,7 +14,7 @@
 							
 							    <h1 class="page-title" itemprop="headline"><?php the_title(); ?></h1>
 							
-							    <p class="meta"><?php __("Posted", "bonestheme"); ?> <time datetime="<?php echo the_time('Y-m-j'); ?>" pubdate><?php the_time('F jS, Y'); ?></time> <?php __("by", "bonestheme"); ?> <?php the_author_posts_link(); ?>.</p>
+							    <p class="meta"><?php _e("Posted", "bonestheme"); ?> <time datetime="<?php echo the_time('Y-m-j'); ?>" pubdate><?php the_time('F jS, Y'); ?></time> <?php _e("by", "bonestheme"); ?> <?php the_author_posts_link(); ?>.</p>
 						
 						    </header> <!-- end article header -->
 					
@@ -38,13 +38,13 @@
 					
     					    <article id="post-not-found" class="hentry clearfix">
     					    	<header class="article-header">
-    					    		<h1><?php __("Oops, Post Not Found!", "bonestheme"); ?></h1>
+    					    		<h1><?php _e("Oops, Post Not Found!", "bonestheme"); ?></h1>
     					    	</header>
     					    	<section class="post-content">
-    					    		<p><?php __("Uh Oh. Something is missing. Try double checking things.", "bonestheme"); ?></p>
+    					    		<p><?php _e("Uh Oh. Something is missing. Try double checking things.", "bonestheme"); ?></p>
     					    	</section>
     					    	<footer class="article-footer">
-    					    	    <p><?php __("This is the error message in the page.php template.", "bonestheme"); ?></p>
+    					    	    <p><?php _e("This is the error message in the page.php template.", "bonestheme"); ?></p>
     					    	</footer>
     					    </article>
 					
