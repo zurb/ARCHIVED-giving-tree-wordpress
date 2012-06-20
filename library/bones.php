@@ -189,10 +189,10 @@ function bones_theme_support() {
 	// registering wp3+ menus          
 	register_nav_menus(                      
 		array( 
-			'main_nav' => 'The Main Menu',           // main nav in header
-			'footer_links' => 'Footer Links'         // secondary nav in footer
+			'main-nav' => _e( 'The Main Menu' ),   // main nav in header
+			'footer-links' => _e( 'Footer Links' ) // secondary nav in footer
 		)
-	);	
+	);
 } /* end bones theme support */
 
 
@@ -206,9 +206,9 @@ function bones_main_nav() {
     wp_nav_menu(array( 
     	'container' => false,                           // remove nav container
     	'container_class' => 'menu clearfix',           // class of container (should you choose to use it)
-    	'menu' => 'main_nav',                           // nav name
+    	'menu' => 'The Main Menu',                           // nav name
     	'menu_class' => 'nav top-nav clearfix',         // adding custom nav class
-    	'theme_location' => 'main_nav',                 // where it's located in the theme
+    	'theme_location' => 'main-nav',                 // where it's located in the theme
     	'before' => '',                                 // before the menu
         'after' => '',                                  // after the menu
         'link_before' => '',                            // before each link
@@ -224,9 +224,9 @@ function bones_footer_links() {
     wp_nav_menu(array( 
     	'container' => '',                              // remove nav container
     	'container_class' => 'footer-links clearfix',   // class of container (should you choose to use it)
-    	'menu' => 'footer_links',                       // nav name
+    	'menu' => 'Footer Links',                       // nav name
     	'menu_class' => 'nav footer-nav clearfix',      // adding custom nav class
-    	'theme_location' => 'footer_links',             // where it's located in the theme
+    	'theme_location' => 'footer-links',             // where it's located in the theme
     	'before' => '',                                 // before the menu
         'after' => '',                                  // after the menu
         'link_before' => '',                            // before each link
