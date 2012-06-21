@@ -136,11 +136,11 @@ BORDER RADIUS
 *********************/
 
 /* @include rounded(4px); */
+/* NOTE: For older browser support (and some mobile), 
+don't use the shorthand to define *different* corners. */
 @mixin rounded($radius: 4px) {
 	-webkit-border-radius: $radius;
 	   -moz-border-radius: $radius;
-	    -ms-border-radius: $radius;
-   	     -o-border-radius: $radius;
 	        border-radius: $radius;
 }
 
@@ -192,7 +192,6 @@ TRANISTION
 @mixin css-transition($what: all, $time: 0.2s, $how: ease-out) {
 	-webkit-transition: $what $time $how;
 	   -moz-transition: $what $time $how;
- 	    -ms-transition: $what $time $how;
 	     -o-transition: $what $time $how;
 	        transition: $what $time $how;
 }
@@ -211,8 +210,6 @@ BOX SHADOWS
 
   -webkit-box-shadow: $full;
      -moz-box-shadow: $full;
-      -ms-box-shadow: $full;
-       -o-box-shadow: $full;
           box-shadow: $full;
 }
 
@@ -229,8 +226,7 @@ really slow down your CSS. Don't overdue it.
 	background-image: -webkit-linear-gradient(top, $from, $to);
 	background-image: -moz-linear-gradient(top, $from, $to);
 	background-image: -o-linear-gradient(top, $from, $to);
-	background-image: -ms-linear-gradient(top, $from, $to);
-	background-image: linear-gradient(top, $from, $to);
+	background-image: linear-gradient(to bottom, $from, $to);
 }
 
 /*********************
@@ -238,12 +234,13 @@ BOX SIZING
 *********************/
 
 /* @include box-sizing(border-box); */
+/* NOTE: value of "padding-box" is only supported in Gecko. So 
+probably best not to use it. I mean, were you going to anyway? */
 @mixin box-sizing($type: border-box) {
 	-webkit-box-sizing: $type;
 	   -moz-box-sizing: $type;
-		-ms-box-sizing: $type;
-	     -o-box-sizing: $type; 
-			box-sizing: $type; 
+		  -ms-box-sizing: $type;
+	        box-sizing: $type;
 }
 
  
