@@ -34,6 +34,8 @@ function bones_ahoy() {
 
     // enqueue base scripts and styles
     add_action('wp_enqueue_scripts', 'bones_scripts_and_styles', 999);
+    // ie conditional wrapper
+    add_filter( 'style_loader_tag', 'bones_ie_conditional', 10, 2 );
     
     // launching this stuff after theme setup
     add_action('after_setup_theme','bones_theme_support');	
@@ -112,10 +114,13 @@ function bones_scripts_and_styles() {
   if (!is_admin()) {
   
     // modernizr (without media query polyfill)
-    wp_register_script( 'bones-modernizr', get_template_directory_uri() . '/library/js/libs/modernizr.custom.min.js', array(), '2.5.3', false );
+    wp_register_script( 'bones-modernizr', get_stylesheet_directory_uri() . '/library/js/libs/modernizr.custom.min.js', array(), '2.5.3', false );
  
-    // register mobile stylesheet
-    wp_register_style( 'bones-stylesheet', get_template_directory_uri() . '/library/css/style.css', array(), '', 'all' );
+    // register main stylesheet
+    wp_register_style( 'bones-stylesheet', get_stylesheet_directory_uri() . '/library/css/style.css', array(), '', 'all' );
+
+    // ie-only style sheet
+    wp_register_style( 'bones-ie-only', get_stylesheet_directory_uri() . '/library/css/ie.css', array(), '' );
     
     // comment reply script for threaded comments
     if ( is_singular() AND comments_open() AND (get_option('thread_comments') == 1)) {
@@ -123,11 +128,12 @@ function bones_scripts_and_styles() {
     }
     
     //adding scripts file in the footer
-    wp_register_script( 'bones-js', get_template_directory_uri() . '/library/js/scripts.js', array( 'jquery' ), '', true );
+    wp_register_script( 'bones-js', get_stylesheet_directory_uri() . '/library/js/scripts.js', array( 'jquery' ), '', true );
     
     // enqueue styles and scripts
     wp_enqueue_script( 'bones-modernizr' ); 
     wp_enqueue_style( 'bones-stylesheet' ); 
+    wp_enqueue_style('bones-ie-only');
     /*
     I reccomend using a plugin to call jQuery
     using the google cdn. That way it stays cached
@@ -137,6 +143,14 @@ function bones_scripts_and_styles() {
     wp_enqueue_script( 'bones-js' ); 
     
   }
+}
+
+// adding the conditional wrapper around ie stylesheet
+// source: http://code.garyjones.co.uk/ie-conditional-style-sheets-wordpress/
+function bones_ie_conditional( $tag, $handle ) {
+	if ( 'bones-ie-only' == $handle )
+		$tag = '<!--[if lte IE 9]>' . "\n" . $tag . '<![endif]-->' . "\n";
+	return $tag;
 }
 
 /*********************
