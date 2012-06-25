@@ -16,9 +16,15 @@
 					
 							<section class="post-content">
 							
-								<p><?php _e("The article you were looking for was not found, try looking for it again!", "bonestheme"); ?></p>
+								<p><?php _e("The article you were looking for was not found, but maybe try looking again!", "bonestheme"); ?></p>
 					
 							</section> <!-- end article section -->
+
+							<section class="search">
+				
+							    <p><?php get_search_form(); ?></p>
+				
+							</section> <!-- end search section -->
 						
 							<footer class="article-header">
 							
