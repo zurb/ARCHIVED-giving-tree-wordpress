@@ -98,7 +98,7 @@ function bones_login_css() {
 }
 
 // changing the logo link from wordpress.org to your site 
-function bones_login_url() { echo bloginfo('url'); }
+function bones_login_url() {  echo home_url(); }
 
 // changing the alt text on the logo to show your site name 
 function bones_login_title() { echo get_option('blogname'); }
