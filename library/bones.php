@@ -203,8 +203,8 @@ function bones_theme_support() {
 	// registering wp3+ menus          
 	register_nav_menus(                      
 		array( 
-			'main-nav' => __( 'The Main Menu' ),   // main nav in header
-			'footer-links' => __( 'Footer Links' ) // secondary nav in footer
+			'main-nav' => __( 'The Main Menu', 'bonestheme' ),   // main nav in header
+			'footer-links' => __( 'Footer Links', 'bonestheme' ) // secondary nav in footer
 		)
 	);
 } /* end bones theme support */

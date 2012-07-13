@@ -127,11 +127,11 @@ function bones_comments($comment, $args, $depth) {
 			    <!-- end custom gravatar call -->
 				<?php printf(__('<cite class="fn">%s</cite>'), get_comment_author_link()) ?>
 				<time datetime="<?php echo comment_time('Y-m-j'); ?>"><a href="<?php echo htmlspecialchars( get_comment_link( $comment->comment_ID ) ) ?>"><?php comment_time('F jS, Y'); ?> </a></time>
-				<?php edit_comment_link(__('(Edit)'),'  ','') ?>
+				<?php edit_comment_link(__('(Edit)', 'bonestheme'),'  ','') ?>
 			</header>
 			<?php if ($comment->comment_approved == '0') : ?>
        			<div class="alert info">
-          			<p><?php _e('Your comment is awaiting moderation.') ?></p>
+          			<p><?php _e('Your comment is awaiting moderation.', 'bonestheme') ?></p>
           		</div>
 			<?php endif; ?>
 			<section class="comment_content clearfix">
