@@ -16,7 +16,7 @@ BONES CHANGE LOG & HISTORY
 - updated custom post type page for translation
 - added => to responsive jquery
 - cleaned up theme tags (which make NO sense, but are best practice, go figure)
-
+- updated html element to match hb5
 
 /* v1.2 HUGE update */
 - merge responsive version with classic
