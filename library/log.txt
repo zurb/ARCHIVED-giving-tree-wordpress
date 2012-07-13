@@ -12,6 +12,12 @@ Author: Eddie Machado
 BONES CHANGE LOG & HISTORY
 ******************************************************************/
 
+/* v1.25 update */
+- updated custom post type page for translation
+- added => to responsive jquery
+- cleaned up theme tags (which make NO sense, but are best practice, go figure)
+
+
 /* v1.2 HUGE update */
 - merge responsive version with classic
 - remove post title from read more link (it's way too long)
