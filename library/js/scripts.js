@@ -32,8 +32,8 @@ jQuery(document).ready(function($) {
         
     } /* end larger than 481px */
     
-    /* if is above 768px */
-    if (responsive_viewport > 768) {
+    /* if is above or equal to 768px */
+    if (responsive_viewport >= 768) {
     
         /* load gravatars */
         $('.comment img[data-gravatar]').each(function(){
