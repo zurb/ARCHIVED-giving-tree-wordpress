@@ -4,7 +4,7 @@
 
 				<div id="inner-content" class="wrap clearfix">
 			
-					<div id="main" class="ninecol first clearfix" role="main">
+					<div id="main" class="eightcol first clearfix" role="main">
 				
 						<h1 class="archive-title"><span>Search Results for:</span> <?php echo esc_attr(get_search_query()); ?></h1>
 
@@ -53,7 +53,7 @@
     					    		<h1><?php _e("Sorry, No Results.", "bonestheme"); ?></h1>
     					    	</header>
     					    	<section class="post-content">
-    					    		<p><?php _e("UTry your search again.", "bonestheme"); ?></p>
+    					    		<p><?php _e("Try your search again.", "bonestheme"); ?></p>
     					    	</section>
     					    	<footer class="article-footer">
     					    	    <p><?php _e("This is the error message in the search.php template.", "bonestheme"); ?></p>
