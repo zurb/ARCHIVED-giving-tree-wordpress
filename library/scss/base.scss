@@ -270,7 +270,7 @@ POSTS & CONTENT STYLES
 		
 		.page-title {}
 		
-		.archive_title { }
+		.archive-title { }
 	
 		/* want to style individual post classes? Booya! */
 		.post-id {} /* post by id (i.e. post-3) */
@@ -335,6 +335,7 @@ POSTS & CONTENT STYLES
 			img { 
 				margin: 0 0 1.5em 0; 
 				max-width: 100%; 
+				height: auto;
 			}
 			
 			/*
@@ -349,6 +350,7 @@ POSTS & CONTENT STYLES
 			
 			video, object { 
 				max-width: 100%; 
+				height: auto;
 			}
 			
 			pre, code {
