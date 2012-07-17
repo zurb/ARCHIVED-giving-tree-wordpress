@@ -136,52 +136,43 @@ span.amp {
 BORDER RADIUS
 *********************/
 
-/* .rounded(4px); */
-/* NOTE: For older browser support (and some mobile), don't use the shorthand to define *different* corners. */
+/* 
+NOTE: For older browser support (and some mobile), 
+don't use the shorthand to define *different* corners. 
+
+USAGE: .rounded(4px); 
+
+*/
 .rounded(@radius: 4px) {
   -webkit-border-radius: @radius;
      -moz-border-radius: @radius;
           border-radius: @radius;
 }
 
-/* .rounded-left(4px); */
-.rounded-left(@radius: 4px) {
-	-webkit-border-bottom-left-radius: @radius;
-  	 -webkit-border-top-left-radius: @radius;
-			-moz-border-radius-bottomleft: @radius;
-		   	 -moz-border-radius-topleft: @radius;
-					border-bottom-left-radius: @radius;
-			   		 border-top-left-radius: @radius;
-}
+/* 
+Instead of having a seperate mixin for the different
+borders, we're using the mixin from 320 & Up to make
+things easier to use.
 
-/* .rounded-right(4px); */
-.rounded-right(@radius: 4px) {
-	-webkit-border-bottom-right-radius: @radius;
-  	 -webkit-border-top-right-radius: @radius;
-			-moz-border-radius-bottomright: @radius;
-		   	 -moz-border-radius-topright: @radius;
-					border-bottom-right-radius: @radius;
-			   		 border-top-right-radius: @radius;
-}
+USAGE: .border-radius(4px,4px,0,0);
 
-/* .rounded-bottom(4px); */
-.rounded-bottom(@radius: 4px) {
-	-webkit-border-bottom-right-radius: @radius;
-	 -webkit-border-bottom-left-radius: @radius;
-	    -moz-border-radius-bottomright: @radius;
-	     -moz-border-radius-bottomleft: @radius;
-	        border-bottom-right-radius: @radius;
-	         border-bottom-left-radius: @radius;
-}
-
-/* .rounded-top(4px); */
-.rounded-top(@radius: 4px) {
-	-webkit-border-top-right-radius: @radius;
-	 -webkit-border-top-left-radius: @radius;
-	    -moz-border-radius-topright: @radius;
-	     -moz-border-radius-topleft: @radius;
-	        border-top-right-radius: @radius;
-	         border-top-left-radius: @radius;
+*/
+.border-radius(@topright: 0, @bottomright: 0, @bottomleft: 0, @topleft: 0) {
+	-webkit-border-top-right-radius:    @topright;
+	-webkit-border-bottom-right-radius: @bottomright;
+	-webkit-border-bottom-left-radius:  @bottomleft;
+	-webkit-border-top-left-radius:     @topleft;
+	-moz-border-radius-topright:        @topright;
+	-moz-border-radius-bottomright:     @bottomright;
+	-moz-border-radius-bottomleft:      @bottomleft;
+	-moz-border-radius-topleft:         @topleft;
+	border-top-right-radius:            @topright;
+	border-bottom-right-radius:         @bottomright;
+	border-bottom-left-radius:          @bottomleft;
+	border-top-left-radius:             @topleft;
+	-webkit-background-clip:            padding-box;
+	-moz-background-clip:               padding;  
+	background-clip:                    padding-box; 
 }
 
 /*********************
@@ -189,11 +180,12 @@ TRANISTION
 *********************/
 
 /* .transition(all,2s); */
-.transition(@what: all, @time: 0.2s) {
-	-webkit-transition: @what @time ease-out;
-	   -moz-transition: @what @time ease-out;
-	     -o-transition: @what @time ease-out;
-	        transition: @what @time ease-out;
+.transition(@what: all, @time: 0.2s, @transition: ease-in-out) {
+	-webkit-transition: @what @time @transition;
+	-moz-transition:    @what @time @transition;
+	-ms-transition:     @what @time @transition;
+	-o-transition:      @what @time @transition;
+	transition:         @what @time @transition;
 }
 
 /*********************
@@ -221,9 +213,9 @@ BOX SIZING
 probably best not to use it. I mean, were you going to anyway? */
 .boxSizing(@type: border-box) {
 	-webkit-box-sizing: @type;
-	   -moz-box-sizing: @type;
-			-ms-box-sizing: @type;
-					box-sizing: @type;
+	-moz-box-sizing:    @type;
+	-ms-box-sizing:     @type;
+	box-sizing:         @type;
 }
 
 /*********************

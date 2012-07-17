@@ -135,65 +135,57 @@ span.amp {
 BORDER RADIUS
 *********************/
 
-/* @include rounded(4px); */
-/* NOTE: For older browser support (and some mobile), 
-don't use the shorthand to define *different* corners. */
+/* 
+NOTE: For older browser support (and some mobile), 
+don't use the shorthand to define *different* corners. 
+
+USAGE: @include rounded(4px); 
+
+*/
 @mixin rounded($radius: 4px) {
 	-webkit-border-radius: $radius;
-	   -moz-border-radius: $radius;
-	        border-radius: $radius;
+	-moz-border-radius:    $radius;
+	border-radius:         $radius;
 }
 
-/* @include rounded-top(4px); */
-@mixin rounded-top($radius: 4px) {
-	-webkit-border-top-right-radius: $radius;
-	-webkit-border-top-left-radius: $radius;
-	-moz-border-radius-topright: $radius;
-	-moz-border-radius-topleft: $radius;
-	border-top-right-radius: $radius;
-	border-top-left-radius: $radius;
+/* 
+Instead of having a seperate mixin for the different
+borders, we're using the mixin from 320 & Up to make
+things easier to use.
+
+USAGE: @include border-radius(4px,4px,0,0);
+
+*/
+@mixin border-radius($topright: 0, $bottomright: 0, $bottomleft: 0, $topleft: 0) {
+	-webkit-border-top-right-radius:    $topright;
+	-webkit-border-bottom-right-radius: $bottomright;
+	-webkit-border-bottom-left-radius:  $bottomleft;
+	-webkit-border-top-left-radius:     $topleft;
+	-moz-border-radius-topright:        $topright;
+	-moz-border-radius-bottomright:     $bottomright;
+	-moz-border-radius-bottomleft:      $bottomleft;
+	-moz-border-radius-topleft:         $topleft;
+	border-top-right-radius:            $topright;
+	border-bottom-right-radius:         $bottomright;
+	border-bottom-left-radius:          $bottomleft;
+	border-top-left-radius:             $topleft;
+	-webkit-background-clip:            padding-box;
+	-moz-background-clip:               padding;
+	background-clip:                    padding-box; 
 }
 
-/* @include rounded-right(4px); */
-@mixin rounded-right($radius: 4px) {
-	-webkit-border-top-right-radius: $radius;
-	-webkit-border-bottom-right-radius: $radius;
-	-moz-border-radius-topright: $radius;
-	-moz-border-radius-bottomright: $radius;
-	border-top-right-radius: $radius;
-	border-bottom-right-radius: $radius;
-}
-
-/* @include rounded-bottom(4px); */
-@mixin rounded-bottom($radius: 4px) {
-	-webkit-border-bottom-right-radius: $radius;
-	-webkit-border-bottom-left-radius: $radius;
-	-moz-border-radius-bottomright: $radius;
-	-moz-border-radius-bottomleft: $radius;
-	border-bottom-right-radius: $radius;
-	border-bottom-left-radius: $radius;
-}
-
-/* @include rounded-left(4px); */
-@mixin rounded-left($radius: 4px) {
-	-webkit-border-top-left-radius: $radius;
-	-webkit-border-bottom-left-radius: $radius;
-	-moz-border-radius-topleft: $radius;
-	-moz-border-radius-bottomleft: $radius;
-	border-top-left-radius: $radius;
-	border-bottom-left-radius: $radius;
-}
 
 /*********************
 TRANISTION
 *********************/
 
 /* @include transition(all,2s,ease-out); */
-@mixin css-transition($what: all, $time: 0.2s, $how: ease-out) {
+@mixin css-transition($what: all, $time: 0.2s, $how: ease-in-out) {
 	-webkit-transition: $what $time $how;
-	   -moz-transition: $what $time $how;
-	     -o-transition: $what $time $how;
-	        transition: $what $time $how;
+	-moz-transition:    $what $time $how;
+	-ms-transition:     $what $time $how;
+	-o-transition:      $what $time $how;
+	transition:         $what $time $how;
 }
 
 /*********************
@@ -238,9 +230,9 @@ BOX SIZING
 probably best not to use it. I mean, were you going to anyway? */
 @mixin box-sizing($type: border-box) {
 	-webkit-box-sizing: $type;
-	   -moz-box-sizing: $type;
-		  -ms-box-sizing: $type;
-	        box-sizing: $type;
+	-moz-box-sizing:    $type;
+	-ms-box-sizing:     $type;
+	box-sizing:         $type;
 }
 
  
