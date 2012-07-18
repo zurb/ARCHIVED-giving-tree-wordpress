@@ -17,6 +17,11 @@ BONES CHANGE LOG & HISTORY
 - added => to responsive jquery
 - cleaned up theme tags (which make NO sense, but are best practice, go figure)
 - updated html element to match hb5
+- fixed echo problem on admin.php
+- updated normalize (LESS also had some missing styles so I added them)
+- GetComputedStyle fix for IE (for responsive js)
+- cleaned up mixins (border radius)
+- added translations! (Chinese, Spanish)
 
 /* v1.2 HUGE update */
 - merge responsive version with classic
@@ -60,7 +65,7 @@ BONES CHANGE LOG & HISTORY
 - custom login logo included
 
 /* v1.09 updates */
-- added snippet to remove < p > from imgs (http://css-tricks.com/snippets/wordpress/remove-paragraph-tags-from-around-images/) 
+- added snippet to remove < p > from imgs (http://css-tricks.com/snippets/wordpress/remove-paragraph-tags-from-around-images/)
 - added custom admin functions file
 - updated normalize
 - added site description < p > to the header
@@ -74,7 +79,7 @@ BONES CHANGE LOG & HISTORY
 
 /*v1.08 release (hellz yea!) */
 - replaced default.css with normalize.css
-- added responsive.css 
+- added responsive.css
 - completely revamped styles & stylesheets
 - moved most design related styles to style.css
 - newer, cleaner default comment styles
@@ -138,11 +143,11 @@ BONES CHANGE LOG & HISTORY
 - added theme translation to all files
 - removed categories form page meta info
 - fixed confusing copyright issues
-- removed the unneeded author / tag / ect archive title from taxonomy-custom-cat.php 
+- removed the unneeded author / tag / ect archive title from taxonomy-custom-cat.php
 
 
 /* v1.06 Updates */
-- changed name of default stylesheet to default so it's easier to 
+- changed name of default stylesheet to default so it's easier to
 	debug. (having two stylesheets named style is confusing)
 - added clearing class to #inner-header and #inner-footer
 - added bones body class depending on what browser
@@ -164,7 +169,7 @@ BONES CHANGE LOG & HISTORY
 - added readme.txt file (really for no reason at all)
 - fixed the margin on the comments title
 - removed duplicate text-align calls in css /* Thanks Dom */
-- added add_theme_support( 'automatic-feed-links' ) replacing 
+- added add_theme_support( 'automatic-feed-links' ) replacing
 	the deprecated automatic_feed_links();
 - added the language_attributes(); to the html tag
 - replaced attribute_escape with esc_attr() in search.php
@@ -212,7 +217,7 @@ BONES CHANGE LOG & HISTORY
 - changed the way page navi is called in the archives, search,
 	and index pages.
 
-	
+
 /* v1.03 */
 - public release!
 - added html5 video to plugins
@@ -228,7 +233,7 @@ BONES CHANGE LOG & HISTORY
 
 /* v1.01 */
 - added related posts functions
-- general css fixes 
+- general css fixes
 
 
 /* v1.00 */
