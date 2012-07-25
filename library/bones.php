@@ -282,7 +282,7 @@ function bones_related_posts() {
 	           	<li class="related_post"><a href="<?php the_permalink() ?>" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a></li>
 	        <?php endforeach; } 
 	    else { ?>
-            <li class="no_related_post">No Related Posts Yet!</li>
+            <?php echo '<li class="no_related_post">No Related Posts Yet!</li>'; ?>
 		<?php }
 	}
 	wp_reset_query();
