@@ -1,7 +1,7 @@
 <?php
 /* Welcome to Bones :)
 This is the core Bones file where most of the
-main functions & features reside. If you have 
+main functions & features reside. If you have
 any custom functions, it's best to put them
 in the functions.php file.
 
@@ -20,7 +20,7 @@ right up top and clean.
 add_action('after_setup_theme','bones_ahoy', 15);
 
 function bones_ahoy() {
-    
+
     // launching operation cleanup
     add_action('init', 'bones_head_cleanup');
     // remove WP version from RSS
@@ -36,48 +36,48 @@ function bones_ahoy() {
     add_action('wp_enqueue_scripts', 'bones_scripts_and_styles', 999);
     // ie conditional wrapper
     add_filter( 'style_loader_tag', 'bones_ie_conditional', 10, 2 );
-    
+
     // launching this stuff after theme setup
-    add_action('after_setup_theme','bones_theme_support');	
+    add_action('after_setup_theme','bones_theme_support');
     // adding sidebars to Wordpress (these are created in functions.php)
     add_action( 'widgets_init', 'bones_register_sidebars' );
     // adding the bones search form (created in functions.php)
     add_filter( 'get_search_form', 'bones_wpsearch' );
-    
+
     // cleaning up random code around images
     add_filter('the_content', 'bones_filter_ptags_on_images');
     // cleaning up excerpt
     add_filter('excerpt_more', 'bones_excerpt_more');
-    
+
 } /* end bones ahoy */
 
 /*********************
 WP_HEAD GOODNESS
 The default wordpress head is
-a mess. Let's clean it up by 
+a mess. Let's clean it up by
 removing all the junk we don't
-need. 
+need.
 *********************/
 
 function bones_head_cleanup() {
 	// category feeds
-	// remove_action( 'wp_head', 'feed_links_extra', 3 );                    
+	// remove_action( 'wp_head', 'feed_links_extra', 3 );
 	// post and comment feeds
-	// remove_action( 'wp_head', 'feed_links', 2 );                          
+	// remove_action( 'wp_head', 'feed_links', 2 );
 	// EditURI link
-	remove_action( 'wp_head', 'rsd_link' );                               
+	remove_action( 'wp_head', 'rsd_link' );
 	// windows live writer
-	remove_action( 'wp_head', 'wlwmanifest_link' );                       
+	remove_action( 'wp_head', 'wlwmanifest_link' );
 	// index link
-	remove_action( 'wp_head', 'index_rel_link' );                         
+	remove_action( 'wp_head', 'index_rel_link' );
 	// previous link
-	remove_action( 'wp_head', 'parent_post_rel_link', 10, 0 );            
+	remove_action( 'wp_head', 'parent_post_rel_link', 10, 0 );
 	// start link
-	remove_action( 'wp_head', 'start_post_rel_link', 10, 0 );             
+	remove_action( 'wp_head', 'start_post_rel_link', 10, 0 );
 	// links for adjacent posts
-	remove_action( 'wp_head', 'adjacent_posts_rel_link_wp_head', 10, 0 ); 
+	remove_action( 'wp_head', 'adjacent_posts_rel_link_wp_head', 10, 0 );
 	// WP version
-	remove_action( 'wp_head', 'wp_generator' );                           
+	remove_action( 'wp_head', 'wp_generator' );
 
 } /* end bones head cleanup */
 
@@ -90,7 +90,7 @@ function bones_remove_wp_widget_recent_comments_style() {
       remove_filter('wp_head', 'wp_widget_recent_comments_style' );
    }
 }
-	
+
 // remove injected CSS from recent comments widget
 function bones_remove_recent_comments_style() {
   global $wp_widget_factory;
@@ -109,39 +109,38 @@ function bones_gallery_style($css) {
 SCRIPTS & ENQEUEING
 *********************/
 
-// loading modernizr and jquery, and reply script 
+// loading modernizr and jquery, and reply script
 function bones_scripts_and_styles() {
   if (!is_admin()) {
-  
-    // modernizr (without media query polyfill)
-    wp_register_script( 'bones-modernizr', get_stylesheet_directory_uri() . '/library/js/libs/modernizr.custom.min.js', array(), '2.5.3', false );
- 
-    // register main stylesheet
-    wp_register_style( 'bones-stylesheet', get_stylesheet_directory_uri() . '/library/css/style.css', array(), '', 'all' );
+
+    ///////// Javascripts /////////
+    //adding scripts file in the footer
+    wp_register_script( 'jquery', get_stylesheet_directory_uri() . '/library/javascripts/jquery.js', array(), '', true );
+    wp_register_script( 'foundation', get_stylesheet_directory_uri() . '/library/javascripts/foundation.js', array(), '', true );
+
+    ///////// Stylesheet /////////
+    // register foundation stylesheet
+    wp_register_style( 'foundation-stylesheet', get_stylesheet_directory_uri() . '/library/stylesheets/foundation.css', array(), '', 'all' );
+
+    // register app stylesheet
+    wp_register_style( 'app-stylesheet', get_stylesheet_directory_uri() . '/library/stylesheets/app.css', array(), '', 'all' );
 
     // ie-only style sheet
-    wp_register_style( 'bones-ie-only', get_stylesheet_directory_uri() . '/library/css/ie.css', array(), '' );
-    
+    wp_register_style( 'ie-only', get_stylesheet_directory_uri() . '/library/stylesheets/ie.css', array(), '' );
+
     // comment reply script for threaded comments
     if ( is_singular() AND comments_open() AND (get_option('thread_comments') == 1)) {
       wp_enqueue_script( 'comment-reply' );
     }
-    
-    //adding scripts file in the footer
-    wp_register_script( 'bones-js', get_stylesheet_directory_uri() . '/library/js/scripts.js', array( 'jquery' ), '', true );
-    
+
     // enqueue styles and scripts
-    wp_enqueue_script( 'bones-modernizr' ); 
-    wp_enqueue_style( 'bones-stylesheet' ); 
-    wp_enqueue_style('bones-ie-only');
-    /*
-    I reccomend using a plugin to call jQuery
-    using the google cdn. That way it stays cached
-    and your site will load faster.
-    */
-    wp_enqueue_script( 'jquery' ); 
-    wp_enqueue_script( 'bones-js' ); 
-    
+    wp_enqueue_style( 'foundation-stylesheet' );
+    wp_enqueue_style('app-stylesheet');
+    wp_enqueue_style('ie-only');
+
+    wp_enqueue_script( 'jquery' );
+    wp_enqueue_script( 'foundation' );
+
   }
 }
 
@@ -156,53 +155,53 @@ function bones_ie_conditional( $tag, $handle ) {
 /*********************
 THEME SUPPORT
 *********************/
-	
+
 // Adding WP 3+ Functions & Theme Support
 function bones_theme_support() {
-	
+
 	// wp thumbnails (sizes handled in functions.php)
-	add_theme_support('post-thumbnails');   
-	
-	// default thumb size   
-	set_post_thumbnail_size(125, 125, true);   
-	
+	add_theme_support('post-thumbnails');
+
+	// default thumb size
+	set_post_thumbnail_size(125, 125, true);
+
 	// wp custom background (thx to @bransonwerner for update)
 	add_theme_support( 'custom-background',
-	    array( 
+	    array(
 	    'default-image' => '',  // background image default
 	    'default-color' => '', // background color default (dont add the #)
 	    'wp-head-callback' => '_custom_background_cb',
 	    'admin-head-callback' => '',
 	    'admin-preview-callback' => ''
 	    )
-	);      
-	
-	// rss thingy           
-	add_theme_support('automatic-feed-links'); 
-	
+	);
+
+	// rss thingy
+	add_theme_support('automatic-feed-links');
+
 	// to add header image support go here: http://themble.com/support/adding-header-background-image-support/
-	
+
 	// adding post format support
-	add_theme_support( 'post-formats',  
-		array( 
+	add_theme_support( 'post-formats',
+		array(
 			'aside',             // title less blurb
 			'gallery',           // gallery of images
 			'link',              // quick link to other site
 			'image',             // an image
 			'quote',             // a quick quote
 			'status',            // a Facebook like status update
-			'video',             // video 
+			'video',             // video
 			'audio',             // audio
-			'chat'               // chat transcript 
+			'chat'               // chat transcript
 		)
-	);	
-	
+	);
+
 	// wp menus
-	add_theme_support( 'menus' );  
-	
-	// registering wp3+ menus          
-	register_nav_menus(                      
-		array( 
+	add_theme_support( 'menus' );
+
+	// registering wp3+ menus
+	register_nav_menus(
+		array(
 			'main-nav' => __( 'The Main Menu', 'bonestheme' ),   // main nav in header
 			'footer-links' => __( 'Footer Links', 'bonestheme' ) // secondary nav in footer
 		)
@@ -212,12 +211,12 @@ function bones_theme_support() {
 
 /*********************
 MENUS & NAVIGATION
-*********************/	
- 
-// the main menu 
+*********************/
+
+// the main menu
 function bones_main_nav() {
 	// display the wp3 menu if available
-    wp_nav_menu(array( 
+    wp_nav_menu(array(
     	'container' => false,                           // remove nav container
     	'container_class' => 'menu clearfix',           // class of container (should you choose to use it)
     	'menu' => 'The Main Menu',                           // nav name
@@ -233,9 +232,9 @@ function bones_main_nav() {
 } /* end bones main nav */
 
 // the footer menu (should you choose to use one)
-function bones_footer_links() { 
+function bones_footer_links() {
 	// display the wp3 menu if available
-    wp_nav_menu(array( 
+    wp_nav_menu(array(
     	'container' => '',                              // remove nav container
     	'container_class' => 'footer-links clearfix',   // class of container (should you choose to use it)
     	'menu' => 'Footer Links',                       // nav name
@@ -249,21 +248,21 @@ function bones_footer_links() {
     	'fallback_cb' => 'bones_footer_links_fallback'  // fallback function
 	));
 } /* end bones footer link */
- 
+
 // this is the fallback for header menu
-function bones_main_nav_fallback() { 
-	wp_page_menu( 'show_home=Home' ); 
+function bones_main_nav_fallback() {
+	wp_page_menu( 'show_home=Home' );
 }
 
 // this is the fallback for footer menu
-function bones_footer_links_fallback() { 
-	/* you can put a default here if you like */ 
+function bones_footer_links_fallback() {
+	/* you can put a default here if you like */
 }
 
 /*********************
 RELATED POSTS FUNCTION
-*********************/	
-	
+*********************/
+
 // Related Posts Function (call using bones_related_posts(); )
 function bones_related_posts() {
 	echo '<ul id="bones-related-posts">';
@@ -280,7 +279,7 @@ function bones_related_posts() {
         if($related_posts) {
         	foreach ($related_posts as $post) : setup_postdata($post); ?>
 	           	<li class="related_post"><a href="<?php the_permalink() ?>" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a></li>
-	        <?php endforeach; } 
+	        <?php endforeach; }
 	    else { ?>
             <?php echo '<li class="no_related_post">No Related Posts Yet!</li>'; ?>
 		<?php }
@@ -291,7 +290,7 @@ function bones_related_posts() {
 
 /*********************
 PAGE NAVI
-*********************/	
+*********************/
 
 // Numeric Page Navi (built into the theme by default)
 function bones_page_navi($before = '', $after = '') {
@@ -351,7 +350,7 @@ function bones_page_navi($before = '', $after = '') {
 
 /*********************
 RANDOM CLEANUP ITEMS
-*********************/	
+*********************/
 
 // remove the p from around imgs (http://css-tricks.com/snippets/wordpress/remove-paragraph-tags-from-around-images/)
 function bones_filter_ptags_on_images($content){
@@ -365,6 +364,6 @@ function bones_excerpt_more($more) {
 	return '...  <a href="'. get_permalink($post->ID) . '" title="Read '.get_the_title($post->ID).'">Read more &raquo;</a>';
 }
 
-                  	
+
 
 ?>
