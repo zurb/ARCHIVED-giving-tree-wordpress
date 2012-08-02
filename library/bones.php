@@ -117,6 +117,7 @@ function bones_scripts_and_styles() {
     //adding scripts file in the footer
     wp_register_script( 'jquery', get_stylesheet_directory_uri() . '/library/javascripts/jquery.js', array(), '', true );
     wp_register_script( 'foundation', get_stylesheet_directory_uri() . '/library/javascripts/foundation.js', array(), '', true );
+    wp_register_script( 'app', get_stylesheet_directory_uri() . '/library/javascripts/app.js', array(), '', true );
 
     ///////// Stylesheet /////////
     // register foundation stylesheet
@@ -140,6 +141,7 @@ function bones_scripts_and_styles() {
 
     wp_enqueue_script( 'jquery' );
     wp_enqueue_script( 'foundation' );
+    wp_enqueue_script( 'app' );
 
   }
 }
